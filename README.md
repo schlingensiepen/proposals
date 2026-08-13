@@ -6,6 +6,10 @@ einem KI-Agenten unverändert als Arbeitsanweisung geben kann.
 A series of self-contained dossiers that put proven concepts up for discussion — and that can be
 handed to an AI agent, unchanged, as a work instruction.
 
+**Agenten-Einstieg / Agent entry:** [AGENTS.md](AGENTS.md) — verzweigt auf zwei Aufgaben /
+routes to two jobs: *Konzept oder Kompendium erstellen/pflegen* · *finden und lesen, um zu
+verwenden*.
+
 ## Register
 
 *Noch keine veröffentlichten Dossiers — die ersten entstehen gerade nach den Vorlagen unten. /
