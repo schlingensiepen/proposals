@@ -12,13 +12,15 @@ verwenden*.
 
 ## Register
 
-*Noch keine veröffentlichten Dossiers — die ersten entstehen gerade nach den Vorlagen unten. /
-No published dossiers yet — the first ones are being written against the templates below.*
+**[`self-describing-services`](self-describing-services/)** · Konzept / Concept · Entwurf / Draft ·
+v1.0 (2026-08-14) — Ein Dienst, der sich selbst beschreibt, macht Installation überflüssig:
+Onboarding per URL statt Connector. / A service that describes itself makes installation
+unnecessary: onboarding via URL instead of a connector.
 
-**Geplant / Planned:** `capability-tokens-for-agents` · `self-describing-services` ·
-`headless-imap-provider-access` · `microsoft-imap-app-only` — Kandidaten / candidates:
-`maildir-style-file-queues` · `teaching-error-messages` · `self-contained-repos` ·
-`two-repo-submodule-pattern` · `cli-owned-token-lifecycle`.
+**Geplant / Planned:** `capability-tokens-for-agents` · `headless-imap-provider-access` ·
+`microsoft-imap-app-only` — Kandidaten / candidates: `maildir-style-file-queues` ·
+`teaching-error-messages` · `self-contained-repos` · `two-repo-submodule-pattern` ·
+`cli-owned-token-lifecycle`.
 
 ## Aufbau / Layout
 
