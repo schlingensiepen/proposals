@@ -17,10 +17,20 @@ v1.0 (2026-08-14) — Ein Dienst, der sich selbst beschreibt, macht Installation
 Onboarding per URL statt Connector. / A service that describes itself makes installation
 unnecessary: onboarding via URL instead of a connector.
 
-**Geplant / Planned:** `capability-tokens-for-agents` · `headless-imap-provider-access` ·
-`microsoft-imap-app-only` — Kandidaten / candidates: `maildir-style-file-queues` ·
-`teaching-error-messages` · `self-contained-repos` · `two-repo-submodule-pattern` ·
-`cli-owned-token-lifecycle`.
+**[`headless-imap-provider-access`](headless-imap-provider-access/)** · Kompendium / Compendium ·
+Entwurf / Draft · v1.0 (2026-08-14, surveyed 2026-08) — Headless IMAP-Zugang Provider für
+Provider: App-Passwörter als Regelfall, Microsoft und Google Workspace als Ausnahmen. /
+Headless IMAP access provider by provider: app passwords as the rule, Microsoft and Google
+Workspace as the exceptions.
+
+**[`microsoft-imap-app-only`](microsoft-imap-app-only/)** · Kompendium / Compendium · Entwurf /
+Draft · v1.0 (2026-08-14, surveyed 2026-08) — IMAP an Microsoft-Postfächern ohne Browser:
+Client-Credentials für M365, Device-Code für Privatkonten. / IMAP on Microsoft mailboxes
+without a browser: client credentials for M365, device code for personal accounts.
+
+**Geplant / Planned:** `capability-tokens-for-agents` — Kandidaten / candidates:
+`maildir-style-file-queues` · `teaching-error-messages` · `self-contained-repos` ·
+`two-repo-submodule-pattern` · `cli-owned-token-lifecycle`.
 
 ## Aufbau / Layout
 
