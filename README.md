@@ -20,9 +20,18 @@ handling follows fixed rules along the lifecycle; the general concept for agent-
 
 **[`self-describing-services`](self-describing-services/)** · Konzept / Concept · Entwurf / Draft ·
 v1.0 (2026-08-14) — Ein Dienst, der sich selbst beschreibt, macht Installation überflüssig:
-Onboarding per URL statt Connector. Ausgeführte Anwendung von `capability-tokens-for-agents`. /
-A service that describes itself makes installation unnecessary: onboarding via URL instead of a
-connector. A worked application of `capability-tokens-for-agents`.
+Onboarding per URL statt Connector. Entwurfsmuster für die Schnittstelle; ausgeführte Anwendung von
+`capability-tokens-for-agents`. / A service that describes itself makes installation unnecessary:
+onboarding via URL instead of a connector. A design pattern for the interface, and a worked
+application of `capability-tokens-for-agents`.
+
+**[`service-as-single-artifact`](service-as-single-artifact/)** · Konzept / Concept · Entwurf /
+Draft · v1.0 (2026-08-15) — Ein Vorgehen in elf Schritten für den, der eine Funktion ins Netz
+stellen will: ein Dienst, eine Funktion, ein Artefakt, ein Erzeugnis — und ein Zugang, der mit
+seiner Konfiguration entsteht. Kein Entwurfsmuster für Schnittstellen, sondern der Bauweg dorthin. /
+An eleven-step procedure for whoever wants to put one function on the network: one service, one
+function, one artifact, one delivery artifact — and an access that arises together with its
+configuration. Not an interface design pattern but the way to build one.
 
 **[`headless-imap-provider-access`](headless-imap-provider-access/)** · Kompendium / Compendium ·
 Entwurf / Draft · v1.0 (2026-08-14, surveyed 2026-08) — Headless IMAP-Zugang Provider für
@@ -35,8 +44,10 @@ Draft · v1.0 (2026-08-14, surveyed 2026-08) — IMAP an Microsoft-Postfächern 
 Client-Credentials für M365, Device-Code für Privatkonten. / IMAP on Microsoft mailboxes
 without a browser: client credentials for M365, device code for personal accounts.
 
-**Kandidaten / Candidates:** `maildir-style-file-queues` · `teaching-error-messages` ·
-`self-contained-repos` · `two-repo-submodule-pattern` · `cli-owned-token-lifecycle`.
+**Kandidaten / Candidates:** `maildir-style-file-queues` · `self-contained-repos` ·
+`two-repo-submodule-pattern` · `teaching-error-messages` (Prüfung offen, ob neben
+`self-describing-services` F7 eigenständig tragfähig / pending review whether it stands on its own
+beside `self-describing-services` F7).
 
 ## Aufbau / Layout
 
