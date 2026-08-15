@@ -44,6 +44,38 @@ Draft · v1.0 (2026-08-14, surveyed 2026-08) — IMAP an Microsoft-Postfächern 
 Client-Credentials für M365, Device-Code für Privatkonten. / IMAP on Microsoft mailboxes
 without a browser: client credentials for M365, device code for personal accounts.
 
+**[`immutable-decision-records`](immutable-decision-records/)** · Konzept / Concept · Entwurf /
+Draft · v1.0 (2026-08-13) — Ein angenommenes Entscheidungsdokument wird nie mehr geändert; jede
+Änderung ist ein neues, vollständiges Dokument, das das alte ersetzt. Der Mechanismus,
+formunabhängig. / An accepted decision record is never changed again; every change is a new,
+complete record replacing the old one. The mechanism, independent of any format.
+
+**[`decision-records-with-madr`](decision-records-with-madr/)** · Konzept / Concept · Entwurf /
+Draft · v1.0 (2026-08-13) — MADR unverändert übernommen und an genau einer Stelle erweitert: die
+Ersetzung steht als zwei Listen im Kopf. Mit kopierfertiger Vorlage; die Form zum Mechanismus von
+`immutable-decision-records`. / MADR adopted unchanged and extended in exactly one place:
+replacement as two lists in the head. Ships a template; the form to the mechanism of
+`immutable-decision-records`.
+
+**[`single-endpoint-json-rpc`](single-endpoint-json-rpc/)** · Konzept / Concept · Entwurf / Draft ·
+v1.0 (2026-08-14) — Die gesamte API als ein POST-Endpunkt mit JSON-RPC-2.0-Umschlag; Nachweise in
+Kopfzeilen, Binärdaten außerhalb des Umschlags, große Zusammenstellungen beauftragt statt abgelegt.
+/ The entire API as one POST endpoint with a JSON-RPC 2.0 envelope; credentials in headers, binary
+data outside the envelope, large compilations commissioned rather than stored.
+
+**[`single-file-static-frontend`](single-file-static-frontend/)** · Konzept / Concept · Entwurf /
+Draft · v1.0 (2026-08-15) — Das Frontend als ein statisches Artefakt ohne Bauschritt: Weil die
+Datei jeder bekommen darf, darf nichts drinstehen — und weil nichts drinsteht, ist das Ausliefern
+ein Kopiervorgang. / The frontend as one static artefact with no build step: because anyone may
+have the file, nothing may be in it — and because nothing is in it, deploying is a copy operation.
+
+**[`invitation-instead-of-login`](invitation-instead-of-login/)** · Konzept / Concept · Entwurf /
+Draft · v1.0 (2026-08-15) — Zugang entsteht durch Einladung: Ein Link lädt einen Benutzer für alle
+seine Geräte ein, weil jedes Einlösen einen eigenen Nachweis erzeugt; Maschinen bekommen Fähigkeit
+statt Identität. / Access arises from an invitation: one link invites a user for all their devices,
+because every redemption creates its own credential; machines receive capability rather than
+identity.
+
 **Kandidaten / Candidates:** `maildir-style-file-queues` · `self-contained-repos` ·
 `two-repo-submodule-pattern` · `teaching-error-messages` (Prüfung offen, ob neben
 `self-describing-services` F7 eigenständig tragfähig / pending review whether it stands on its own
