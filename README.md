@@ -12,6 +12,24 @@ verwenden*.
 
 ## Register
 
+> **Migration:** Die Reihe wechselt auf eine neue Form: je Proposal ein englisches
+> OKF-Bundle mit `README.md`, `index.md`, `rules/`, `choices/`, `terms.md` (englisch/deutsch)
+> und `AGENT.md`. Das erste Bundle in dieser Form ist `one-configuration-one-judgment`; die
+> übrigen Dossiers folgen bei ihrer nächsten Revision. Bis dahin beschreiben `AGENTS.md` und
+> `_template/` noch die bisherige Form. / The series is moving to a new form: one English OKF
+> bundle per proposal with `README.md`, `index.md`, `rules/`, `choices/`, `terms.md`
+> (English/German) and `AGENT.md`. The first bundle in this form is
+> `one-configuration-one-judgment`; the other dossiers follow at their next revision. Until
+> then `AGENTS.md` and `_template/` still describe the previous form.
+
+**[`one-configuration-one-judgment`](one-configuration-one-judgment/)** · Konzept / Concept ·
+Entwurf / Draft · v1.0 (2026-10-01) · OKF-Bundle, englisch / OKF bundle, English — Eine
+Konfiguration, ein Urteil: geprüft wird mit dem Code, der startet; jeder Wert nennt seine Quelle;
+leer oder untauglich ist ein gemeldeter Fehler, keine stille Vorgabe. Importierbares Grundkonzept.
+/ One configuration, judged once by the code that will run on it; every value names where it came
+from, and an empty or unusable value is a reported error, never a silent default. An importable
+base concept.
+
 **[`capability-tokens-for-agents`](capability-tokens-for-agents/)** · Konzept / Concept · Entwurf /
 Draft · v1.0 (2026-08-14) — Ein Token verkörpert genau eine Fähigkeit an genau einem Ort, und seine
 Handhabung folgt festen Regeln entlang des Lebenszyklus; das allgemeine Konzept für
