@@ -14,13 +14,22 @@ verwenden*.
 
 > **Migration:** Die Reihe wechselt auf eine neue Form: je Proposal ein englisches
 > OKF-Bundle mit `README.md`, `index.md`, `rules/`, `choices/`, `terms.md` (englisch/deutsch)
-> und `AGENT.md`. Das erste Bundle in dieser Form ist `one-configuration-one-judgment`; die
-> übrigen Dossiers folgen bei ihrer nächsten Revision. Bis dahin beschreiben `AGENTS.md` und
+> und `AGENT.md`. Die ersten Bundles in dieser Form sind `where-a-secret-comes-from` und
+> `one-configuration-one-judgment`; die übrigen Dossiers folgen bei ihrer nächsten Revision. Bis dahin beschreiben `AGENTS.md` und
 > `_template/` noch die bisherige Form. / The series is moving to a new form: one English OKF
 > bundle per proposal with `README.md`, `index.md`, `rules/`, `choices/`, `terms.md`
-> (English/German) and `AGENT.md`. The first bundle in this form is
-> `one-configuration-one-judgment`; the other dossiers follow at their next revision. Until
+> (English/German) and `AGENT.md`. The first bundles in this form are
+> `where-a-secret-comes-from` and `one-configuration-one-judgment`; the other dossiers follow
+> at their next revision. Until
 > then `AGENTS.md` and `_template/` still describe the previous form.
+
+**[`where-a-secret-comes-from`](where-a-secret-comes-from/)** · Konzept / Concept · Entwurf /
+Draft · v1.0 (2026-10-01) · OKF-Bundle, englisch / OKF bundle, English — Woher ein
+Start-Geheimnis kommt: Umgebung, dann Durchleitungsdatei, zuletzt ein Einmal-Kanal; der höhere
+Rang gewinnt und verdeckt nie, Ersetzen sind zwei Handgriffe, nie in Ausgaben. Importierbares
+Grundkonzept für Dienst und Agent. / Where a start secret comes from: environment, then a
+pass-through file, last a once-only channel; the higher rank wins and never hides, replacing is
+two moves, never in any output. An importable base concept for services and agents.
 
 **[`one-configuration-one-judgment`](one-configuration-one-judgment/)** · Konzept / Concept ·
 Entwurf / Draft · v1.0 (2026-10-01) · OKF-Bundle, englisch / OKF bundle, English — Eine
