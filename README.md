@@ -14,12 +14,12 @@ verwenden*.
 
 > **Migration:** Die Reihe wechselt auf eine neue Form: je Proposal ein englisches
 > OKF-Bundle mit `README.md`, `index.md`, `rules/`, `choices/`, `terms.md` (englisch/deutsch)
-> und `AGENT.md`. Die ersten Bundles in dieser Form sind `where-a-secret-comes-from` und
-> `one-configuration-one-judgment`; die übrigen Dossiers folgen bei ihrer nächsten Revision. Bis dahin beschreiben `AGENTS.md` und
+> und `AGENT.md`. Die ersten Bundles in dieser Form sind `service-as-single-artifact`,
+> `where-a-secret-comes-from` und `one-configuration-one-judgment`; die übrigen Dossiers folgen bei ihrer nächsten Revision. Bis dahin beschreiben `AGENTS.md` und
 > `_template/` noch die bisherige Form. / The series is moving to a new form: one English OKF
 > bundle per proposal with `README.md`, `index.md`, `rules/`, `choices/`, `terms.md`
 > (English/German) and `AGENT.md`. The first bundles in this form are
-> `where-a-secret-comes-from` and `one-configuration-one-judgment`; the other dossiers follow
+> `service-as-single-artifact`, `where-a-secret-comes-from` and `one-configuration-one-judgment`; the other dossiers follow
 > at their next revision. Until
 > then `AGENTS.md` and `_template/` still describe the previous form.
 
@@ -53,12 +53,14 @@ onboarding via URL instead of a connector. A design pattern for the interface, a
 application of `capability-tokens-for-agents`.
 
 **[`service-as-single-artifact`](service-as-single-artifact/)** · Konzept / Concept · Entwurf /
-Draft · v1.0 (2026-08-15) — Ein Vorgehen in elf Schritten für den, der eine Funktion ins Netz
-stellen will: ein Dienst, eine Funktion, ein Artefakt, ein Erzeugnis — und ein Zugang, der mit
-seiner Konfiguration entsteht. Kein Entwurfsmuster für Schnittstellen, sondern der Bauweg dorthin. /
-An eleven-step procedure for whoever wants to put one function on the network: one service, one
-function, one artifact, one delivery artifact — and an access that arises together with its
-configuration. Not an interface design pattern but the way to build one.
+Draft · v1.1 (2026-10-11) · OKF-Bundle, englisch / OKF bundle, English — Ein Vorgehen in elf
+Schritten für den, der eine Funktion ins Netz stellen will: ein Dienst, eine Funktion, ein
+Artefakt, ein Erzeugnis — und ein Zugang, der mit seiner Konfiguration entsteht. 1.1: Grenze
+Konfiguration gegen Zustand, Datenwanderung beim Start, Wahlpunkt Kanal der Kommandos. / An
+eleven-step procedure for whoever wants to put one function on the network: one service, one
+function, one artifact, one deliverable — and an access that arises together with its
+configuration. 1.1: configuration versus state, data migration at start, the choice of the
+commands' channel.
 
 **[`headless-imap-provider-access`](headless-imap-provider-access/)** · Kompendium / Compendium ·
 Entwurf / Draft · v1.0 (2026-08-14, surveyed 2026-08) — Headless IMAP-Zugang Provider für

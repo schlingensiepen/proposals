@@ -1,0 +1,8 @@
+# Update log
+
+## 2026-10-11
+* **Update**: Context-free reading test before publication: procedure, rules and scope brought into line with F12 and F13 (variants are store, not configuration; F6 and F8 reworded; F9 states what the change command may change and when a hash is salted; F13 records the structure version from the first start); section and question references of 1.0 replaced; evidence marked as describing the 1.0 reference; wording smoothed.
+* **Update**: Version 1.1. Two new rules: F12 configuration versus state (the variants are the store, state created by the artifact itself; concurrency mechanics imported from `maildir-style-file-queues`) and F13 data migration at start. F5 reduced to "all modes read with the same code, the check is a mode"; precedence, the empty value and the origin of start secrets moved into the imported concepts `one-configuration-one-judgment` and `where-a-secret-comes-from`. F2 states the form of the artifact (binary, package or directory); F4 treats the container case as an example; F6 and F8 use the terms of F12; F9 persists the secrets of a variant in the store; F11 justified by ready-made proxy containers. New choice W1, the channel of the commands. The term "command" sharpened. The open questions of 1.0 became duties of adoption, F13, or "not yet settled" in scope. First version in bundle form.
+
+## 2026-08-15
+* **Creation**: Version 1.0, first complete version. A procedure in eleven steps and eleven rules: cut (F1 to F6), separation (F7 to F10), outer edge (F11). Checked twice in practice before publication by a context-free agent building another tool from the dossier and the imap-sync request alone; four corrections from the first run, self-containment confirmed by the second.

@@ -1,30 +1,29 @@
-# service-as-single-artifact
+---
+type: Proposal
+description: One service, one function, one artifact with several modes, one deliverable; configuring the function and issuing access are one act, so roles, rights management and admin never arise.
+version: "1.1"
+date: 2026-10-11
+status: draft
+author: Jörn Schlingensiepen
+extends: []
+imports:
+  - one-configuration-one-judgment
+  - where-a-secret-comes-from
+  - maildir-style-file-queues
+---
 
-**These (de):** Ein Dienst trägt genau eine Funktion, wird als ein Artefakt mit mehreren Modi gebaut und als ein Erzeugnis ausgeliefert; die Kommandos konfigurieren die Funktion anwendungsspezifisch und erzeugen für genau diese Konfiguration den Zugang — damit entfallen Rollen, Rechteverwaltung und Admin, bevor sie entstehen.
+# The service as a single artifact
 
-**Thesis (en):** A service carries exactly one function, is built as one artifact with several modes and shipped as one delivery artifact; the commands configure the function for the specific application case and create the access for exactly that configuration — which makes roles, permission management and an administrator unnecessary before they arise.
+This directory is an OKF bundle for one proposal of the series: a procedure for whoever wants to put one function on the network and builds a small service for it. It is not an interface design pattern but the way to build one.
 
-| | |
-|---|---|
-| Typ / Type | Konzept / Concept |
-| Status | Entwurf / Draft |
-| Version | 1.0 · 2026-08-15 |
-| Sync (en) | v1.0 |
+**Question.** I want to put a function on the network and build a small service for it. Which rules do I take as the foundation so that it stays small and is still safe to operate?
 
-**Zweck / Purpose:** Ein **Vorgehen** in elf Schritten für den, der eine Funktion ins Netz
-stellen will — kein Entwurfsmuster für Schnittstellen. Wie sich der fertige Dienst seinen
-Konsumenten gegenüber beschreibt, behandelt das Schwester-Konzept
-`self-describing-services`. / An eleven-step **procedure** for whoever wants to put one
-function on the network — not an interface design pattern. How the finished service
-describes itself to its consumers is the subject of the sister concept
-`self-describing-services`.
+**Thesis.** A service carries exactly one function, is built as one artifact with several modes and delivered as one deliverable; the commands configure the function for the specific use case and create the access for exactly that configuration. Roles, rights management and admin therefore never arise.
 
-**Lesen / Reading:** Diskussion / discussion: [PROPOSAL.de.md](PROPOSAL.de.md) (führend /
-leading) · [PROPOSAL.en.md](PROPOSAL.en.md). Für Agenten / for agents:
-[AGENT.md](AGENT.md) — selbsttragend; als Skill laden oder unverändert ins Projekt legen /
-self-contained; load as a skill or drop into the project unchanged.
-Historie / history: [CHANGELOG.md](CHANGELOG.md).
+**Version 1.1** keeps all eleven rules of 1.0 and adds two: the boundary between configuration and state (F12) and data migration at start (F13). Precedence, the empty value and the origin of start secrets have moved into two imported concepts; the choice of how commands enter the system is now explicit (W1).
 
-**Zitieren / Citing:** Festlegungen als `service-as-single-artifact F3`, offene Fragen als
-`service-as-single-artifact Q2` — die Nummern sind sprachübergreifend stabil / F and Q
-numbers are stable across languages.
+Start with [`index.md`](./index.md); it lists every file with one line each. Builders adopting the concept go to [`AGENT.md`](./AGENT.md).
+
+---
+
+Part of the proposal series `schlingensiepen/proposals`. Licensed CC BY 4.0; the license text and the register of all proposals are in the root README of the repository.
