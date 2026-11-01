@@ -1,5 +1,6 @@
 ---
 type: Proposal Agent Guide
+name: one-configuration-one-judgment
 description: Self-contained guide for an agent that adopts this concept in a service; includes the mandatory step of deciding the two choices with the user.
 ---
 

@@ -1,29 +1,36 @@
 ---
+type: Proposal Agent Guide
 name: decision-records-with-madr
-description: Apply when creating, formatting or reviewing architecture decision records (ADRs) in a project — choosing the file format, writing the YAML head, naming the file, recording that one decision supersedes another, or checking an existing body for format consistency.
+description: Self-contained guide for an agent that creates, formats or reviews decision records in MADR 4.0.0 with the two replacement lists; the rules, three procedures, an acceptance checklist, common mistakes and a self-check.
 ---
 
-# Decision Records with MADR — Work Instruction
+# Agent guide
 
 <!-- SELF-CONTAINMENT RULE: This file is handed to agents on its own. Every rule, step,
      and checklist item is written out in full HERE. The F numbers in parentheses are
      provenance markers for maintainers only; an agent must be able to act correctly
-     without ever opening the proposal. -->
+     without ever opening another file of this bundle. -->
 
-Distilled from the proposal of the same name (German original leading). Orders only —
-the reasoning, costs, and limits live in the proposal; nothing here requires reading it.
+## Purpose
+
+Apply this guide when creating, formatting or reviewing architecture decision records
+(ADRs) in a project: choosing the file format, writing the YAML head, naming the file,
+recording that one decision supersedes another, or checking an existing body for format
+consistency. It is distilled from the rules of this bundle and gives orders only; the
+reasoning, costs and limits are in the rest of the bundle, and nothing here requires
+reading them.
 
 The format is MADR 4.0.0, adopted unchanged, with exactly one extension: two list fields
 in the head recording replacement in both directions.
 
 One premise everything below assumes, stated here so you never need to look it up: **once
-a record is accepted, its content is immutable** — statement, rationale, options and
+a record is accepted, its content is immutable**: statement, rationale, options and
 consequences are not edited again, because otherwise it is no longer datable what applied
 when. Exactly two places stay changeable: the head (status and relation lists) and the
 opening of the document (the supersession notice). Plus typographical errors and dead
 links. A revision is a new record, not an edit.
 
-## When to apply
+### When to apply
 
 - You are asked to write a decision record, or to set up decision records in a project
   that has none.
@@ -31,9 +38,13 @@ links. A revision is a new record, not an edit.
 - You are reviewing or migrating an existing body of records for format consistency.
 
 If a project already uses an ADR tool that enforces its own format, that tool wins; use
-this instruction to decide which fields to reproduce inside it, not to fight it.
+this guide to decide which fields to reproduce inside it, not to fight it.
+
+The copyable template is in `examples/` of this bundle (English and German); if you have
+only this file, item 9 of the MUST rules below tells you what the template must contain.
 
 ## Rules (MUST / NEVER)
+
 
 MUST:
 
@@ -134,7 +145,9 @@ NEVER:
    or is marked as chosen.
 6. Report head fields that contain content rather than bookkeeping.
 
-## Acceptance checklist
+## Checklists
+
+### Acceptance checklist
 
 - [ ] Does every record parse as MADR 4.0.0 — YAML head plus the prescribed sections, with
       unchanged English key names? (F1, F7)
@@ -160,7 +173,7 @@ NEVER:
 - [ ] Does an index exist listing every record with its standing, and does it agree with
       the heads? (F10)
 
-## Common mistakes and their fixes
+### Common mistakes and their fixes
 
 | Mistake | Fix |
 |---|---|
@@ -177,9 +190,9 @@ NEVER:
 | Superseded record emptied or reduced to a pointer | Restore its text; it is the only evidence of what was decided and why |
 | Index not updated with the new record | Update it in the same change; full-text search knows no status |
 
-## Source
+## Self-check
 
-This instruction operationalizes the proposal "Using MADR — without rebuilding it" (same
-directory: PROPOSAL.de.md leading, PROPOSAL.en.md English; the copyable template lives in
-`examples/`). If a rule seems wrong for your case, read the proposal's decisions and
-limits before deviating — and record the deviation.
+Before you report completion: can you name the template every record was copied from,
+the language of the prose, every replacement with both of its heads and its notice, and
+the index row of every record? Have you run the acceptance checklist above against every
+record you touched? If any of these is missing, you are not done.

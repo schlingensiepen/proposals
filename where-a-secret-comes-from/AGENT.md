@@ -1,5 +1,6 @@
 ---
 type: Proposal Agent Guide
+name: where-a-secret-comes-from
 description: Self-contained guide for an agent that adopts this concept in a service, a script or an agent; includes the mandatory step of deciding the three choices with the user.
 ---
 
@@ -46,7 +47,7 @@ are the reference behind the rest, named in parentheses.
    start while it is present, which the report says (F5). For a file the
    operator placed, the report names the path; the service never deletes
    on its own.
-5. **Where W1 (b) is chosen:** generate (high entropy, recognisable
+5. **Where W1 (b) is chosen:** generate (high entropy, recognizable
    prefix), store at the rank 2 path, exactly one log line
    (`<NAME> generated: <value>. Shown once; it will not be shown
    again.`); never at an ordinary restart, never for a secret that was

@@ -1,36 +1,26 @@
-# Task: Find and Use a Dossier
+# Task: find and use a proposal
 
 You are looking for proven guidance, or a user pointed you at this repository.
 
 ## Find
 
-1. Open the root `README.md` and scan the register (slug, type, status, one-liner).
-2. Open the candidate's `PROPOSAL.en.md` (or `.de.md`) and read ONLY the frontmatter
-   and the lines down to the abstract. That head exists precisely so you can decide
-   whether the document deserves your context window. If `question` does not match your
-   problem, stop and try the next candidate.
+1. Open the root `README.md` and scan the register: slug, type, status, one line each.
+2. Open the candidate's `README.md`: question, thesis, identity card. If the question does not match your problem, stop and try the next candidate.
+3. Open its `index.md`: one line per file. Decide from there what to load; do not load the whole bundle.
 
 ## Choose what to load
 
-- You need **orders** (rules, procedure, checklist) → load the dossier's `AGENT.md`
-  only. It is self-contained by design; you do not need the proposal.
-- You need **reasoning, costs, limits, or discussion material** → load the PROPOSAL.
-  English mirrors the German original; German leads on conflict (check the sync
-  header).
+- You need **orders** (procedure, rules, checklist) → `AGENT.md`, plus the files in `choices/`, because the agent guide will send you there to decide the choices with your user.
+- You need **reasoning, costs, limits or discussion material** → `concept.md`, the files in `rules/`, `scope.md`.
+- You need **vocabulary** → `terms.md`.
+- A proposal that `imports` another presupposes it: fetch that bundle from the same repository when the guide refers to it.
 
 ## Use
 
-- First check "Scope and limits" / "When not to use": preconditions, tipping
-  conditions, non-goals. A dossier applied outside its scope is wrong with confidence.
-- Respect the status: *Entwurf/Draft* and *Diskussion/Discussion* = not yet proven —
-  say so to your user; *Bewährt/Proven* = has reference evidence; *Überholt/Superseded*
-  = follow the successor pointer.
-- A `Konzept` explains; it does not bind you. Only an `Implementierungskonzept` is
-  normative (MUST/SHOULD/MAY sentences with requirement identifiers Fn).
-- For a `Kompendium`, check `surveyed` and the regeneration rule. If observed behavior
-  contradicts the compendium, trust the observation, then its primary sources — and
-  report the drift.
-- Cite findings and objections as `<slug> F3` / `<slug> Q2` — the numbers are stable
-  across languages. Raise objections via issues/discussions addressed to Q numbers.
-- Handle any credentials or tokens involved in applying a dossier according to that
-  dossier's own security section; never quote secrets into conversations or files.
+- First read `scope.md`: where it applies, when the answer flips, what it does not solve, what is not yet settled. A proposal applied outside its scope is wrong with confidence.
+- Respect the status from the register: *draft* means not yet proven; say so to your user. *stable* has reference evidence. *deprecated* names a successor in its `log.md`.
+- Decide every choice with your user, never silently; record the decision where the guide says.
+- A rule has one answer; if your case needs another, you are not using the concept, and you say so instead of bending the rule.
+- For a compendium (previous form), check its `surveyed` date and regeneration rule; if observed behavior contradicts it, trust the observation, then its sources, and report the drift.
+- Cite findings and objections as `<slug> F3` or `<slug> W1`; the numbers are stable.
+- Handle any credentials or tokens involved according to the proposal's own security considerations; never quote secrets into conversations or files.

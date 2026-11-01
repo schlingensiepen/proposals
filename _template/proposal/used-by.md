@@ -1,0 +1,19 @@
+---
+type: Proposal Usage
+description: Which other proposals import or extend this one; generated from the series register, kept apart from sources.md so that readers who only need this concept never have to open it.
+generated:
+  by: series-register
+  at: <YYYY-MM-DDT00:00:00Z>
+---
+
+# Used by
+
+## Imported by
+
+Not imported by any other proposal yet.
+
+## Extended by
+
+Not extended by any published proposal yet.
+
+Whether a bundle is published, planned or retired is stated in the register in the repository's root README, nowhere else.

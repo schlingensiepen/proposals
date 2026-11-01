@@ -1,4 +1,5 @@
 ---
+name: service-as-single-artifact
 type: Proposal Agent Guide
 description: Self-contained guide for an agent that builds a small service for one function according to this concept; the eleven steps with the duties of adoption, the rules, an acceptance checklist and common mistakes.
 ---
@@ -7,7 +8,7 @@ description: Self-contained guide for an agent that builds a small service for o
 
 ## Purpose
 
-You are building a small service that puts one function on the network, its shape, command set, configuration, packaging and deployment, or you are reviewing such a service for a creeping second tool, second image, management surface or permission model. This guide is complete on its own, except for three things: step 4 needs the choices of the two imported concepts, step 6 needs the choice file of this bundle, and the file mechanics of the store (atomic replacement, version marker, lock file) come from a third import, `maildir-style-file-queues`; ask the user for those bundles if you do not have them. Rules are named in parentheses as provenance.
+You are building a small service that puts one function on the network, its shape, command set, configuration, packaging and deployment, or you are reviewing such a service for a creeping second tool, second image, management surface or permission model. This guide is complete on its own, except for four things: step 4 needs the choices of the two imported concepts, step 6 needs the choice file of this bundle, the file mechanics of the store (atomic replacement, version marker, lock file) come from a third import, `maildir-style-file-queues`, and what steps 6 and 9 need about the revision the artifact was built from comes from a fourth, `build-stamp`; ask the user for those bundles if you do not have them. Rules are named in parentheses as provenance.
 
 Scope: this is a procedure for building, not an interface design pattern. How the finished service describes itself to its consumers is a separate matter.
 
@@ -27,19 +28,19 @@ Steps 0 to 3 are half an hour of thinking and decide everything that follows. Do
 
 **5 · Name the state locations.** Configuration and state at separate, named places outside the artifact; the store, the variants and their accesses, lies with the state, created by the artifact itself. **Duty of adoption:** write down, per mode, the user, the directories, and whether reading or writing. *Result:* the directory layout and the permission table. (F6, F8, F12)
 
-**6 · Set up the command tree, before the business logic.** At least: start service · check configuration · show state · set up, change, remove a variant · version. Setting up a variant issues its access in the same command. Fixed exit codes, machine-readable output, no interactive input without an argument alternative. **Decide choice W1 with the user:** commands started locally only, or additionally over another channel; with (b), record how the permission cut is established in the channel. *Result:* the runnable skeleton. (F2, F3, F9)
+**6 · Set up the command tree, before the business logic.** At least: start service · check configuration · show state · set up, change, remove a variant · version, including the revision the artifact was built from (`build-stamp`). Setting up a variant issues its access in the same command. Fixed exit codes, machine-readable output, no interactive input without an argument alternative. **Decide choice W1 with the user:** commands started locally only, or additionally over another channel; with (b), record how the permission cut is established in the channel. *Result:* the runnable skeleton. (F2, F3, F9)
 
 **7 · Build the service mode.** The network surface offers exactly the methods from step 2; the access check looks up in the store what the presented access embodies; there is no administration path and at most one readiness point that says nothing but "running". If the service mode finds a store of an older structure at start, it migrates it before it listens and records the structure version. *Result:* the service, runnable against a hand-written configuration. (F1, F7, F13)
 
 **8 · Finish the setup command.** It configures a variant and creates the access in the same act: show the access artifact exactly once, keep only its hash and a harmless short identifier, rotation as a command of its own. Secrets of the variant (the password of the target system) are taken at invocation over the ranks of `where-a-secret-comes-from`, never as a plain-text argument, and persisted in the store. *Result:* the path from "service runs" to "somebody may use it". (F9, F12)
 
-**9 · Package and set up the delivery.** One deliverable whose entry point is the service mode and against which the commands run in the same environment. **Duty of adoption:** record the form of the artifact (binary, package or directory) and, with several components, how far "one artifact" reaches and who carries administration across component boundaries. **Ask the user explicitly instead of choosing:** container image or package, build pipeline yes or no, deployment file pointing at the published image. *Result:* the artifact and a delivery directory. (F2, F4)
+**9 · Package and set up the delivery.** One deliverable whose entry point is the service mode and against which the commands run in the same environment. **Duty of adoption:** record the form of the artifact (binary, package or directory) and, with several components, how far "one artifact" reaches and who carries administration across component boundaries. **Ask the user explicitly instead of choosing:** container image or package, build pipeline yes or no, deployment file pointing at the published image. With a build pipeline, it starts the built deliverable before publishing and requires that the version command reports the revision built (`build-stamp`). *Result:* the artifact and a delivery directory. (F2, F4)
 
 **10 · Establish the operating form.** Local endpoint; a ready-made reverse proxy in front with the public name and the certificate, or whatever the deployment decides to place there; separate users and file permissions so that the service process reads where the commands write. *Result:* the service is reachable, and the permission cut stands in the process form. (F8, F11)
 
 ## Rules
 
-MUST: one service, one function (F1) · one artifact, several modes, no separate tool (F2) · fixed, documented exit codes, machine-readable output, no mandatory interactive input (F3) · one deliverable, named by the deployment file (F4) · all modes read with the same code, the check is a mode; precedence and secrets per the imported concepts (F5) · state outside, configuration and state separate (F6, F12) · the permission cut in the process form (F8) · configuration and access in one act, secrets of the variant in the store (F9) · local endpoint, TLS with the proxy (F11) · data migration at start (F13).
+MUST: one service, one function (F1) · one artifact, several modes, no separate tool (F2) · fixed, documented exit codes, machine-readable output, no mandatory interactive input (F3) · one deliverable, named by the deployment file, saying which revision it was built from (F4) · all modes read with the same code, the check is a mode; precedence and secrets per the imported concepts (F5) · state outside, configuration and state separate (F6, F12) · the permission cut in the process form (F8) · configuration and access in one act, secrets of the variant in the store (F9) · local endpoint, TLS with the proxy (F11) · data migration at start (F13).
 
 NEVER: a management surface in the running service (F7) · write access of the service mode to the configuration (F8) · administrative rights or an admin token (F10) · the target chosen by the caller (F9) · TLS in the service, listening on all interfaces (F11) · variants in the configuration file (F12).
 
@@ -48,6 +49,7 @@ NEVER: a management surface in the running service (F7) · write access of the s
 - [ ] One sentence without "and also"; all methods serve it and share one access. (F1)
 - [ ] Exactly one artifact with the service and all commands, exactly one deliverable; the form of the artifact is recorded. (F2, F4)
 - [ ] The deployment file names the deliverable; local building only as a named exception. (F4)
+- [ ] The version command reports the revision the deliverable was built from; the build pipeline publishes nothing that cannot. (F4)
 - [ ] Every command has a documented exit code; everything that lists is machine-readable. (F3)
 - [ ] Check and start share the code; the decisions on the choices of the imported concepts are recorded. (F5)
 - [ ] A version change carries no state along and leaves none behind; the store lies with the state. (F6, F12)

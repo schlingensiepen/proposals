@@ -3,13 +3,11 @@ type: Proposal Extensions
 description: Proposals that extend this concept; generated from the series register.
 generated:
   by: series-register
-  at: 2026-10-01T00:00:00Z
+  at: 2026-11-01T00:00:00Z
 ---
 
 # Extensions
 
-This concept is complete without any extension. Extensions are separate
-bundles that name this one in their `extends` field and say what they
-lift or tighten.
+This concept is complete without any extension. Extensions are separate bundles that name this one in their `extends` field and say what they lift or tighten.
 
 No extensions yet.

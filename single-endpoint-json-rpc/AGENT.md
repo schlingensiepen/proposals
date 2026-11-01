@@ -1,22 +1,20 @@
 ---
+type: Proposal Agent Guide
 name: single-endpoint-json-rpc
-description: Apply when building or reviewing an HTTP API that must run on constrained hosting — no URL rewriting, no package manager, no framework. Also apply when deciding where credentials travel, how error responses are shaped, or how file uploads and binary downloads are handled alongside a JSON API.
+description: Self-contained guide for an agent building or reviewing an HTTP API on constrained hosting according to this concept; procedures for adding a method, adding a file upload and reviewing, the rules, an acceptance checklist, common mistakes and a self-check.
 ---
 
-# One Endpoint, One Verb, One Envelope — Work Instruction
+# Agent guide
 
-<!-- SELF-CONTAINMENT RULE: This file is handed to agents on its own. Every rule, step,
-     and checklist item is written out in full HERE. The F numbers in parentheses are
-     provenance markers for maintainers only; an agent must be able to act correctly
-     without ever opening the proposal. -->
+## Purpose
 
-Distilled from the proposal of the same name (German original leading). Orders only —
-the reasoning, costs, and limits live in the proposal; nothing here requires reading it.
+Apply when building or reviewing an HTTP API that must run on constrained hosting — no URL rewriting, no package manager, no framework. Also apply when deciding where credentials travel, how error responses are shaped, or how file uploads and binary downloads are handled alongside a JSON API.
 
-The whole API is one `POST` endpoint speaking JSON-RPC 2.0. Credentials go in headers.
-Bytes never go through the envelope.
+This guide gives orders only; the reasoning, costs and limits are in the rules and the scope of this bundle, and nothing here requires reading them. Every rule, step and checklist item is written out in full here; the F numbers in parentheses are provenance markers only.
 
-## When to apply
+The whole API is one `POST` endpoint speaking JSON-RPC 2.0. Credentials go in headers. Bytes never go through the envelope.
+
+**When to apply:**
 
 - You are designing or implementing an HTTP API on hosting where URL rewriting, installed
   libraries or a package manager cannot be assumed — typically cheap shared hosting, often
@@ -30,7 +28,40 @@ resource addresses with `GET`); an API gateway, WAF or per-endpoint rate limiter
 the semantics of each call; responses must be streamed. Each of these makes the rules
 below wrong rather than merely inconvenient.
 
-## Rules (MUST / NEVER)
+If a rule seems wrong for your case, read the rules and the scope of this bundle before deviating — and record the deviation.
+
+## Procedure
+
+**Adding a method:**
+
+1. Pick a name `area.action`, noun before verb.
+2. Define `params` as a flat object. Treat a present-but-empty value (`""`, `[]`) as a
+   value, not as a missing field; only an absent key is "field missing".
+3. List every error the method can produce, each with its code and its stable type.
+   Application errors use the HTTP-style codes only.
+4. Ensure the credential check happens before any identifier in `params` is resolved.
+
+**Adding a file upload:**
+
+1. Send the file as multipart to the separate upload endpoint. Return one handle.
+2. Sniff the actual content type; reject on mismatch with `415` and type `content_type`.
+3. Place both an `index.html` and an `index.php` in the target directory. Where the
+   platform allows it, also switch off script execution there — as a measure you take and
+   verify, never as a property you assume or rely on.
+4. Make the connection in a later RPC call that names all handles of the operation at
+   once, so a partial upload leaves nothing behind.
+
+**Reviewing an existing API against this concept:**
+
+1. Confirm there is one address and that it resolves via the default document.
+2. Grep the client and server for credentials in query strings, paths or `params`.
+3. Confirm every error path produces all three fields, and that no reserved protocol code
+   is used for an application error.
+4. Confirm no endpoint returns an empty body on failure.
+5. Confirm binary data does not pass through the envelope in either direction.
+6. Confirm the upload writes no database row.
+
+## Rules
 
 MUST:
 
@@ -146,36 +177,6 @@ NEVER:
   dataset, so the justification that applies to attachments — "the loss stays single" —
   does not apply to it. (F12)
 
-## Procedure
-
-**Adding a method:**
-
-1. Pick a name `area.action`, noun before verb.
-2. Define `params` as a flat object. Treat a present-but-empty value (`""`, `[]`) as a
-   value, not as a missing field; only an absent key is "field missing".
-3. List every error the method can produce, each with its code and its stable type.
-   Application errors use the HTTP-style codes only.
-4. Ensure the credential check happens before any identifier in `params` is resolved.
-
-**Adding a file upload:**
-
-1. Send the file as multipart to the separate upload endpoint. Return one handle.
-2. Sniff the actual content type; reject on mismatch with `415` and type `content_type`.
-3. Confirm script execution is off in the target directory — as a separate, verified
-   measure, not as an assumption.
-4. Make the connection in a later RPC call that names all handles of the operation at
-   once, so a partial upload leaves nothing behind.
-
-**Reviewing an existing API against this concept:**
-
-1. Confirm there is one address and that it resolves via the default document.
-2. Grep the client and server for credentials in query strings, paths or `params`.
-3. Confirm every error path produces all three fields, and that no reserved protocol code
-   is used for an application error.
-4. Confirm no endpoint returns an empty body on failure.
-5. Confirm binary data does not pass through the envelope in either direction.
-6. Confirm the upload writes no database row.
-
 ## Acceptance checklist
 
 - [ ] Is there exactly one address for all application logic, resolved via the default
@@ -199,8 +200,9 @@ NEVER:
 - [ ] Are credentials distinguishable enough that one device can be blocked without
       affecting another? (F7)
 - [ ] Does the upload endpoint return only a handle, writing no database row? (F9)
-- [ ] Are both upload barriers in place — content-type sniffing and disabled script
-      execution in the target directory? (F9)
+- [ ] Are the two required upload barriers in place — content-type sniffing and both
+      default documents in every served directory — with disabled script execution added
+      where the platform allows it? (F9)
 - [ ] Do binary downloads bypass application code entirely? (F8)
 - [ ] Is the randomness in the directory name, cryptographically sourced, with the file
       keeping its original name inside? (F11)
@@ -237,9 +239,6 @@ NEVER:
 | Download path returned while the export is still being written | Return a status instead; publish the path only after completion |
 | API placed on a separate subdomain "for tidiness" | Put it under the same origin unless it must scale separately — otherwise you buy CORS, preflight and third-party-cookie problems for nothing |
 
-## Source
+## Self-check
 
-This instruction operationalizes the proposal "One endpoint, one verb, one envelope"
-(same directory: PROPOSAL.de.md leading, PROPOSAL.en.md English). If a rule seems wrong
-for your case, read the proposal's decisions and limits before deviating — and record the
-deviation.
+Before you report completion: can you name the one address and how it resolves, show that no credential sits in any address or in `params`, show that every failure returns a complete error object, name every directly served directory with its barriers, and say for every backup or export how it is commissioned, fetched and terminated? If any of these is missing, you are not done.

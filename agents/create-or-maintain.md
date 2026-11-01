@@ -1,71 +1,38 @@
-# Task: Create or Maintain a Dossier
+# Task: create or maintain a proposal
 
-You create a new dossier (Konzept or Kompendium) or maintain an existing one (revision,
-translation sync, status change). Discuss content with the author before writing —
-dossiers present the author's proven concepts, not invented ones.
+You create a new bundle or maintain an existing one (revision, status change, moving a dossier of the previous form into bundle form). Discuss content with the author before writing: proposals present the author's proven concepts, not invented ones.
 
-## Choose the type
+## The form
 
-- **Konzept** — a thesis with decisions: copy `_template/konzept/` (10 sections,
-  four-field decision blocks F1…).
-- **Kompendium** — curated factual/operational knowledge: copy `_template/kompendium/`
-  (8 sections, uniform per-subject blocks, `surveyed` date, regeneration rule).
-- **Implementierungskonzept** — a self-contained description of a system to be built:
-  copy `_template/konzept/` and apply three reinterpretations ("what holds" becomes a
-  MUST/SHOULD/MAY sentence and Fn the requirement identifier; "scope and limits" names
-  the non-goals; "track record" becomes "implementation status").
+Copy [`_template/proposal/`](../_template/proposal/) to a new slug (lowercase English, hyphens, no numbers). The template is the complete skeleton; the root README's section "Layout of a bundle" says what each file holds. Every Markdown file except `index.md` and `log.md` carries a YAML head with `type` and a one-sentence `description`; `AGENT.md` also carries `name: <slug>` so that skill loaders find it; files in `examples/` that are meant to be copied as templates keep their own head instead.
 
 ## Create
 
-1. Copy the template directory to a new slug: lowercase English, hyphens, no numbers
-   (e.g. `cp -r _template/konzept my-new-slug`).
-2. Write `PROPOSAL.de.md` first — German is the leading version. Start with the
-   frontmatter: if `thesis` does not fit into one sentence, the scope is not cut yet.
-3. Follow the embedded comments in the template — they are the format rules. Sections
-   are never dropped: an empty one says „entfällt, weil …". The security section is
-   mandatory. References go into the sources section only; the dossier must work with
-   every link dead.
-4. Write `PROPOSAL.en.md` with identical structure and identical F/Q numbers; set the
-   sync header ("Translated from the German original · sync: vX.Y").
-5. Write `AGENT.md` strictly self-contained: every rule and checklist item in full
-   text; F numbers only as provenance markers in parentheses. An agent must be able to
-   act correctly without ever opening the proposal.
-6. Fill the dossier `README.md` (bilingual thesis) and `CHANGELOG.md` (first entry).
-7. Register the dossier in the root `README.md`, section "## Register". The register is
-   a list of prose entries, not a table — copy the form of the entries already there:
-   bold link to the directory · Typ/Type · Status · version and date (Kompendium: plus
-   `surveyed: YYYY-MM`) — em dash — one bilingual sentence naming what the dossier
-   answers. Entries are ordered from general to specific: a dossier that generalizes
-   another stands above it, and an entry that applies another says so in its sentence.
-   Slugs that are merely intended stay in the "Kandidaten / Candidates" line below the
-   entries; remove a slug from that line when its dossier lands.
+1. Start with `README.md`: question and thesis in one sentence each. If the thesis will not fit into one sentence, the scope is not cut yet.
+2. Write `concept.md` (problem, the concept, the procedure) and the rules in `rules/`, one file each, four fields each: *what holds*, *why*, *obvious and rejected*, *how you notice it is violated*. A field that does not apply says "does not apply, because …".
+3. Sort out the choices. A choice is a point where more than one answer is legitimate and the right one depends on the adopter's case. Test: does every option have a use case in which it is right? Then it is a choice, one file in `choices/`, with options, consequences and when each fits; the proposal does not decide. Only one option is right: a rule. No option is right: it goes under "obvious and rejected". Converting a rule into a choice, or the reverse, is the author's decision, not yours.
+4. Write `scope.md` (security considerations, costs, where it applies, when the answer flips, what it does not solve, what is not yet settled), `evidence.md`, `sources.md` (imports, related proposals by slug, external sources with URLs) and `terms.md` (every term of the bundle, English and German, each with a short explanation).
+5. Write `AGENT.md` self-contained: every step, rule and checklist item in full; rule numbers only in parentheses as provenance. It must contain the step in which the agent decides every choice with the user and records the decision.
+6. Write `index.md`: every file with one line, grouped (start here · rules · choices · scope and evidence · adopting · history). Let `README.md` describe the same groups briefly with links and end with the two sentences for reader and agent. Write `log.md` with the creation entry.
+7. Leave `used-by.md` and `extensions.md` as the template has them; they are generated from the register.
+8. Register the bundle in the root `README.md` under "Bundles": bold link, type, status, version with date, em dash, one sentence saying what it answers. Entries are ordered from general to specific.
 
 ## Maintain
 
-- Any content change to `PROPOSAL.de.md`: bump the version, add a CHANGELOG entry, and
-  in the same change either update the English version or set its header to
-  "sync: pending (de vX.Y)". Lagging is allowed; invisible lagging is not.
-- The root README register entry belongs to the dossier head: whenever version, status,
-  `surveyed`, or the one-line summary changes, the entry changes in the same commit.
-  A register that contradicts a dossier head is the drift this series exists to avoid.
-- `AGENT.md` follows the proposal. Review question for every change: does AGENT order
-  what PROPOSAL justifies — and is every Fn either covered or deliberately out of scope?
-- Status transitions (Entwurf → Diskussion → Bewährt → Überholt) only via CHANGELOG;
-  "Bewährt" requires reference evidence in the track-record section; "Überholt"
-  requires a successor pointer. Nothing is reinterpreted retroactively.
-- Never renumber F or Q items; retired numbers stay retired.
-- For a Kompendium: re-survey when its regeneration rule fires; update `surveyed` and
-  the CHANGELOG.
-- When a dossier states a fact about another dossier ("in preparation", "not yet
-  published"), that sentence ages too: publishing the referenced dossier is also a
-  maintenance event for the referring one.
+- Any content change bumps the version and adds an entry to `log.md`. A changed rule keeps its number; a retired rule's number stays retired; a new rule takes the next free number.
+- The register line in the root README belongs to the bundle's `README.md` head: whenever version, status or the one-line summary changes, the register changes in the same commit.
+- `AGENT.md` follows the rules and choices. Review question for every change: does AGENT order what the rules justify, is every rule either covered or deliberately out of scope, and is every choice put to the user?
+- Status transitions (draft → stable → deprecated) only through `log.md`; "stable" requires reference evidence in `evidence.md`; "deprecated" requires a successor named in `log.md`.
+- Never state another bundle's status, version or content inside a bundle; name it by slug.
+- Moving a dossier of the previous form into bundle form: the content is the author's and stays; you sort it into the files of the template, replace section and question references by bundle references, turn the old "open questions" into duties of adoption (in `AGENT.md`), limits ("not yet settled" in `scope.md`) or candidates for choices (to be decided by the author), and drop `PROPOSAL.de.md`, `PROPOSAL.en.md`, `CHANGELOG.md` (its entries go to `log.md`).
 
 ## Checks before committing
 
-- [ ] Frontmatter parses; `question`/`thesis` present (Kompendium: also `surveyed`).
-- [ ] Section numbering identical in de and en; F/Q numbers identical.
-- [ ] Every decision block has all four fields (or an explicit „entfällt, weil …").
-- [ ] No link leaves the dossier directory except https links in the sources section.
-- [ ] No references to internal documents of other projects; attribution "the author".
-- [ ] Root README register entry matches the dossier head (version, status, sync,
-      `surveyed`), and the slug is gone from the candidates line.
+- [ ] `README.md` head complete: type, description, version, date, status, author, extends, imports.
+- [ ] Every rule file has the four fields; numbers in file names match the heads.
+- [ ] Every choice file names options, consequences and conditions, and ends with "record your decision".
+- [ ] `index.md` lists every file exactly once; all links relative and resolving inside the bundle.
+- [ ] No status, version or rule numbers of other bundles inside this one.
+- [ ] No internal hostnames, paths, session links or secrets; no personal names in the text (the `author` field in the head and authors of cited works are allowed); repositories that are not public are marked as such.
+- [ ] `terms.md` covers every term used in rules, choices and concept.
+- [ ] The root README register line matches the bundle head.

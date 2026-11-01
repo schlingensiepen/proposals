@@ -20,14 +20,15 @@ to target systems) and everything it should not generate (accesses to
 the function).
 
 **(b) Generate and show exactly once.** The service generates the secret
-(high entropy, recognisable prefix), stores it at rank 2 and shows it
+(high entropy, recognizable prefix), stores it at rank 2 and shows it
 exactly once over the once-only channel: for a service one log line of the form
 `<SECRET NAME> generated: <value>. Shown once; it will not be shown
 again.`; for an agent the context
 window, persisted immediately, never repeated. Consequences: never at an
 ordinary restart (only when the command word of
 [F5](../rules/F5-replacing-is-two-moves.md) is present), never for a
-secret somebody set; a smoke test in the build
+secret somebody set (accesses the service issues in operation are not
+start secrets; their one-time display is the issuing concept's rule); a smoke test in the build
 verifies that it appears exactly once, is accepted, still applies after
 a restart and does not appear again; F6 gets its named exception.
 Condition: only for a secret whose only possible owner is the service;

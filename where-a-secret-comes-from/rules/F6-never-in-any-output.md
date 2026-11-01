@@ -1,6 +1,6 @@
 ---
 type: Proposal Rule
-description: A secret never appears in output, logs, error messages, transcripts or addresses; the only exception is the once-only channel under W1 (b): one value, once, at creation.
+description: A start secret never appears in output, logs, error messages, transcripts or addresses; the only exception is the once-only channel under W1 (b): one value, once, at creation. Accesses issued in operation are governed by the concept that issues them.
 number: F6
 binding: must
 role: load-bearing
@@ -15,8 +15,10 @@ not truncated either, not "for debugging"
 either. The only exception is the once-only channel where
 [W1 (b)](../choices/W1-no-secret-set.md) is chosen: exactly one value,
 exactly once, only at creation, with the sentence that there will be no
-second time. Never for a secret somebody set; never at restart; never
-for an access to the function.
+second time. Never for a secret somebody set; never at restart. Accesses
+that the service issues to callers in operation are not start secrets
+and not governed here; that the issuing command shows such an access
+exactly once is the rule of the concept that issues it.
 
 **Why.** Logs, chat histories and error messages are searchable,
 copyable stores; what is in them once is soon everywhere. The exception
