@@ -34,7 +34,7 @@ This guide is complete on its own except for two things, which come from importe
 13. **Set up token issuance:** one token embodies one capability at one place; created server-side, shown exactly once; every token has a display string (eight lowercase characters, not secret). If you offer self-registration: accept a free-text self-introduction, return token, display string and a flag naming the flavor, automatic (only where damage potential is low) or by-request (the token is born without rights; a human activates it server-side via the display string); throttle the endpoint, expire unconfirmed tokens. (F12, F14)
 14. **For a retrofit,** run all of the above in a separate façade service against the foreign API: render the real target instance's URLs, state which version or state of the target API the description describes, and never proxy or touch the target's traffic. (F15, F5)
 
-**Choices.** This concept names no choices of its own in this version. The imported concept `where-a-secret-comes-from` has its own; they concern start secrets of a service, not the consumer's secret.
+**Choices.** The imported concept `where-a-secret-comes-from` has its own; they concern start secrets of a service, not the consumer's secret. The empty state (F21) is decided with the user in step 11.
 
 ### Consumer: onboarding to first call
 

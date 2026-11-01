@@ -66,7 +66,7 @@ Limit of the model: the separation protects against accidents, not against inten
 
 ### Not yet proven
 
-* Version 0.9 is a draft: complete in content, not yet reviewed by the author.
+* Version 0.11 is a draft: complete in content, not yet reviewed by the author.
 * Long-term operating experience is missing. Whether the redundancy from F3 can be maintained over time is no longer the question: it is not maintained but generated anew from the source (F3).
 
 ### Not yet settled

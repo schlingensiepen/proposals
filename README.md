@@ -20,7 +20,7 @@ The register is the only place that states what a proposal is and in which state
 
 **[`capability-tokens-for-agents`](capability-tokens-for-agents/)** · Proposal · draft · v1.1 (2026-10-13) — A token embodies exactly one capability at exactly one place, and its handling follows fixed rules along the lifecycle, from creation and handover through storage and use to rotation, revocation and expiry, so that an agent context in which every leak is searchable and copyable survives partial failure.
 
-**[`self-describing-services`](self-describing-services/)** · Proposal · draft · v1.1 (2026-11-01) — A service that describes itself at runtime, in staged and linked texts its weakest intended reader can accept, makes installation unnecessary; the agent keeps only a URL and a secret, and because there is no second source, nothing goes stale.
+**[`self-describing-services`](self-describing-services/)** · Proposal · draft · v1.2 (2026-11-01) — A service that describes itself at runtime, in staged and linked texts its weakest intended reader can accept, makes installation unnecessary; the agent keeps only a URL and a secret, and because there is no second source, nothing goes stale.
 
 **[`invitation-instead-of-login`](invitation-instead-of-login/)** · Proposal · draft · v1.0 (2026-08-15) — Access arises from an invitation; one link invites a person for all their devices because every redemption creates its own credential, and machines receive capability rather than identity.
 
@@ -46,7 +46,7 @@ The register is the only place that states what a proposal is and in which state
 
 **[`self-contained-repos`](self-contained-repos/)** · Proposal · draft · v0.9 (2026-08-15) — A repository is self-contained when someone opening it for the first time, human or agent, can work from it alone; an entry point that branches to the actual tasks, decisions with their reasons in full text, and a check rule asking whether everything still holds when every external link is dead.
 
-**[`two-repo-submodule-pattern`](two-repo-submodule-pattern/)** · Proposal · draft · v0.10 (2026-11-01) — What arises while something is being made and what is finally published belong in two repositories with two histories, connected as a submodule or, where the tools do not allow that, as two independent roots with an ignore rule.
+**[`two-repo-submodule-pattern`](two-repo-submodule-pattern/)** · Proposal · draft · v0.11 (2026-11-01) — What arises while something is being made and what is finally published belong in two repositories with two histories, connected as a submodule or, where the tools do not allow that, as two independent roots with an ignore rule.
 
 **[`immutable-decision-records`](immutable-decision-records/)** · Proposal · draft · v1.0 (2026-08-13) — An accepted decision record is never changed again; every change is a new, complete record that replaces the old one, and both ends of the replacement are kept.
 

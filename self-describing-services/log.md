@@ -1,6 +1,7 @@
 # Update log
 
 ## 2026-11-01
+* **Update**: Version 1.2. Three example hostnames in F7, F15 and the walk-through replaced by neutral ones in English, and the German road name in the walk-through by a generic one; the sentence that this version has no choices removed, because F21 is decided with the user (step 11 of the agent guide). Content of the rules unchanged.
 * **Update**: Version 1.1 (first published in this form) also carries: New rule F21, the empty state is decided: what the entry page answers before the service is set up, a setup page with status 200 or a 404, is decided and recorded with its price; it comes with a security case, a cost, the case in the evidence and a step in the builder procedure. New rule F22, principle and case: every behavior rule stands exactly once, the principle in the usage description and the case at the operation, held by a check in the build. The concept now imports `proven-from-outside` for the proofs that a check tests anything and that a description works for a reader without inside knowledge. Form: `name` in the head of `AGENT.md`; `README.md` describes and links the parts; relations in `sources.md` carry their kind.
 
 ## 2026-10-13

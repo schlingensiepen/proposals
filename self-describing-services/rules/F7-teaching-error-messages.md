@@ -17,7 +17,7 @@ applies_to: [builder]
 {
   "error": "inline_image_not_accepted",
   "message": "Images cannot be embedded in a report. Upload the image first:
-              POST https://verkehr.example.org/api/v1/files (returns a file_id),
+              POST https://traffic.example.org/api/v1/files (returns a file_id),
               then reference it as \"photo\": {\"file_id\": \"...\"}."
 }
 ```

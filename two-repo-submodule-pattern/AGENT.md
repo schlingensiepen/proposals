@@ -8,7 +8,7 @@ description: Self-contained guide for an agent that separates a project into a w
 
 ## Purpose
 
-You are separating what arises while something is being made from what is published: you set up a work repository and a product repository, connect them, and carry things across from one to the other. Or you are reviewing an existing setup for a polished history, a reference into a repository nobody can see, or a submodule reference that has stopped moving. This guide is complete on its own. Rules are named in parentheses as provenance.
+You are separating what arises while something is being made from what is published: you set up a work repository and a product repository, connect them, and carry things across from one to the other. Or you are reviewing an existing setup for a polished history, a reference into a repository nobody can see, or a submodule reference that has stopped moving. This guide is complete on its own except for the comprehension check of the review (F7), which comes from the imported concept `proven-from-outside`; ask the user for that bundle if you do not have it. Rules are named in parentheses as provenance.
 
 ## Procedure
 
