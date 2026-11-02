@@ -1,6 +1,7 @@
 # Update log
 
 ## 2026-11-01
+* **Update**: Version 1.1. Sources: MADR is named as a form the author uses, not as the file format of the concept, which prescribes none. Agent guide: one head schema (status draft / accepted / superseded / rejected, the date of acceptance, the two relation lists), with the status rejected for a discarded draft following F6; the fix for a revision paragraph in an accepted record is a new record, and the guide no longer tells you to delete the paragraph, which F2 forbids; the share of superseded records is the one from the evidence; the reader rule on resolving contradictions cites F8; the precedence of secret rotation and the entry note of the index are taken over from the scope; the count of the exceptions to F2 is stated correctly. Terms: rows for author, reader, rejected and rule; "status" and "set of records" replace "standing" and "body of records" throughout. Language: field title "Considered and rejected" in every rule, "When this no longer holds" in scope and index, calques smoothed without change of meaning. Date in the README head set to the version date. Content of the rules unchanged.
 * **Update**: Form (agent guide name, README describes the parts, relation vocabulary).
 
 ## 2026-10-13

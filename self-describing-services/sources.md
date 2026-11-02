@@ -40,7 +40,7 @@ sources:
 
 ## Related
 
-* `capability-tokens-for-agents` (recommended-with, at F12): the deeper justification of the narrow token cut. Not needed for understanding; F12 summarizes what is used here.
+* `capability-tokens-for-agents` (recommended-with, at F12): the deeper justification of narrow tokens. Not needed for understanding; F12 summarizes what is used here.
 * `service-as-single-artifact` (recommended-with): how a small service is built; this concept says how it describes itself. Separate matters; either can be applied without the other.
 * `immutable-decision-records` and `decision-records-with-madr` (recommended-with, at F17): the place hindsight goes to, decision records that travel with the source code and are replaced, never changed.
 * `pull-deployment-from-a-registry` (recommended-with, at F21): a service that comes up by being pulled from a registry and started is in the empty state at every instance, as the normal case; F21 says that what it answers then is decided.
@@ -52,7 +52,7 @@ All proposals live in the same repository; see its root README for the register 
 
 ## External sources
 
-* OpenAPI Specification [^openapi]: the "generated contract" from the concept, which F6 declares a product and enriches; its description and example fields are the places the gate from F6 demands. It also supports the flip condition according to which the durability of the interface description depends on its falling out of the code.
+* OpenAPI Specification [^openapi]: the "generated contract" from the concept, which F6 declares a product and enriches; its description and example fields are the places the gate from F6 demands. It also supports the condition in the scope according to which the durability of the interface description depends on its being generated from the code.
 * Model Context Protocol [^mcp]: the model for the parallel in the concept; a server describes its methods at runtime, the client queries them (discovery instead of distribution). This concept carries the same principle over to the web API, which needs no connecting.
 * Fielding, REST [^fielding-rest]: the origin of the hypermedia idea F7 invokes, responses that name the next steps themselves. F7 redeems this old promise for a consumer who actually does read at runtime.
 * The /llms.txt file [^llms-txt]: the closest existing convention for agent-readable self-disclosure and thus the benchmark for the entry page from F2. It shows Markdown with links as the carrier form; this concept goes beyond it in that the disclosure is rendered by the service at runtime (F5) and loaded in stages (F2).

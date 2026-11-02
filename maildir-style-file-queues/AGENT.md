@@ -1,20 +1,20 @@
 ---
 type: Proposal Agent Guide
 name: maildir-style-file-queues
-description: Self-contained guide for an agent that builds or reviews a job queue as a directory tree in a small service; the steps with the duties of adoption, the rules, an acceptance checklist and common mistakes.
+description: Self-contained guide for an agent that builds or reviews a job queue as a directory tree in a small service; the steps with the duties of adoption, the step of deciding the retention choice with the user, the rules, an acceptance checklist and common mistakes.
 ---
 
 # Agent guide
 
 ## Purpose
 
-You are building the handover of jobs from intake to execution in a small service as a directory tree, or you are reviewing such a queue for hidden races, lost jobs, silent deletion or counts leaking to the network. This guide is complete on its own. Rules are named in parentheses as provenance. This concept has no choices; every entry is a rule.
+You are building the handover of jobs from intake to execution in a small service as a directory tree, or you are reviewing such a queue for hidden races, lost jobs, silent deletion or counts leaking to the network. This guide is complete on its own. Rules and the choice are named in parentheses as provenance.
 
 ## Procedure
 
-**1 · Check the fit.** The pattern holds only if all of these are true: the whole tree lies on one local file system, on one machine; the stock of jobs stays at a size where a directory walk takes seconds for the operator (a few thousand to a few tens of thousands, depending on the file system); the actual work can be repeated or is secured from outside against a double effect; the jobs may lie in plain text on the disk; nobody needs regular queries by attribute. If any of these fails, stop and tell the user: the answer is real queue infrastructure or an embedded database. *Result:* a reasoned decision.
+**1 · Check the fit.** The pattern holds only if all of these are true: the whole tree is on one local file system, on one machine, on a mounted volume with ordinary rename semantics (in a container: not on the layered file system of the image); exactly one service process owns the tree; the number of jobs present at once stays at a size where a directory walk takes seconds for the operator (a few thousand to a few tens of thousands, depending on the file system); the actual work can be repeated or is secured from outside against a double effect; the jobs may be in plain text on the disk; nobody needs regular queries by attribute. If any of these fails, stop and tell the user: the answer is real queue infrastructure or an embedded database. *Result:* a reasoned decision.
 
-**2 · Lay out the state folders.** Five directories: staging, waiting, in progress, done, failed, all on the same local file system, no mount point inside the tree. The state of a job is where its file lies and nowhere else: no state field in the file, no index, nothing in memory. Give each access its own tree, so that a forgotten filter cannot find foreign jobs. *Result:* the directory layout. (F2, F3)
+**2 · Lay out the state folders.** Five directories: staging, waiting, in progress, done, failed, all on the same local file system, no mount point inside the tree. The state of a job is where its file is and nowhere else: no state field in the file, no index, nothing in memory. Give each access its own tree, so that a forgotten filter cannot find someone else's jobs. *Result:* the directory layout. (F2, F3)
 
 **3 · Define the job file.** One job is one file, complete, in already validated form: the intake validates and translates once, the worker never validates again. Name the file with a coarse ordering mark in front (a timestamp) and a cryptographically random identifier; never a sequential number. Attachments go into a separate, durable pool that the job refers to, not into further files of the job. *Result:* the file format and naming scheme. (F1)
 
@@ -26,26 +26,32 @@ You are building the handover of jobs from intake to execution in a small servic
 
 **7 · Build the restart rule.** At the start of the service, and nothing more: rename everything in in progress back into waiting; delete everything in staging. *Result:* the start routine. (F7)
 
-**8 · Settle retention.** Nothing in done, failed or the pool is deleted automatically; only leftovers in staging older than one hour are cleared. Everything else is deleted explicitly, by the caller or by an operator command. *Result:* the cleanup rules. (F8)
+**8 · Decide the choice with the user: retention.** Do not decide it yourself. "The user" here is the person you are working for, usually the operator or the builder. What is not up for decision: uploads in the pool are never deleted automatically, and leftovers in staging older than one hour always are. For the journal (done and failed) and the disk, present the options of [W1](./choices/W1-retention.md) with their price and the condition under which each fits:
+   * (a) nothing is deleted automatically; the caller or an operator command deletes. Price: the journal and the disk grow, visibly, and clearing is a recurring operator task.
+   * (b) a retention period for the journal: done jobs older than N days are cleared, failed jobs only after an operator decision. Price: after the period, the journal is missing when something goes wrong.
+   * (c) a size quota: when exceeded, the oldest done jobs are evicted, never uploads, never waiting or failed jobs, reported in the log. Price: an operating value somebody has to set and maintain.
+   * (d) both.
 
-**9 · Build the operator commands.** Local commands only: one shows stocks and counters, one retries a failed job, one discards it. The network surface reveals no counts; a health point says only whether the service is running. **Duty of adoption:** determine with the user at which stock the queue becomes unwieldy on the target file system, and what happens then; write the threshold down before it is reached. *Result:* the command set and the recorded threshold. (F9)
+   If the user does not decide, (a) holds. Record the decision with its reason; for (b) the period, for (c) the quota and its unit (per access or per service), for (d) both. Then build exactly that, and nothing else that deletes. *Result:* the recorded choice and the cleanup rules. (F8, W1)
+
+**9 · Build the operator commands.** Local commands only: one shows the counts per state folder and the counters, one retries a failed job, one discards it. The network surface reveals no counts; a health endpoint says only whether the service is running. **Duty of adoption:** determine with the user at which number of jobs the queue becomes unwieldy on the target file system, and what happens then; write the threshold down before it is reached. *Result:* the command set and the recorded threshold. (F9)
 
 ## Rules
 
-MUST: one job, one complete, validated file with a random identifier (F1) · the folder is the state, kept nowhere else (F2) · every transition, including a change of content, is an atomic rename on one local file system (F3) · enqueue by writing in staging, forcing to disk, renaming into waiting (F4) · the claim is the rename into in progress, a failed claim is silently accepted (F5) · retry data in the file, retries in waiting, final failure in failed (F6) · restart: in progress back to waiting, staging emptied (F7) · journal and pool kept until explicitly deleted (F8) · counts and interventions only through local commands (F9).
+MUST: one job, one complete, validated file with a random identifier (F1) · the folder is the state, kept nowhere else (F2) · every transition, including a change of content, is an atomic rename on one local file system (F3) · enqueue by writing in staging, forcing to disk, renaming into waiting (F4) · the claim is the rename into in progress, a failed claim is silently accepted (F5) · retry data in the file, retries in waiting, final failure in failed (F6) · restart: in progress back to waiting, staging emptied (F7) · uploads kept until explicitly deleted, the journal kept as decided under W1 (F8) · counts and interventions only through local commands (F9).
 
-NEVER: a state field or index beside the folders (F2) · copy-and-delete or overwrite in place (F3) · lock files instead of the rename (F3) · the tree on a network file system (F3) · writing directly into waiting (F4) · read-then-mark as a claim (F5) · retries kept in memory, or retried without limit (F6) · a progress log to reconstruct the restart (F7) · expiry times or delete-after-use for payload data (F8) · counts in the health point, automatic retry of all failures, a web interface for the queue (F9).
+NEVER: a state field or index beside the folders (F2) · copy-and-delete or overwrite in place (F3) · lock files instead of the rename (F3) · the tree on a network file system (F3) · writing directly into waiting (F4) · read-then-mark as a claim (F5) · retries kept in memory, or retried without limit (F6) · a progress log to reconstruct the restart (F7) · expiry times or delete-after-use for uploads, or clearing the journal without a recorded decision (F8, W1) · counts in the health endpoint, automatic retry of all failures, a web interface for the queue (F9).
 
 ## Acceptance checklist
 
 - [ ] Every job is exactly one file, complete and validated; identifiers are random, with a timestamp in front. (F1)
 - [ ] No code determines the state of a job other than by its directory. (F2)
-- [ ] All state folders lie on one local file system; every transition and every content change is a rename. (F3)
+- [ ] All state folders are on one local file system; every transition and every content change is a rename. (F3)
 - [ ] The waiting folder never contains incomplete or empty files; the write is forced before the rename. (F4)
 - [ ] Two workers can never process the same job; a failed claim is not reported as an error. (F5)
 - [ ] Waiting retries survive a restart; no job keeps the worker spinning; the retry schedule and final failure are written down. (F6)
 - [ ] After a hard restart no job stays in progress; staging is empty. (F7)
-- [ ] Nothing but staging leftovers is removed automatically. (F8)
+- [ ] Uploads are never removed automatically; the retention choice is recorded with its reason, and nothing beyond staging leftovers and what the choice allows is removed automatically. (F8, W1)
 - [ ] Nobody can tell from outside how many jobs are pending; the threshold at which the queue becomes unwieldy is recorded. (F9)
 
 ## Common mistakes and their fixes
@@ -56,17 +62,18 @@ NEVER: a state field or index beside the folders (F2) · copy-and-delete or over
 | Header, payload and attachments as separate job files | One file per job; attachments in a durable pool the job refers to (F1, F8) |
 | Sequential job numbers | Random identifiers; numbers reveal throughput and can be guessed (F1) |
 | A `status` field in the job file | The folder is the state; a field would have to change together with the move, which cannot happen (F2) |
-| An index for fast queries | It is a second truth; whoever needs queries has outgrown this pattern (F2) |
+| An index for fast queries | It is a second truth; anyone who needs queries has outgrown this pattern (F2) |
 | Copy, then delete | Rename; a copy is a moment in which the job exists twice (F3) |
 | Lock files to guard the queue | Rename; an orphaned lock raises the question of who removes it, and when (F3) |
 | Writing straight into waiting, or skipping the forced write | Write in staging, force to disk, then rename; otherwise a confirmed job can be half or empty (F4) |
 | Read the job, then mark it taken | Rename into in progress; between reading and marking lies the double claim (F5) |
 | A retry folder per attempt stage | Retry data in the file, the job back in waiting (F6) |
 | Unlimited retries | A final failure moves the job into failed (F6) |
-| In-progress jobs treated as failed after a restart | Rename them back into waiting; the execution must bear a retry (F7) |
+| In-progress jobs treated as failed after a restart | Rename them back into waiting; the execution must tolerate a retry (F7) |
 | Expiry times for uploads | The pool fills up and the operator cleans up; expiry hits the artifacts in permanent use (F8) |
+| The journal pruned or a quota enforced because it seemed sensible | Decide W1 with the user and record it; without a decision nothing but staging leftovers is cleared (F8, W1) |
 | Queue counts in the health endpoint | Counts only through local commands (F9) |
 
 ## Self-check
 
-Before you report completion: can you name the file system the whole tree lies on, the five state folders, the naming scheme of a job file, the recorded retry schedule and final failure, the restart rule, what is deleted automatically (only staging leftovers), and the recorded threshold at which the queue becomes unwieldy? If any of these is missing, you are not done.
+Before you report completion: can you name the file system the whole tree is on, the five state folders, the naming scheme of a job file, the recorded retry schedule and final failure, the restart rule, the recorded retention choice and what it deletes automatically (never uploads), and the recorded threshold at which the queue becomes unwieldy? If any of these is missing, you are not done.

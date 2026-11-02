@@ -18,8 +18,8 @@ description: The terms used in this bundle, in English and German, each with a s
 | empty value | A place is set, but to nothing; distinct from "no place is set". | leerer Wert | Ein Ort ist belegt, aber mit nichts; zu unterscheiden von „kein Ort belegt". |
 | rule | An entry with one answer; giving it up means no longer using the concept. | Festlegung | Ein Eintrag mit einer Antwort; wer sie aufgibt, benutzt das Konzept nicht. |
 | choice | An entry where the concept does not decide but names options with consequences; the adopter decides per setting. | Wahlpunkt | Eine Stelle, an der das Konzept nicht entscheidet, sondern Optionen mit Folgen nennt; der Übernehmende entscheidet je Einstellung. |
-| builder | Whoever builds the service. | Erbauer | Wer den Dienst baut. |
-| operator | Whoever runs the service. | Betreiber | Wer den Dienst betreibt. |
-| adopter | Whoever finds the service later and takes it over. | Übernehmender | Wer den Dienst später vorfindet und übernimmt. |
+| builder | Anyone who builds the service. | Erbauer | Wer den Dienst baut. |
+| operator | Anyone who runs the service. | Betreiber | Wer den Dienst betreibt. |
+| adopter | Anyone who finds the service later and takes it over. | Übernehmender | Wer den Dienst später vorfindet und übernimmt. |
 | load-bearing | A rule the rest of the concept depends on. | tragend | Eine Festlegung, von der der Rest des Konzepts abhängt. |
 | independent | A rule that holds on its own and is useful outside this concept. | unabhängig | Eine Festlegung, die für sich gilt und auch außerhalb dieses Konzepts nützt. |

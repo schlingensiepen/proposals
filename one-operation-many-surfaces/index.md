@@ -12,8 +12,8 @@ okf_version: "0.2"
 
 One answer each; give one up and you are no longer using the concept. F1 and F2 belong together: F1 says that every operation exists once, F2 how that is held.
 
-* [F1 One operation, two pass-throughs](./rules/F1-one-operation-two-pass-throughs.md) - Every administrative action exists once as a function without HTTP or exit knowledge; each surface has one translation function and its presentation, and both emit the same field names; no surface touches store, file system or target system.
-* [F2 Oneness is checked structurally](./rules/F2-oneness-is-checked-structurally.md) - A structural test over the pass-throughs: whitelist of imports, banned operation names, no file system access except named exceptions, every command and handler calls an operation; each assertion seen red.
+* [F1 One operation, many pass-throughs](./rules/F1-one-operation-two-pass-throughs.md) - Every action exists once as a function without HTTP or exit knowledge; each surface has one translation function and its presentation, and both emit the same field names; no surface touches store, file system or target system.
+* [F2 Oneness is checked structurally](./rules/F2-oneness-is-checked-structurally.md) - A structural test over the pass-throughs: whitelist of imports, banned operation names, no file system access except named exceptions, every command and handler calls exactly one operation; each assertion seen red.
 
 # Choices
 

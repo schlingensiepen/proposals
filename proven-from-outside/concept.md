@@ -1,6 +1,6 @@
 ---
 type: Proposal Concept
-description: The problem of checks and documents judged by whoever built them, the concept of proof from outside (a check seen to go red, a document used by a reader without inside knowledge), and a two-step procedure.
+description: The problem of checks and documents judged by the one who built them, the concept of proof from outside (a check seen to go red, a document used by a reader without inside knowledge), and a two-step procedure.
 ---
 
 # The concept
@@ -21,7 +21,7 @@ by reading, only by using, and by someone without that knowledge. The
 builder reads the description with the very knowledge it is meant to
 replace, and so overlooks exactly the gaps it exists for; the developer's
 review rounds over their own work share the blind spots of what is under
-review, and the worst finding regularly sits inside the fix for the
+review, and the worst finding is regularly inside the fix for the
 previous error, where the self-reviewer is most certain of being done.
 
 ## The concept
@@ -56,7 +56,9 @@ again. *Result:* for every check, one observed red run. (F1)
 
 **2 · Close every round with an outside run.** At the end of every round
 in which the document or the interface changed, an agent with no project
-context gets the URL, a narrowly scoped secret for a target where a wrong
-move costs nothing, and a task in the user's language. Read its report as
+context gets nothing but what any later reader will have (for a service
+the URL and, where one is needed, a narrowly scoped secret for a target
+where a wrong move costs nothing; for a document the document itself) and
+a task in the user's language. Read its report as
 a bug list, fix, and run it again after the next change. *Result:* an
 accepted version and a bug list. (F2)

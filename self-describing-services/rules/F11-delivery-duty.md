@@ -15,6 +15,6 @@ applies_to: [builder]
 
 **Why.** The consuming agent does not know this dossier; he knows only the self-contained self-description of the service (see "The chain of transmission" in the concept). A consumer rule that appears only here reaches nobody — it would be a hope, not a rule. The chain dossier → builder → self-description → agent turns behavioral recommendations into deliverable duties.
 
-**Obvious and rejected.** *Teaching the rules to every consumer harness individually* — the N×M problem, this time for behavioral rules. *Relying on general agent ground rules* — those vary by platform; what the service needs, the service has to say.
+**Considered and rejected.** *Teaching the rules to every consumer harness individually* — the N×M problem, this time for behavioral rules. *Relying on general agent ground rules* — those vary by platform; what the service needs, the service has to say.
 
 **How you notice it is violated.** Agents on different platforms behave differently at the same service — some ask before actions that take effect, others do not — although all of them have loaded the same description.

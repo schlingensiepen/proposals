@@ -11,7 +11,7 @@ applies_to: [writer]
 
 **Applies to:** writer.
 
-**What holds.** "Considered options" names the alternatives briefly and marks the
+**What holds.** "Considered Options" names the alternatives briefly and marks the
 chosen one. "Rejected and why" spells out the reason for each rejected one. This
 duplication is deliberate.
 
@@ -23,7 +23,7 @@ list **and** a spelled-out reason do not fit into the same line. The second
 section is the more valuable one: the worth of a body lies not in the decisions
 that were taken but in the ones deliberately **not** taken.
 
-**Obvious and rejected.** *Only the list, with reasons in parentheses* —
+**Considered and rejected.** *Only the list, with reasons in parentheses* —
 parentheses enforce brevity, and brevity is the wrong thing for a justification.
 *Only the justification section* — then the overview is missing, and one reads
 four paragraphs to learn three options.

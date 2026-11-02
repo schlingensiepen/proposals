@@ -15,7 +15,7 @@ review note with the report as an attachment into my mailbox; you can
 only fetch addresses"*, the address `https://mail.example.org/get/v1`,
 and a token, which it stores in its environment and inserts into every
 address without ever quoting it. It fetches the description and reads
-first what this costs it: the token will stand in every address, so in
+first what this costs it: the token will be in every address, so in
 logs and in its own history; it tells its user so in one sentence and
 carries on, because its tool leaves it no choice
 ([F11](../rules/F11-the-price-named.md)). The first call with the token
@@ -57,7 +57,7 @@ reads `done`.
 
 What does not appear in this run is the part the costs present:
 seventeen addresses with the token in them (and every further status
-query one more) now stand in the proxy's access log, in the tool's
+query one more) are now in the proxy's access log, in the tool's
 history and in the transcript of the session. The user was told
 beforehand, the token is limited to one folder, and the operator knows
 it should live briefly. This concept offers no more than that, and it

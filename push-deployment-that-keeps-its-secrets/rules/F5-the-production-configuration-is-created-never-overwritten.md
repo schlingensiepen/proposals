@@ -19,6 +19,6 @@ applies_to: [builder, operator]
 
 **What the switch has to say before it acts:** which values it replaces and what that means. For a signing key, for instance: that every address signed so far is invalid afterwards. A `--force` that only asks "overwrite configuration?" shifts the decision onto somebody who does not know the consequence.
 
-**Obvious and rejected.** *Always overwrite and read the values out beforehand*: presupposes that one can read them out; with a damaged system that is exactly what fails. *Never overwrite, by hand if need be*: pushes the most dangerous operation to where there is no check and no warning. *Merging field by field*: sounds gentle and is the worst case: afterwards nobody knows which value came from where.
+**Considered and rejected.** *Always overwrite and read the values out beforehand*: presupposes that one can read them out; with a damaged system that is exactly what fails. *Never overwrite, by hand if need be*: pushes the most dangerous operation to where there is no check and no warning. *Merging field by field*: sounds gentle and is the worst case: afterwards nobody knows which value came from where.
 
 **How you notice it is violated.** A second run of the script changes a file that came into being on the first, or there is no way to replace a compromised key.

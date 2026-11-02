@@ -21,7 +21,7 @@ single call. A notification (a request without a response) moves the question
 trips are not the problem a system with one operator and a handful of clients
 has.
 
-**Obvious and rejected.** *Leave batch available for the bulk case* — then it
+**Considered and rejected.** *Leave batch available for the bulk case* — then it
 exists, so it gets used, so it must be tested; a capability you do not exclude
 is one you maintain. *Notifications for logging* — tempting, but a lost logging
 call goes unnoticed, and that is exactly why it is the wrong place to economize.

@@ -1,21 +1,21 @@
 ---
 type: Proposal Concept
-description: The problem of credentials in a medium that logs, shares and can be steered by foreign text, the concept of a double cut of narrow capability tokens and fixed handling rules, its load-bearing structure, and the procedure for operator and agent.
+description: The problem of credentials in a medium that logs, shares and can be steered by third-party text, the concept of a double cut of narrow capability tokens and fixed handling rules, its load-bearing structure, and the procedure for operator and agent.
 ---
 
 # The concept
 
 ## Problem
 
-A classic API client is a program with a config file: the token sits in one place, flows through one code path, and who gets to see it is decided by file permissions. An agent is different. Its "working memory" is a context window that is logged, summarized, shared, and processed further; its "configuration" is often conversation; and it processes foreign content — mails, web pages, documents — that can move it to act through mere text (prompt injection). A token that stands in the chat history is no longer a secret but an inhabitant of a searchable, exfiltratable medium.
+A classic API client is a program with a config file: the token is in one place, flows through one code path, and who gets to see it is decided by file permissions. An agent is different. Its "working memory" is a context window that is logged, summarized, shared, and processed further; its "configuration" is often conversation; and it processes external content — mails, web pages, documents — that can move it to act through mere text (prompt injection). A token that is in the chat history is no longer a secret but an inhabitant of a searchable, exfiltratable medium.
 
 The usual reactions fall short: "agents get no tokens" prevents useful automation; "we trust the agent" ignores that the agent itself can be attacked. What is needed is a design that reckons with partial failure.
 
-Three roles carry the problem: **the operator** of a service issues accesses and must be able to reel them back in. **The agent** stores and uses them in an environment that was never meant for keeping secrets. **The user** decides who may do what — and should be able to do so without ever taking a secret into their hands.
+Three roles carry the problem: **the operator** of a service issues accesses and must be able to take them back. **The agent** stores and uses them in an environment that was never meant for keeping secrets. **The user** decides who may do what — and should be able to do so without ever taking a secret into their hands.
 
 ## The concept
 
-The core is a **double cut**. On the service side, tokens are cut as narrow **capabilities**: a token *is* the permission for exactly one ability at exactly one place — there is no parameter with which the caller chooses the effective scope, and hence no authorization code that could be wrong. Whoever needs two targets gets two tokens. On the agent side, a fixed **handling code** applies: received once, stored outside the conversation text, never quoted again, used exclusively against the place it was issued for.
+The core is a **double cut**. On the service side, tokens are cut as narrow **capabilities**: a token *is* the permission for exactly one ability at exactly one place — there is no parameter with which the caller chooses the effective scope, and hence no authorization code that could be wrong. Anyone who needs two targets gets two tokens. On the agent side, a fixed **handling code** applies: received once, stored outside the conversation text, never quoted again, used exclusively against the place it was issued for.
 
 The two sides are joined at the **setup** — the moment when the token wants to travel from the operator to the agent without passing through human hands. For this, the concept recommends open **self-registration** with a **display string**: the agent introduces itself, receives a token and a pronounceable, non-secret handle, and the user grants the rights to the handle — never to the secret. The rest is lifecycle: one-time display at creation, storage by the fixed ranking of `where-a-secret-comes-from`, rotation as routine, revocation that hits exactly one purpose, expiry for everything unconfirmed and unused.
 

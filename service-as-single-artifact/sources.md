@@ -27,8 +27,8 @@ sources:
 * `service-as-a-container` (`recommended-with`): what changes when the artifact runs as a container.
 * `push-deployment-that-keeps-its-secrets` and `pull-deployment-from-a-registry` (both `recommended-with`): the two ways the one deliverable of F4 reaches its target.
 * `one-operation-many-surfaces` (`recommended-with`).
-* `get-only-exit` (recommended-with): named by that proposal from its side; see there.
-* `proven-from-outside` (recommended-with): named by that proposal from its side; see there.
+* `get-only-exit` (`recommended-with`): named by that proposal from its side; see there.
+* `proven-from-outside` (`recommended-with`): named by that proposal from its side; see there.
 
 The running example in the evidence is the author's draft-filing service; its repository is not publicly accessible. All proposals live in the same repository; see its root README for the register and the links. Which proposals build on this one is listed in [`used-by.md`](./used-by.md).
 

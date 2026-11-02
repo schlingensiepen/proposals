@@ -1,6 +1,12 @@
 # Update log
 
 ## 2026-11-01
+* **Update**: Version 1.3, wording only; content of the rules unchanged.
+* **Update**: The agent guide names exactly what it takes from each imported concept (`one-configuration-one-judgment`, `where-a-secret-comes-from`, `maildir-style-file-queues` for the atomic replacement only, `build-stamp`) and links choice W1 in step 6 instead of listing the choice file as an exception.
+* **Update**: Field title "Obvious and rejected" renamed "Considered and rejected" in all thirteen rules.
+* **Update**: Section "When the answer flips" renamed "When this no longer holds" in the scope; index and README follow.
+* **Update**: German calques replaced in all files ("whoever …" → "if you …"/"anyone who …", "lies/sits/stands in" → "is in", "foreign" → "external"/"someone else's", "the cut" → "the design"/"the separation"); "permission cut" kept as the name of F8 and added to the terms.
+* **Update**: Evidence: a stale reference to question Q3 and to "Source 2" replaced by references to the scope and the sources.
 * **Update**: F12 names the version marker and the lock file as its own requirements; only the atomic replacement is imported from `maildir-style-file-queues` (review before release).
 * **Update**: Version 1.2. F4 gains one sentence: the deliverable says which revision it was built from, and the build pipeline publishes nothing that cannot; rule and reasons are imported from `build-stamp`, now listed in the imports. Steps 6 and 9 of the procedure, the rules summary and the acceptance checklist of the agent guide follow. Form: the agent guide carries `name` for skill loaders; the README describes and links the parts and says where readers and agents start; related proposals in the sources carry their relation (`recommended-with`, `overlaps-with`); `one-operation-many-surfaces` added as related.
 

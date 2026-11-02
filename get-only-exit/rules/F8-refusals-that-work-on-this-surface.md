@@ -1,6 +1,6 @@
 ---
 type: Proposal Rule
-description: Every refusal of the second surface names a way this surface has; no header, no other verb, no main-surface call, no address form from an earlier shape; a test in the build holds it.
+description: Every refusal of the second surface names a way this surface has; no header, no other verb, no main-surface call, no address form from an earlier shape; a test in the build ensures it.
 number: F8
 binding: must
 role: independent
@@ -19,7 +19,7 @@ the identifier sought; an unknown action on a composition lists the
 actions there are, instead of pointing at a contract document the caller
 cannot process. Where one text must hold for both surfaces, it names the
 action instead of the path: "the call that deposits a message" instead
-of the concrete address and method. A test in the build holds, for the
+of the concrete address and method. A test in the build ensures, for the
 refusals of this surface, that they do not contain the words of the
 other surface.
 
@@ -36,7 +36,7 @@ serious finding of its run. The test in the build belongs to it,
 because taking over the finished texts is the cheapest solution and
 therefore suggests itself again with every new error path.
 
-**Obvious and rejected.** *Take over the main surface's error texts*:
+**Considered and rejected.** *Take over the main surface's error texts*:
 saves editing and gives the recipient, as a remedy, exactly what the
 second surface was not built for. *Generic refusals without a way*:
 better than the wrong way, but the caller then repeats the same call,

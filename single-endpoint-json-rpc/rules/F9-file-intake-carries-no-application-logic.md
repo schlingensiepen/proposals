@@ -48,18 +48,18 @@ fail:
    **server configuration** — an `.htaccess` the operator may not even have
    evaluated, or a `web.config` on the other platform. On a package whose
    configuration you can neither see nor change, this is a measure you **take
-   and do not assume**. Whoever declares it mandatory builds their security on an
+   and do not assume**. Anyone who declares it mandatory builds their security on an
    assumption they cannot verify.
 
 **The grading is the point.** Barriers 1 and 2 cost nothing and work everywhere;
 barrier 3 works best and can fail silently. That is why none of the three may
 stand alone — and why barrier 3 must not be the one you rely on.
 
-**Obvious and rejected.** *Have the upload attach the file right away* — saves
+**Considered and rejected.** *Have the upload attach the file right away* — saves
 one call and costs atomicity. *Clean up never-attached files on a timer* — such
 a rule eventually deletes while someone is still typing; orphaned files are
 cheaper than that failure mode, and they are findable by comparing directory
 against database.
 
-**How you notice it is violated.** After an aborted upload, half an operation sits in the
+**How you notice it is violated.** After an aborted upload, half an operation is in the
 data.

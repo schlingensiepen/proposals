@@ -8,7 +8,7 @@ description: Self-contained guide for an agent that makes a repository self-cont
 
 ## Purpose
 
-You are making a repository self-contained, so that a human or an agent who opens it for the first time can work from it alone, or you are reviewing a repository for knowledge that lives only outside it. This guide is complete on its own; rules are named in parentheses as provenance only.
+You are making a repository self-contained, so that a human or an agent who opens it for the first time can work from it alone, or you are reviewing a repository for knowledge that lives only outside it. This guide is complete on its own except for the procedure of the test by a reader from outside (step 7), which comes from the imported concept `proven-from-outside`; ask the user for that bundle if you do not have it. Rules are named in parentheses as provenance only.
 
 The check question behind everything: **does one still understand and follow the repository when every external link is dead?** Links are evidence or deepening, never a prerequisite.
 
@@ -20,15 +20,15 @@ The check question behind everything: **does one still understand and follow the
 
 **2 · Write one task definition per recurring activity.** For each activity that recurs: what to do, in which order, how to tell it is finished. Describe the activity, not the undertaking, the tool or the motivation. Do not merge them into one large guide and do not leave them in tickets. (F3)
 
-**3 · Make every instruction self-contained.** Every rule and every check question is written out in the instruction itself. A reference to a number or section of another document may stand only in parentheses as provenance, and following the instruction must not need it. Write the instruction as commands, not as a copy of the reasoning. (F4)
+**3 · Make every instruction self-contained.** Every rule and every check question is written out in the instruction itself. A reference to a number or section of another document may appear only in parentheses as provenance, and following the instruction must not need it. Write the instruction as commands, not as a copy of the reasoning. (F4)
 
 **4 · Bring decisions in with their reasons.** Wherever a document relies on a decision, take over the statement and the reasons, and where it carries the matter, the rejected alternatives with the reason for each rejection. A link to the decision log may remain as a maintenance note. When you inline: take the matter, not the context (no internal names, customer data or access paths); use your own words, not the wording of outside documentation; put the evidence in the sources. Where the document is generated from the source that holds the decision, do not correct the reasons in the copy; generate it anew in full from the source. (F5)
 
-**5 · Write down the pairings.** **Duty of adoption:** list the pairs of places in this repository that say the same thing in different forms and must change together (typically discussion paper and instruction, instruction and checklist, document and register entry). The list depends on the repository; record it where every change will meet it, and handle every pairing in the same change as the change itself. (F6)
+**5 · Write down the pairings.** **Duty of adoption:** list the pairs of places in this repository that say the same thing in different forms and must change together (typically discussion paper and instruction, instruction and checklist, document and register entry). The list and its place depend on the repository; record it where every change will meet it, and handle every pairing in the same change as the change itself. (F6)
 
 **6 · Mark what is generated.** Every file produced from other files carries a visible note that it is generated and names its leading source. Changes happen only at the source; the generation runs automatically so that deviations show. Check generated files in, so that they are available without build tools. (F7)
 
-**7 · Apply the dead-link test.** Go through every document as if every link to the outside were dead. Wherever a reader would have to follow a link to keep working, bring the knowledge in (step 4) or name the place explicitly as one where self-containment is not reached (for instance because a quality system requires the statement to exist only once, or because the knowledge belongs to somebody else and a summary is not enough). Do not claim self-containment where it does not hold. Reading it yourself is not enough, because you read with the very knowledge the links are meant to replace: have a reader without inside knowledge, for instance a fresh agent with nothing but the repository and a task, work from the repository and report where it had to follow a link or guess; treat these places as defects. This acceptance by a reader from outside is imported from `proven-from-outside`. (F1)
+**7 · Apply the dead-link test.** Go through every document as if every link to the outside were dead. Wherever a reader would have to follow a link to keep working, bring the knowledge in (step 4) or name the place explicitly as one where self-containment is not reached (for instance because a quality system requires the statement to exist only once, or because the knowledge belongs to somebody else and a summary is not enough). Do not claim self-containment where it does not hold. Reading it yourself is not enough, because you read with the very knowledge the links are meant to replace: have a reader without inside knowledge, for instance a fresh agent with nothing but the repository and a task, work from the repository and report where it had to follow a link or guess; treat these places as defects. This acceptance by a reader from outside is imported from `proven-from-outside`; run it as that concept's agent guide describes (which task to give the reader, what it reports). (F1)
 
 **8 · Protect the instructions.** Files that an agent follows unchanged have effect. Tell the user that changes to them need the same review and history as code changes, and before a repository is published, review everything you brought in for confidential material.
 
@@ -44,7 +44,7 @@ NEVER: a link as a prerequisite for understanding (F1) · a user manual as the e
 - [ ] Exactly one entry file, short, naming two or three tasks with one instruction each; further entry files only point to it. (F2)
 - [ ] Every recurring activity has its own instruction with order and a recognizable end. (F3)
 - [ ] No instruction needs a second document to be followed. (F4)
-- [ ] Every decision a document relies on stands there with its reasons; nobody has to fetch another document to answer "why?". (F5)
+- [ ] Every decision a document relies on is there with its reasons; nobody has to fetch another document to answer "why?". (F5)
 - [ ] The list of pairings exists and is where every change will meet it. (F6)
 - [ ] Every generated file carries the note and names its source; generation runs automatically. (F7)
 - [ ] Inlined material reviewed for confidential content and outside wording.

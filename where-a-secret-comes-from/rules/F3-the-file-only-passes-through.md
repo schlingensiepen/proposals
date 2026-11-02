@@ -20,17 +20,17 @@ the service generates itself ([W1 (b)](../choices/W1-no-secret-set.md))
 is stored at exactly that path.
 
 **Why.** The file is there for the operator who cannot set a variable,
-and for the service that must store a secret it generated. Cut narrowly
-as a pass-through it remains a place, not a second channel to the
+and for the service that must store a secret it generated. Kept narrow
+as a pass-through, it remains a place, not a second channel to the
 outside.
 
-**Obvious and rejected.** *The secret in the configuration file*: that
+**Considered and rejected.** *The secret in the configuration file*: that
 one gets versioned, copied, pasted into tickets. *Client-side encryption
 acrobatics*: the process cannot keep secrets from itself; the
 protection is only apparent.
 *Copying the file into a variable at start and passing it on*: then it
-sits in the environment of every child process.
+is in the environment of every child process.
 
 **How you notice it is violated.** The file's content shows up in a log
-or an error message; or the file sits in the same directory as the
+or an error message; or the file is in the same directory as the
 versioned configuration.

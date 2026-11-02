@@ -17,7 +17,7 @@ You are looking for proven guidance, or a user pointed you at this repository.
 
 ## Use
 
-- First read `scope.md`: where it applies, when the answer flips, what it does not solve, what is not yet settled. A proposal applied outside its scope is wrong with confidence.
+- First read `scope.md`: where it applies, when this no longer holds, what it does not solve, what is not yet settled. A proposal applied outside its scope is wrong with confidence.
 - Respect the status from the register: *draft* means not yet proven; say so to your user. *stable* has reference evidence. *deprecated* names a successor in its `log.md`.
 - Decide every choice with your user, never silently; record the decision where the guide says.
 - A rule has one answer; if your case needs another, you are not using the concept, and you say so instead of bending the rule.

@@ -1,11 +1,11 @@
 ---
-status: entwurf            # entwurf | angenommen | abgeloest
+status: draft              # draft | accepted | superseded — Werte englisch wie die Schlüssel
 date: JJJJ-MM-TT           # Tag der Entscheidung, nicht des Schreibens
 decision-makers: []        # wer entschieden hat — Rollen statt Klarnamen
 consulted: []              # wer gefragt wurde
 informed: []               # wer es wissen muss
-supersedes: []             # Nummern, die dieses Dokument ersetzt — IMMER Liste
-superseded-by: []          # Nummern, die dieses Dokument ersetzt haben — IMMER Liste
+supersedes: []             # Nummern, die dieses Dokument ersetzt — IMMER Liste, Nummern in Anführungszeichen: ["0011"]
+superseded-by: []          # Nummern, die dieses Dokument ersetzt haben — IMMER Liste, Nummern in Anführungszeichen
 ---
 
 <!-- VORLAGE: Kopieren, nach `<nnnn>-<kurztitel>.md` umbenennen, ausfüllen.
@@ -20,7 +20,8 @@ superseded-by: []          # Nummern, die dieses Dokument ersetzt haben — IMME
 
      BEIDE BEZIEHUNGSFELDER SIND LISTEN, auch bei einem einzigen Eintrag: Eine
      Revision kann zwei Entscheidungen zusammenführen, eine Entscheidung in zwei
-     zerfallen.
+     zerfallen. Nummern in Anführungszeichen (["0011"]): ohne liest YAML 0011 als
+     Zahl und verliert die führenden Nullen.
 
      DATEINAME: <nnnn>-<kurztitel>.md — vierstellige Nummer, Kleinbuchstaben,
      Bindestriche, Umlaute ausgeschrieben (zustaende, nicht zustände). Nach der

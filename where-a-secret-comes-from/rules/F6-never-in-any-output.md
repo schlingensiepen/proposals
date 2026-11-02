@@ -22,12 +22,12 @@ exactly once is the rule of the concept that issues it.
 
 **Why.** Logs, chat histories and error messages are searchable,
 copyable stores; what is in them once is soon everywhere. The exception
-must be named, cut narrowly and justified rather than silently
+must be named, kept narrow and justified rather than silently
 tolerated: a rule without an exception produces either a gap (no way in
 for the operator without a shell) or a workaround (the secret in the
 image, in the deployment file, in a ticket).
 
-**Obvious and rejected.** *"Secret into the chat" as the normal way*:
+**Considered and rejected.** *"Secret into the chat" as the normal way*:
 the transcript store becomes a key ring. *Logging it at every start
 "so one can find it again"*: then the log is a key ring and the
 exception is none any more. *Showing it truncated*: the truncation is

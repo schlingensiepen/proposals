@@ -15,6 +15,6 @@ applies_to: [builder]
 
 **Why.** This is the same trick as with enqueuing, only the other way round: the atomicity of the rename already is a mutual exclusion, so one does not need to build one. The approach moreover scales unchanged from one worker to several, without anything changing in the code.
 
-**Obvious and rejected.** *Read first, then mark as taken*: between reading and marking lies the time window for a double claim. *One worker that is the only one to know the queue*: works, but prevents any later parallelization and makes the worker the bottleneck. *A coordination layer (lock service, database transaction)*: solves a problem one does not have at this point.
+**Considered and rejected.** *Read first, then mark as taken*: between reading and marking lies the time window for a double claim. *One worker that is the only one to know the queue*: works, but prevents any later parallelization and makes the worker the bottleneck. *A coordination layer (lock service, database transaction)*: solves a problem one does not have at this point.
 
 **How you notice it is violated.** Two workers process the same job, or a worker treats the failure of a claim as an error and reports it.

@@ -20,4 +20,6 @@ description: The terms used in this bundle, in English and German, each with a s
 | Readiness point | the unauthenticated point that says nothing but "running". | Bereitschaftspunkt | der unauthentifizierte Punkt, der nur „läuft" sagt. |
 | Companion file | a file beside the artifact that does not travel with it. | Begleitdatei | eine Datei neben dem Artefakt, die nicht mit ihm reist. |
 | Management surface | any possibility, reachable over the network, of configuring a service, inspecting it or changing accesses. | Verwaltungsfläche | jede über das Netz erreichbare Möglichkeit, einen Dienst zu konfigurieren, zu inspizieren oder Zugänge zu ändern. |
-| rule | An entry with one answer; giving it up means no longer using the concept. | Festlegung | Ein Eintrag mit einer Antwort; wer sie aufgibt, benutzt das Konzept nicht. |
+| Builder | anyone who owns the source and the build pipeline and publishes the deliverable. | Erbauer | wer die Quelle und die Bauleitung besitzt und das Erzeugnis veröffentlicht. |
+| Operator | anyone who deploys the deliverable and runs the instance. | Betreiber | wer das Erzeugnis ausrollt und die Instanz betreibt. |
+| Rule | an entry with one answer; giving it up means no longer using the concept. | Festlegung | ein Eintrag mit einer Antwort; wer sie aufgibt, benutzt das Konzept nicht. |

@@ -15,7 +15,7 @@ This guide is complete on its own. Every rule, step and checklist item is writte
 Apply this guide when:
 
 - you are building a browser application whose deployment should be copying files, with no build step and no server-side rendering;
-- you are reviewing such an application, or converting a server-rendered one to this cut;
+- you are reviewing such an application, or converting a server-rendered one to this design;
 - you are choosing between fragment routing and the History API;
 - you are deciding what may be embedded in the delivered HTML.
 
@@ -25,30 +25,30 @@ Apply this guide when:
 
 **Setting up the artifact:**
 
-1. Create one HTML document containing structure and static labels only.
-2. Put scripts, styles and vendored libraries beside it as plain files; record each library's version.
+1. Create one HTML document containing structure, static labels and the application's own code (the hydration logic) only.
+2. Put the vendored libraries beside it as plain files; record each library's version.
 3. Put configuration into a separate public file the application fetches at startup.
 4. Implement hydration: at startup, read the fragment, derive the view, call the API, fill the structure.
 5. Register a listener for fragment changes that re-renders without reloading.
 
-**Reviewing an existing application against this cut:**
+**Reviewing an existing application against this design:**
 
 1. Request the document twice, unauthenticated, and compare the bytes. They must be identical.
 2. Grep the delivered markup for anything that varies per dataset — names, identifiers, picklists.
 3. Confirm no server-side template engine touches the document.
 4. Confirm the server needs no rule beyond serving the entry point; deploy to a clean target and check that every view is reachable.
-5. Grep for `<script src="http` and `<link href="http` pointing at foreign hosts.
+5. Grep for `<script src="http` and `<link href="http` pointing at external hosts.
 6. Check that every view hidden in the client is also refused by the API.
 
 ## Rules (MUST / NEVER)
 
 MUST:
 
-1. Deploy exactly what is versioned in the repository: one HTML document and the files beside it. No bundling, no transpiling, no minifying, no generated output. (F1)
+1. Deploy exactly what is versioned in the repository: one HTML document with its own code and the vendored files beside it. No bundling, no transpiling, no minifying, no generated output. (F1)
 2. Serve the document without requiring any credential. It is the thing that obtains a credential, so demanding one to load it is circular. (F2)
 3. Put only two things in the delivered markup: **form** — structure, layout and static labels — and **hydration logic**, the code that fills that structure at runtime. Everything else arrives through the API. (F2)
 4. Decide borderline cases with this test: *would something else stand here for a different dataset?* If yes, it is content and belongs in a response, not in the document. A label like "storage location" is form; a concrete storage location is content. (F2)
-5. Keep configuration — API address, application name — in a separate, equally public file, never embedded in the document. Otherwise the line moves with every wish. (F2)
+5. Keep configuration — API address, application name — in a separate, equally public file, never embedded in the document. Otherwise the boundary shifts with every new request for an exception. (F2)
 6. Serve the document from a file server with no application code in the delivery path: no template filled, no script run server-side, nothing assembled. (F3)
 7. Treat the address as a **state of the client**, never as a resource the server resolves. The server knows one entry point and always returns the same document. (F4)
 8. Write that state into the **fragment** (`…/#item/7`). Read it at startup and listen for its change. (F5)
@@ -60,12 +60,12 @@ NEVER:
 
 - Never embed substantive content in the delivered markup — no names, no lists, no prefilled values, no keys, not a single record. Two requests for the document must yield identical bytes. (F2)
 - Never fill the first screen server-side "so it is not empty". That turns delivery back into an authorization question and puts the check in two places. (F2, F3)
-- Never insert a value into the document server-side, not even "just the title". That creates exactly the place this cut removes. (F3)
+- Never insert a value into the document server-side, not even "just the title". That creates exactly the place this design removes. (F3)
 - Never use the History API with path-like addresses. Every incoming link and every reload then asks the server for that path, so the server needs a catch-all rule — and a server configuration that must track the application's views becomes part of what you deploy. (F5)
 - Never require the server to know which views the application has. (F4)
-- Never load a script or stylesheet from a foreign server. It runs in your own origin with all the rights of your own code, and whoever serves it decides your application's content at any time. An integrity check rules out substitution but not outage. (F6)
+- Never load a script or stylesheet from an external server. It runs in your own origin with all the rights of your own code, and anyone who serves it decides your application's content at any time. An integrity check rules out substitution but not outage. (F6)
 - Never treat hiding a view in the client as protection. The artifact is public and contains the hidden branch verbatim; only the API decides. (F2)
-- Never put anything in the fragment that should stay unseen. It reaches no server, but it sits in the browser history and on screen. (F5)
+- Never put anything in the fragment that should stay unseen. It reaches no server, but it is in the browser history and on screen. (F5)
 
 ## Recommendations (SHOULD)
 
@@ -83,7 +83,7 @@ These concern the interface, which this guide does not fix. Decide them explicit
 - [ ] Is configuration in a separate file rather than embedded? (F2)
 - [ ] Does no application code run in the delivery path? (F3)
 - [ ] Does the server need to know nothing about the application's views? (F4)
-- [ ] Does the state sit in the fragment, with no catch-all rule required? (F5)
+- [ ] Is the state in the fragment, with no catch-all rule required? (F5)
 - [ ] Does changing only the fragment cause no request and no reload? (F5)
 - [ ] Is every third-party script and stylesheet vendored, with its version recorded? (F6)
 - [ ] Is there a visible loading state for the empty first screen? (scope: what it costs)

@@ -1,6 +1,6 @@
 ---
 type: Proposal Scope
-description: Security considerations of an immutable body of records, what the format costs, where it applies, when the answer flips, what it does not solve and what is not yet settled.
+description: Security considerations of an immutable body of records, what the format costs, where it applies, when this no longer holds, what it does not solve and what is not yet settled.
 ---
 
 # Scope
@@ -32,7 +32,7 @@ A file format appears security-neutral. It is not, once the records are immutabl
 
 Markdown files in a version-controlled directory, a tool that at least displays YAML frontmatter, and the willingness to maintain the head by hand. No server, no database, no ADR program.
 
-### When the answer flips
+### When this no longer holds
 
 The answer becomes wrong when (a) a tool is in use that enforces its own format: then the tool wins, and this dossier at best describes which fields to reproduce inside it; (b) the body grows so large that hand-kept head fields no longer match: beyond that point a check run is needed that holds relations and index against each other; (c) the decisions have no options because they are external mandates: then F5 and F6 are empty shells and a plain list will do.
 

@@ -13,7 +13,7 @@ okf_version: "0.2"
 One answer each; give one up and you are no longer using the concept.
 
 * [F1 A check that cannot go red is no check](./rules/F1-a-check-that-cannot-go-red-is-none.md) - Every check is run once with its safeguard removed while it is written and must fail; if it stays green, sharpen it.
-* [F2 Acceptance by a reader without inside knowledge](./rules/F2-acceptance-by-a-reader-without-inside-knowledge.md) - A document meant to work without inside knowledge is accepted only when an agent with nothing but the URL, a secret and a task completes the task; at the end of every round, findings are bugs.
+* [F2 Acceptance by a reader without inside knowledge](./rules/F2-acceptance-by-a-reader-without-inside-knowledge.md) - A document meant to work without inside knowledge is accepted only when an agent with nothing but what any later reader will have and a task completes the task; at the end of every round, findings are bugs.
 
 # Scope and evidence
 

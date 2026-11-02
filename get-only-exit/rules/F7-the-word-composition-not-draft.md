@@ -33,9 +33,9 @@ depends on the one irreversible call standing out from all others. The
 author paid for this renaming across specification, code, tests and
 description; the price would have risen with every day the word lived.
 
-**Obvious and rejected.** *Keep "draft" and explain the difference in
+**Considered and rejected.** *Keep "draft" and explain the difference in
 the text*: the reader reads the name, not the explanation; it comes too
-late and stands too far away in the context window. *Name both
+late and is too far away in the context window. *Name both
 completions the same, "for consistency"*: consistent would be equal
 consequence; this would be consistently wrong. *Name the call after the
 state at the target ("deposit as draft")*: ties the name to a setting

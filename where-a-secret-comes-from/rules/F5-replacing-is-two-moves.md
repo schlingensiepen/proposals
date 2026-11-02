@@ -27,10 +27,10 @@ that it is two moves. The service never deletes a secret on its own.
 ([F4](./F4-the-higher-rank-wins-and-never-hides.md)) stays a piece of
 knowledge but not an action: the operator sees the report and can do
 nothing without a shell. And a service that deletes on its own takes
-away from the operator the decision about a secret they may have
-written down.
+the decision about a secret they may have written down away from the
+operator.
 
-**Obvious and rejected.** *"Changing the variable is enough"*: the
+**Considered and rejected.** *"Changing the variable is enough"*: the
 lower one is still there. *Automatic cleanup at start*: deletes what
 the operator may still need.
 

@@ -31,36 +31,36 @@ justification from F8 — "the damage stays bounded" — therefore does not hold
 here, and without a rule of its own the backup would silently inherit a
 justification that never applied to it. The envelope cannot carry the bytes, but
 it can carry the **commission**; so the control — request, poll, terminate —
-stays in the API, and only delivery sits outside. The three paragraphs below
+stays in the API, and only delivery is outside. The three paragraphs below
 justify the three parts individually.
 
 **Why the address comes into being only after completion.** If it existed
-earlier, half a file would sit under a valid address — and a caller cannot tell
+earlier, half a file would be under a valid address — and a caller cannot tell
 an incomplete backup from a complete one. A state is a statement, a path is a
 promise; while compilation runs there may only be the statement. This holds
 regardless of whether work is concurrent — it is merely unavoidable there.
 
 **Why termination is a method of its own and does not happen automatically.**
 The server does not know when a retrieval is finished; an aborted download looks
-to it like a successful one. The **retriever** knows. So it reports it, and the
-same call clears up. The lifetime thus hangs on an event that is actually
-observed, rather than on a clock nobody winds.
+to it like a successful one. The **caller that fetches it** knows. So it reports
+it, and the same call clears up. The lifetime is therefore tied to an event that
+is actually observed, rather than to a clock nobody winds.
 
 **Why the expiry belongs there anyway — and how it is enforceable without a
 scheduled process.** If termination does not happen, because a retrieval aborts
-or a process dies, a complete copy of the dataset lies around. For critical data
+or a process dies, a complete copy of the dataset is left behind. For critical data
 that is unacceptable. But a cheap hosting package has no reliable timer. The
 resolution is **lazy enforcement**: every call to one of the three methods
 clears expired provisions along the way. It costs nothing and needs nothing — it
 has the gap that nothing is cleared while nobody commissions anything (not yet settled; see
 the scope).
 
-**Obvious and rejected.** *Treat the provision like an attachment, i.e. store it
-under a permanent path* — convenient, and the actual danger; a backup sitting
+**Considered and rejected.** *Treat the provision like an attachment, i.e. store it
+under a permanent path* — convenient, and the actual danger; a backup that is
 permanently under an address is a data leak waiting for that address to end up
 somewhere. *Stream the compilation through the envelope* — produces exactly the
 memory demand F8 avoids. *Only an expiry, without a terminating method* — then
-the file lies around until it lapses although it was fetched long ago; the
+the file remains until it lapses although it was fetched long ago; the
 expiry is the fallback, not the normal case. *Only termination, without an
 expiry, even for critical data* — relies on the confirmation always arriving.
 *Return the path at commissioning time and let the caller poll whether the file

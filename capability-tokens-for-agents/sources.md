@@ -29,6 +29,7 @@ Locations checked on 2026-08-14 unless noted otherwise.
 * `self-describing-services` (generalizes): the worked application of this concept to self-describing web services, shown in the evidence. Further depth, not a prerequisite for understanding.
 * `invitation-instead-of-login` (overlaps-with): named by that proposal from its side; see there.
 * `admin-surface-over-http` (recommended-with): named by that proposal from its side; see there.
+* `get-only-exit` (tension-with): named by that proposal from its side; see there.
 
 The two works of the author named in the evidence, the wiki toolkit and the mail filing service, live in repositories that are not publicly accessible. All proposals live in the same repository; see its root README for the register and the links. Which proposals build on this one is listed in [`used-by.md`](./used-by.md).
 

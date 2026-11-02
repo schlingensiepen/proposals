@@ -1,8 +1,8 @@
 ---
 type: Proposal
 description: A token embodies exactly one capability at exactly one place, and its handling follows fixed rules along the lifecycle, from creation and handover through storage and use to rotation, revocation and expiry, so that an agent context in which every leak is searchable and copyable survives partial failure.
-version: "1.1"
-date: 2026-10-13
+version: "1.2"
+date: 2026-11-01
 status: draft
 author: Jörn Schlingensiepen
 extends: []
@@ -23,19 +23,23 @@ tokens when the consumer of a service is an AI agent?
 **Thesis.** A token embodies exactly one capability at exactly one
 place, and its handling follows fixed rules along the lifecycle,
 because in the agent context every leak is searchable and copyable;
-whoever pins down both the cut and the handling survives partial
+anyone who pins down both the cut and the handling survives partial
 failure gracefully.
 
 **In short.** When the consumer of a service is an AI agent, the leak
 channels for credentials change fundamentally: the chat history
 becomes a searchable, copyable storage medium, and the agent can be
-steered by foreign text. The most effective answer is a double cut:
+steered by third-party text. The most effective answer is a double cut:
 **tokens as narrow capabilities** on the service side and **fixed
 handling rules** on the agent side.
 
-**Version 1.1** keeps all twelve rules of 1.0. The ranking by which
-an agent obtains and keeps a secret (F6) is now imported from
-`where-a-secret-comes-from`; F6 keeps the agent's part in it.
+**Version 1.2** keeps all twelve rules of 1.1 and sharpens three
+readings: a token created without rights and activated later is no
+exception to F3; the automatic expiry of unused tokens is F9, not the
+rotation rhythm of F8; "persisted immediately" (F6) means into the
+highest rank available.
+The agent guide names the imported concept where it says it is
+complete, and the English was smoothed without change of meaning.
 
 ## Start here
 
@@ -60,7 +64,7 @@ Twelve rules: cut on the service side F1 to F4, lifecycle F5 to F9, agent behavi
 
 ## Scope and evidence
 
-The [scope](./scope.md) names security considerations, costs, where it applies, when the answer flips, what it does not solve and what is not yet settled; the [evidence](./evidence.md) gives the origin, the worked application, the precursor in operation and a fictitious walk-through. The [sources](./sources.md) name the imported concept, a related proposal and external sources; [used by](./used-by.md) lists which proposals import or extend this one.
+The [scope](./scope.md) names security considerations, costs, where it applies, when this no longer holds, what it does not solve and what is not yet settled; the [evidence](./evidence.md) gives the origin, the worked application, the precursor in operation and a fictitious walk-through. The [sources](./sources.md) name the imported concept, a related proposal and external sources; [used by](./used-by.md) lists which proposals import or extend this one.
 
 ## Adopting
 

@@ -13,7 +13,7 @@ from start to finish. *Example; names and values are invented.*
 First, file intake three times. It knows neither entry nor purpose:
 
 ```
-POST /api/upload.php
+POST /api/upload/
 Content-Type: multipart/form-data; boundary=…
 Cookie: session=…
 
@@ -60,7 +60,8 @@ carry three different pieces of information:
  "id": 2}
 ```
 
-A protocol error, by contrast, uses the reserved number space — telling the
+A protocol error, by contrast, uses the reserved number space and carries only
+the code and message the standard defines, no `data.type` (F5) — telling the
 client that **its code** is wrong, not its data (F6):
 
 ```json
@@ -121,7 +122,7 @@ remain, because it exposes an image. This one exposes the entire dataset.
 
 **Reference implementation: omitted, because none exists yet (status: draft).**
 The concept is fully specified and described in contract tests, but the running
-application it comes from sits on an older state and does not yet implement it.
+application it comes from runs an older version and does not yet implement it.
 The statements in this concept are therefore **thought through, not proven** —
 in particular, the claim that F9 actually establishes atomicity is so far an
 argument only.

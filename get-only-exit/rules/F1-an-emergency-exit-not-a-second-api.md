@@ -20,14 +20,14 @@ it implements nothing itself and offers no capability the main surface
 lacks. The only permitted exception to "invokes" is collecting the parts
 of an upload ([F5](./F5-the-upload-in-parts.md)), and that, too, is an
 operation of the storage layer, not of the surface. A structural test in
-the build holds this: it fails when an operation is performed on this
+the build enforces this: it fails when an operation is performed on this
 surface instead of invoked, and it requires by name that the depositing
 call goes through the same operation as on the main surface.
 
 **Why.** The second surface gives up two things the main surface has,
 the secret in a header and verbs according to their meaning, and
 neither may rub off on the main surface. Under its own prefix every
-property given up stands in the description of *this* surface, and the
+property given up is in the description of *this* surface, and the
 name says in the log what you are looking at. That it implements nothing
 itself is not tidiness: two implementations of the same operation drift
 apart as soon as someone touches only one, and it goes unnoticed because
@@ -37,10 +37,10 @@ capability keeps it an emergency exit: as soon as you can do something
 on it that you cannot do otherwise, it is a second API with worse
 properties.
 
-**Obvious and rejected.** *Extend the main surface with `GET`
-variants*: then the secret stands at every address of the main surface
+**Considered and rejected.** *Extend the main surface with `GET`
+variants*: then the secret is at every address of the main surface
 and `GET`s that take effect mix with the reading ones; the concessions
-color the whole API. *Leave it and mention it in the guide*: excludes a
+taint the whole API. *Leave it and mention it in the guide*: excludes a
 type of tool that is increasingly the only one an agent has in a
 sandbox. *Put a proxy in front that adds the headers*: it must be
 installed and supplied with the secret; exactly the setup project that

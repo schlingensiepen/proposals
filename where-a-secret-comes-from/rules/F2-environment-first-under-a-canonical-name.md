@@ -17,10 +17,10 @@ in the start report.
 **Why.** The canonical name solves the problem of finding the secret
 again across sessions and machines: the service itself says where its
 secret usually lives. And the environment is the way a platform hands
-its secret in without disk and without log; whoever has that needs no
+its secret in without disk and without log; a platform that has it needs no
 other rank.
 
-**Obvious and rejected.** *The operator picks the name*: then the usage
+**Considered and rejected.** *The operator picks the name*: then the usage
 description cannot say where the secret lives, and every instance is
 named differently. *A generic name (`TOKEN`, `PASSWORD`)*: collides with
 the second service on the same machine.

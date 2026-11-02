@@ -15,6 +15,6 @@ applies_to: [builder]
 
 **Why.** A retry folder of its own would be one more state with a cleanup rule of its own, without anything to gain. And the retry data belong in the file and not in the file name, because they change: a change of state is a rename, a change of data is a rewrite with a rename (F3); both cleanly separated.
 
-**Obvious and rejected.** *A retry folder of its own per attempt stage*: multiplies the states without any gain in insight. *Keep the retry in the worker's memory*: survives no restart and turns a waiting retry into a lost job. *Retry without limit*: a job that can never be delivered keeps the worker busy forever; the failed folder is the answer to that.
+**Considered and rejected.** *A retry folder of its own per attempt stage*: multiplies the states without any gain in insight. *Keep the retry in the worker's memory*: survives no restart and turns a waiting retry into a lost job. *Retry without limit*: a job that can never be delivered keeps the worker busy forever; the failed folder is the answer to that.
 
 **How you notice it is violated.** After a restart, waiting retries have disappeared, or the worker keeps spinning on one job.

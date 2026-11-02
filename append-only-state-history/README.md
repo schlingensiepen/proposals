@@ -1,8 +1,8 @@
 ---
 type: Proposal
 description: The state of an item is never changed but replaced; every change creates a new, complete state, and the history is the sequence of these states.
-version: "0.2"
-date: 2026-08-15
+version: "0.3"
+date: 2026-11-01
 status: draft
 author: Jörn Schlingensiepen
 extends: []
@@ -17,7 +17,7 @@ This directory is an OKF bundle for one proposal of the series: how to keep the 
 
 **Thesis.** Nothing is overwritten: every change creates a new state, attachments are carried over by reference instead of copied, and exactly one metadata entry may still live on the current latest state.
 
-**Version 0.2** is a fragment. It records what is decided so that it is not lost, and names the one question it hinges on: how the procedure carries over to object trees. Until that is settled, it will not be raised to 1.0.
+**Version 0.3** is a fragment. It records what is decided so that it is not lost, and names the one question it hinges on: how the procedure carries over to object trees. Until that is settled, it will not be raised to 1.0.
 
 ## Start here
 
@@ -38,7 +38,7 @@ The [scope](./scope.md) carries the fragment notice, the security points still t
 
 ## Adopting
 
-The [agent guide](./AGENT.md) states, in this fragment, only the purpose and its limit; [extensions](./extensions.md) lists the proposals that extend this one.
+The [agent guide](./AGENT.md) states, in this fragment, only the purpose, its limit and what to do at that limit; [extensions](./extensions.md) lists the proposals that extend this one.
 
 ## History
 

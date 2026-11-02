@@ -15,7 +15,7 @@ The rule keeps the stamp out of the unauthenticated readiness point: the revisio
 
 ## What it costs
 
-**The build stamp has to be carried through every form of build (F1).** The build pipeline has to pass the revision in, the image has to carry it, the command has to report it, the smoke test has to check it: four places that must fit together. And the smoke test costs seconds to minutes on every build, plus a running container environment in the build. A locally built artifact says "unknown", which is right on a development machine and unsatisfying for whoever tests there.
+**The build stamp has to be carried through every form of build (F1).** The build pipeline has to pass the revision in, the image has to carry it, the command has to report it, the smoke test has to check it: four places that must fit together. And the smoke test costs seconds to minutes on every build, plus a running container environment in the build. A locally built artifact says "unknown", which is right on a development machine and unsatisfying for anyone who tests there.
 
 ## Where it applies
 
@@ -23,7 +23,7 @@ The rule keeps the stamp out of the unauthenticated readiness point: the revisio
 
 Not yet written.
 
-### When the answer flips
+### When this no longer holds
 
 Not yet written.
 
@@ -33,4 +33,4 @@ Not yet written.
 
 ### Not yet settled
 
-* The rule demands the stamp in the version command, not in the readiness point. For an operator who reaches the running instance only over the network, this means the question "which revision is running?" cannot be answered without a one-off invocation, unless an authenticated network surface reports the revision. Does the rule need a second way for that, for instance the stamp in a response that only a valid access receives anyway, or is this the boundary at which operation without a one-off invocation flips in any case?
+* The rule demands the stamp in the version command, not in the readiness point. For an operator who reaches the running instance only over the network, this means the question "which revision is running?" cannot be answered without a one-off invocation, unless an authenticated network surface reports the revision. Does the rule need a second way for that, for instance the stamp in a response that only a valid access receives anyway, or is this the boundary at which operation without a one-off invocation no longer works in any case?

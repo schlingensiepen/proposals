@@ -1,7 +1,7 @@
 ---
 type: Proposal
 description: What arises while something is being made and what is finally published belong in two repositories with two histories, connected as a submodule or, where the tools do not allow that, as two independent roots with an ignore rule.
-version: "0.11"
+version: "0.12"
 date: 2026-11-01
 status: draft
 author: Jörn Schlingensiepen
@@ -18,7 +18,7 @@ This directory is an OKF bundle for one proposal of the series: how to keep what
 
 **Thesis.** Two repositories: one for the work with its whole history, one for the product with a history worth showing; connected either as a submodule, where the work repository embeds the product repository, or as two independent roots with an ignore rule, where the available tools cannot write submodule references.
 
-**Version 0.11** is a draft: complete in content, eight rules, not yet reviewed by the author. What is not yet proven and not yet settled is listed in the scope.
+**Version 0.12** is a draft: complete in content, eight rules, not yet reviewed by the author. What is not yet proven and not yet settled is listed in the scope.
 
 ## The parts
 

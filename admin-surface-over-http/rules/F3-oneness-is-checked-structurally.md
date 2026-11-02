@@ -15,6 +15,6 @@ applies_to: [builder]
 
 **Why.** The imported concept justifies why a structural property needs a structural check. What is said here is only why it holds for both surfaces of this extension: without the structural test the one operation of F2 is an intention that falls at the first wish for a helper function; if F3 falls, nobody knows whether F2 still holds. And in the author's implementation the command line was the older copy; it had accumulated just as much logic of its own as the new surface.
 
-**Obvious and rejected.** *The test for the new surface only*: the command line was the older copy; it had accumulated just as much logic of its own.
+**Considered and rejected.** *The test for the new surface only*: the command line was the older copy; it had accumulated just as much logic of its own.
 
 **How you notice it is violated.** A pass-through of the command line or of the administration surface gets a helper function of its own, "just for the presentation", that reads the store, and no test turns red.

@@ -1,8 +1,8 @@
 ---
 type: Proposal
 description: A repository is self-contained when someone opening it for the first time, human or agent, can work from it alone; an entry point that branches to the actual tasks, decisions with their reasons in full text, and a check rule asking whether everything still holds when every external link is dead.
-version: "0.9"
-date: 2026-08-15
+version: "0.10"
+date: 2026-11-01
 status: draft
 author: Jörn Schlingensiepen
 extends: []
@@ -12,13 +12,13 @@ imports:
 
 # The self-contained repository
 
-This directory is an OKF bundle for one proposal of the series: how to shape a repository so that whoever opens it for the first time, a human or an agent, can understand it and contribute to it from the repository alone. It is a base concept.
+This directory is an OKF bundle for one proposal of the series: how to shape a repository so that anyone who opens it for the first time, a human or an agent, can understand it and contribute to it from the repository alone. It is a base concept.
 
 **Question.** How do I shape a repository so that a human or an agent who opens it for the first time can work from it alone, without prior knowledge, without asking back, without outside documents?
 
 **Thesis.** A repository carries within itself everything needed to understand it and contribute to it: an entry point that branches to the two or three actual tasks, decisions together with their reasons in full text instead of as a link, and a check rule for it: does it still work when every external link is dead?
 
-**Version 0.9** is a working version: complete in content, seven rules, not yet reviewed by the author. What is not yet settled or not yet proven is stated in the scope.
+**Version 0.10** is a working version: complete in content, seven rules, not yet reviewed by the author. What is not yet settled or not yet proven is stated in the scope. This version names the series only as evidence, no longer as an external source, says where the procedure of the test by a reader from outside comes from, and smooths the language; the content of the rules is unchanged.
 
 ## The parts
 

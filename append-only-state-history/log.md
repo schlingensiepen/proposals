@@ -1,6 +1,7 @@
 # Update log
 
 ## 2026-11-01
+* **Update**: Version 0.3. Agent guide: at the limit of the fragment, an item that is a tree, the agent puts the question to the user instead of deciding it. Terms: a row for the role builder, which the rules name in their head. Sources: the related proposal is named as a relation with its difference stated; the note that the difference is still to be named is dropped. Language: field title "Considered and rejected" in every rule, "When this no longer holds" in scope and index, calques smoothed without change of meaning. The sections not yet written now say so for version 0.3. The date in the README head follows the version. Content of the rules unchanged.
 * **Update**: Form (agent guide name, README describes the parts, relation vocabulary).
 
 ## 2026-10-13

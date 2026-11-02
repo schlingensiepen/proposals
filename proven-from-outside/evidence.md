@@ -22,7 +22,7 @@ answers an incident that happened during the implementation.
 ## Three green checks that tested nothing
 
 Three assertions stayed green when what they tested was removed: one for
-"something was logged", one for a name that stood in the following
+"something was logged", one for a name that was in the following
 sentence, one for a rejection that came one stage later anyway. This is
 the case behind
 [F1](./rules/F1-a-check-that-cannot-go-red-is-none.md).
@@ -30,9 +30,9 @@ the case behind
 ## Nine rounds of self-review and the first outside run
 
 Nine review rounds by the developer over their own work found a great
-deal; in eight of them the worst finding sat inside the fix for the
+deal; in eight of them the worst finding was inside the fix for the
 previous error. This count is the author's observation during the work,
-not a kept record, and stands here as a report of experience. The
+not a kept record, and is given here as a report of experience. The
 substantial findings came from a real mailbox, from a reader of the
 finished text, and from agents with nothing but the URL and a token; the
 first such run against a fresh surface produced six findings, among them a

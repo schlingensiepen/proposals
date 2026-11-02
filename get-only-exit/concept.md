@@ -33,7 +33,7 @@ their agent to use it, with the tool that agent happens to have, not
 with one it would first have to install; doing away with installation was
 the whole point of self-description. **The operator** does not want to
 spoil the real interface: a secret that may be appended to any address
-as a query parameter, and calls that write by `GET`, would color the
+as a query parameter, and calls that write by `GET`, would taint the
 whole API, and nobody could say any more which properties it actually
 has. **The agent**, finally, believes the description literally and
 reports "technical failure" to its user without being able to say why;
@@ -42,7 +42,7 @@ it did everything right that it can do, and that was not enough.
 The obvious ways out are all bad. *Leave it and mention it in the
 guide*: then the description carries a sentence that shows a whole type
 of tool the door. *Extend the existing API with `GET` variants*: then the
-secret suddenly stands at every address of the main surface, and calls
+secret is suddenly at every address of the main surface, and calls
 that take effect by `GET` mix with the reading ones. *Put a small proxy
 in front that adds the headers*: that is again something that has to be
 installed, exactly what self-description did away with. The structural
@@ -68,7 +68,7 @@ several parts is filled field by field as a **composition**, can be
 shown at any time, and is deposited by **exactly one** call. Every
 refusal names a way that *this* surface has, and nothing that is
 impossible here. And the surface states its **price** at the door: the
-secret stands in the address and therefore in logs, histories and
+secret is in the address and therefore in logs, histories and
 transcripts. You use this surface because your tool leaves you no
 choice, not because it is more convenient.
 
@@ -76,7 +76,7 @@ choice, not because it is more convenient.
 
 The concept assumes a service that describes itself: an entry page that
 lists the second surface in one sentence, a description the weakest
-intended reader can accept, refusals that teach, one word for one thing.
+intended reader can process, refusals that teach, one word for one thing.
 It applies that to a surface whose reader can do even less than the
 reader such a service already provides for. `self-describing-services`
 treats self-description in depth; this bundle can be understood and
@@ -89,7 +89,7 @@ that, knowingly, and this concept names the breach together with the
 conditions under which it can be justified
 ([F11](./rules/F11-the-price-named.md)). And it **stands beside**
 `service-as-single-artifact`, because a second surface is also a
-question of cut: it is not a second function and not a second service
+question of separation: it is not a second function and not a second service
 but the same flow in smaller steps, one more pass-through to operations
 that exist exactly once (imported from `one-operation-many-surfaces`).
 
@@ -102,7 +102,7 @@ callers at all: with a query parameter or a percent-encoded slash it
 fails on the very tools it exists for. F4 keeps the surface a
 pass-through on the reading side, F5 and F6 on the writing side; drop F5
 and the store sees half files, drop F6 and more than one call takes
-effect, and the user's consent has no place any more. F7 hangs on F5 and
+effect, and the user's consent has no place any more. F7 depends on F5 and
 F6: two completions with unequal consequences need unequal names,
 otherwise the description deceives. F8, F9 and F10 are the conditions
 for a weak tool using the surface *to the end*: with an error text that
@@ -119,8 +119,8 @@ rule holds only for whoever has the source code.
 1. **Confirm the need.** Name the concrete tools your callers use that
    can send only `GET` without headers. If they can set an
    `Authorization` header after all, stop: the second surface would cost
-   its price for nothing. Check the conditions under which the answer
-   flips (see the scope) before going on. (F1)
+   its price for nothing. Check the conditions under which this no
+   longer holds (see the scope) before going on. (F1)
 2. **Choose the prefix** and write the one sentence for the entry page.
    (F1)
 3. **Make every operation of the main surface a callable function**
@@ -140,8 +140,9 @@ rule holds only for whoever has the source code.
    same upload function. (F5)
 8. **Build the composition:** create, one route per field, show, deposit
    with a key, then the same depositing function; keep the receipt on
-   the composition. Have a reader without inside knowledge check the
-   vocabulary before the names are in the code. (F6, F7, F10)
+   the composition and refuse a key already used for another
+   composition. Have a reader without inside knowledge check the
+   vocabulary before the names are in the code. (F6, F7, F9, F10)
 9. **Write the refusals for this surface**, then the test that scans
    them for the other surface's words and checks their address form.
    (F8, F9)
@@ -153,7 +154,9 @@ rule holds only for whoever has the source code.
 11. **Decide the secret policy with the operator:** a separate secret
     per surface where possible, shorter life, known at issue; answers
     marked not to be stored by caches; the secret segment shortened in
-    the service's own logs. (F11)
+    the service's own logs; the sentence for the upstream logs handed to
+    the operator. These duties go beyond the reference implementation
+    (see the evidence); record what was decided. (F11)
 12. **Run the external check** with a reviewer that may only send `GET`;
     treat every finding as a defect; revoke the test secret afterwards.
     Repeat after every change. (F12)

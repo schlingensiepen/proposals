@@ -21,14 +21,14 @@ body, with `id: null`, because the `id` could not be read.
 only whether the envelope arrived. Mixing the two levels — sometimes status,
 sometimes envelope — forces every client to handle two error sources and to know
 their precedence. The two exceptions are admissible because no envelope existed
-yet: whoever sent unreadable JSON also sent no `id`.
+yet: anyone who sent unreadable JSON also sent no `id`.
 
 That both exceptions nonetheless carry an error object is the actual rule:
 **a client never sees an empty body.** Otherwise it needs a special path for
 "response without content", and that path is rarely written and even more rarely
 tested.
 
-**Obvious and rejected.** *Map application errors onto HTTP status codes* (`404`
+**Considered and rejected.** *Map application errors onto HTTP status codes* (`404`
 for "not found") — looks cleaner and is an illusion: the status then describes
 partly the transport and partly the application, and with an intermediate server
 that can produce `404` itself the two are no longer distinguishable. *Always

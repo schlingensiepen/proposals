@@ -24,22 +24,24 @@ surface, but its message names the **path form**, not the header
 part of a `GET` address. A surface that exists for weak tools must not
 fail on exactly the weakness it exists for; the author therefore rebuilt
 it from the query form to the path form four days after the first
-build. The secret comes first because it hangs on every call, and the
+build. The secret comes first because it is needed on every call, and the
 path then reads from left to right like the operation itself: who, on
 what, what, with what. And that an identifier does not suffice keeps the
-cut of the tokens: a composition of another token is not reachable under
+scope of the tokens: a composition of another token is not reachable under
 its identifier but answers like one that does not exist.
 
-**Obvious and rejected.** *The secret as a query parameter
+**Considered and rejected.** *The secret as a query parameter
 (`?token=`)*: the first version; it failed on sandboxes that strip the
 query part, and as a form it is anyway the one that every place that
 stores addresses stores. *Register the secret once and then use a
 session identifier*: needs a cookie or a header, exactly what the caller
-does not have. *Let identifiers suffice as permission ("whoever knows
+does not have. *Let identifiers suffice as permission ("anyone who knows
 the composition's identifier may fill it")*: turns an address into a
-second-class secret that nobody treats as one.
+second-class secret that nobody treats as one. *The secret in the
+fragment of the address (`#…`)*: a tool does not send the fragment to
+the server; the service would never see it.
 
 **How you notice it is violated.** Calls from a particular environment
 arrive without values, because the query part was cut off on the way;
-or a call with a foreign identifier and one's own secret opens something
+or a call with someone else's identifier and one's own secret opens something
 that does not belong to the caller.

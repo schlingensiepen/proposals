@@ -1,7 +1,7 @@
 ---
 type: Proposal
 description: A check proves something only once it has been seen to go red with its safeguard removed, and a document meant to work without inside knowledge counts as accepted only once a reader without that knowledge has completed a task with it.
-version: "0.1"
+version: "0.2"
 date: 2026-11-01
 status: draft
 author: Jörn Schlingensiepen
@@ -25,10 +25,10 @@ meant to replace?
 **Thesis.** Proof comes from outside: a check proves something only once
 it has been seen to go red with its safeguard removed, and a document
 meant to work without inside knowledge is accepted only once a reader
-without that knowledge has completed a task with it; whoever checks what
-they built themselves shares the blind spots of what is under review.
+without that knowledge has completed a task with it; anyone who checks
+what they built themselves shares the blind spots of what is under review.
 
-**Version 0.1** is a draft with two rules. Parts of the procedure and the
+**Version 0.2** is a draft with two rules. Parts of the procedure and the
 scope are not yet written.
 
 ## Start here
@@ -37,7 +37,7 @@ The [concept](./concept.md) describes checks and documents judged from the insid
 
 ## Rules
 
-Two rules, each standing on its own. There are no choices.
+Two rules, each standing on its own.
 
 * [F1 A check that cannot go red is no check](./rules/F1-a-check-that-cannot-go-red-is-none.md)
 * [F2 Acceptance by a reader without inside knowledge](./rules/F2-acceptance-by-a-reader-without-inside-knowledge.md)

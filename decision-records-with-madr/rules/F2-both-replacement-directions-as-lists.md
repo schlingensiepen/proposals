@@ -7,7 +7,7 @@ role: load-bearing
 applies_to: [writer]
 ---
 
-# F2 · The only extension: both replacement directions as lists
+# F2 · The only addition to the head: both replacement directions as lists
 
 **Applies to:** writer.
 
@@ -22,16 +22,16 @@ place. As a head field it is queryable — and **as a list**, because the relati
 is n:m: a revision can merge two old decisions, and a grown decision can split
 into two. Both occur once a body is a few years old; a single value would force a
 white lie in those cases. That it is **both** directions has a practical reason:
-whoever searches the body hits the older record first, because it has existed
+anyone who searches the body hits the older record first, because it has existed
 longer and is linked more often — it must be able to say on its own that it was
 superseded.
 
-**Obvious and rejected.** *Only `superseded-by`, resolving the reverse direction
+**Considered and rejected.** *Only `superseded-by`, resolving the reverse direction
 by search* — works while the body is small and fails silently as soon as someone
 renames a file. *Keeping the relation only in the index* — then a record picked
 up on its own can no longer be judged, and that is exactly how records are read:
 individually, out of a search. *Single values instead of lists* — forbids merging
-and splitting, and whoever needs them later writes an ad-hoc note into the prose.
+and splitting, and anyone who needs them later writes an ad-hoc note into the prose.
 
 **How you notice it is violated.** A head carries `superseded-by` as a plain string
 instead of a list — or the replacement lives only in the prose.

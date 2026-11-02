@@ -8,7 +8,7 @@ description: Self-contained guide for an agent that builds a small service for o
 
 ## Purpose
 
-You are building a small service that puts one function on the network, its shape, command set, configuration, packaging and deployment, or you are reviewing such a service for a creeping second tool, second image, management surface or permission model. This guide is complete on its own, except for four things: step 4 needs the choices of the two imported concepts, step 6 needs the choice file of this bundle, the file mechanics of the store (atomic replacement, version marker, lock file) come from a third import, `maildir-style-file-queues`, and what steps 6 and 9 need about the revision the artifact was built from comes from a fourth, `build-stamp`; ask the user for those bundles if you do not have them. Rules are named in parentheses as provenance.
+You are building a small service that puts one function on the network, its shape, command set, configuration, packaging and deployment, or you are reviewing such a service for a creeping second tool, second image, management surface or permission model. This guide is complete on its own except for the choices on precedence and the empty value from the imported concept `one-configuration-one-judgment` and on secrets from the imported concept `where-a-secret-comes-from` (step 4), the atomic replacement of the store file from the imported concept `maildir-style-file-queues` (the version marker and the lock file are this concept's own requirements, F12), and what steps 6 and 9 need about the revision the artifact was built from, from the imported concept `build-stamp`; ask the user for those bundles if you do not have them. Rules are named in parentheses as provenance.
 
 Scope: this is a procedure for building, not an interface design pattern. How the finished service describes itself to its consumers is a separate matter.
 
@@ -16,9 +16,9 @@ Scope: this is a procedure for building, not an interface design pattern. How th
 
 Steps 0 to 3 are half an hour of thinking and decide everything that follows. Do not skip them; you will only redo them later under worse conditions.
 
-**0 · Check whether it must be a service at all.** If the caller sits on the same machine, a script, a scheduler, an agent on that host, the answer is a command-line tool, not a service: operating-system permissions are the access control, and network surface, access artifacts and proxy disappear entirely. Only when the caller comes over the network, or will later, does the rest pay off. *Result:* a reasoned decision.
+**0 · Check whether it must be a service at all.** If the caller is on the same machine, a script, a scheduler, an agent on that host, the answer is a command-line tool, not a service: operating-system permissions are the access control, and network surface, access artifacts and proxy disappear entirely. Only when the caller comes over the network, or will later, does the rest pay off. *Result:* a reasoned decision.
 
-**1 · Write the sentence.** One sentence saying what the service does, with no "and also". If it will not come out, the cut is not found yet. *Result:* the sentence; it becomes the short description and the first line of the command help. (F1)
+**1 · Write the sentence.** One sentence saying what the service does, with no "and also". If it will not come out, the shape of the service is not found yet. *Result:* the sentence; it becomes the short description and the first line of the command help. (F1)
 
 **2 · Derive the methods.** The sentence yields the main method; add the helper methods without which it does not work: preparation, status enquiry, cleaning up. Whatever will not subordinate itself does not belong in this service. *Result:* the method list. (F1)
 
@@ -26,9 +26,9 @@ Steps 0 to 3 are half an hour of thinking and decide everything that follows. Do
 
 **4 · Define the configuration.** One schema with the global settings; secrets are referenced, never contained. Then **decide the choices of the imported concepts with the user, never on your own**: precedence and the empty value (`one-configuration-one-judgment`), no secret set, unusable, further sources (`where-a-secret-comes-from`). Record the decisions. *Result:* configuration schema and the recorded decisions. (F5)
 
-**5 · Name the state locations.** Configuration and state at separate, named places outside the artifact; the store, the variants and their accesses, lies with the state, created by the artifact itself. **Duty of adoption:** write down, per mode, the user, the directories, and whether reading or writing. *Result:* the directory layout and the permission table. (F6, F8, F12)
+**5 · Name the state locations.** Configuration and state at separate, named places outside the artifact; the store, the variants and their accesses, is part of the state, created by the artifact itself. **Duty of adoption:** write down, per mode, the user, the directories, and whether reading or writing. *Result:* the directory layout and the permission table. (F6, F8, F12)
 
-**6 · Set up the command tree, before the business logic.** At least: start service · check configuration · show state · set up, change, remove a variant · version, including the revision the artifact was built from (`build-stamp`). Setting up a variant issues its access in the same command. Fixed exit codes, machine-readable output, no interactive input without an argument alternative. **Decide choice W1 with the user:** commands started locally only, or additionally over another channel; with (b), record how the permission cut is established in the channel. *Result:* the runnable skeleton. (F2, F3, F9)
+**6 · Set up the command tree, before the business logic.** At least: start service · check configuration · show state · set up, change, remove a variant · version, including the revision the artifact was built from (`build-stamp`). Setting up a variant issues its access in the same command. Fixed exit codes, machine-readable output, no interactive input without an argument alternative. **Decide choice [W1](./choices/W1-channel-of-the-commands.md) with the user:** commands started locally only, or additionally over another channel; with (b), record how the permission cut is established in the channel. *Result:* the runnable skeleton. (F2, F3, F9)
 
 **7 · Build the service mode.** The network surface offers exactly the methods from step 2; the access check looks up in the store what the presented access embodies; there is no administration path and at most one readiness point that says nothing but "running". If the service mode finds a store of an older structure at start, it migrates it before it listens and records the structure version. *Result:* the service, runnable against a hand-written configuration. (F1, F7, F13)
 
@@ -36,7 +36,7 @@ Steps 0 to 3 are half an hour of thinking and decide everything that follows. Do
 
 **9 · Package and set up the delivery.** One deliverable whose entry point is the service mode and against which the commands run in the same environment. **Duty of adoption:** record the form of the artifact (binary, package or directory) and, with several components, how far "one artifact" reaches and who carries administration across component boundaries. **Ask the user explicitly instead of choosing:** container image or package, build pipeline yes or no, deployment file pointing at the published image. With a build pipeline, it starts the built deliverable before publishing and requires that the version command reports the revision built (`build-stamp`). *Result:* the artifact and a delivery directory. (F2, F4)
 
-**10 · Establish the operating form.** Local endpoint; a ready-made reverse proxy in front with the public name and the certificate, or whatever the deployment decides to place there; separate users and file permissions so that the service process reads where the commands write. *Result:* the service is reachable, and the permission cut stands in the process form. (F8, F11)
+**10 · Establish the operating form.** Local endpoint; a ready-made reverse proxy in front with the public name and the certificate, or whatever the deployment decides to place there; separate users and file permissions so that the service process reads where the commands write. *Result:* the service is reachable, and the permission cut is in the process form. (F8, F11)
 
 ## Rules
 
@@ -52,7 +52,7 @@ NEVER: a management surface in the running service (F7) · write access of the s
 - [ ] The version command reports the revision the deliverable was built from; the build pipeline publishes nothing that cannot. (F4)
 - [ ] Every command has a documented exit code; everything that lists is machine-readable. (F3)
 - [ ] Check and start share the code; the decisions on the choices of the imported concepts are recorded. (F5)
-- [ ] A version change carries no state along and leaves none behind; the store lies with the state. (F6, F12)
+- [ ] A version change carries no state along and leaves none behind; the store is part of the state. (F6, F12)
 - [ ] No path of the network surface has to be blocked in the proxy. (F7)
 - [ ] The service process writes operating data, not the configuration, enforced by users and permissions; permissions per mode are written down. (F8)
 - [ ] Setting up issues the access in the same command, shown once, kept only as a hash; secrets of the variant are in the store. (F9)
@@ -66,7 +66,7 @@ NEVER: a management surface in the running service (F7) · write access of the s
 | Mistake | Fix |
 |---|---|
 | A separate little admin tool beside the service | Make it a mode of the same artifact; two tools mean two configuration parsers with two version numbers (F2) |
-| A management web UI "for convenience" | Commands on the server; whoever still needs it takes the extension via W1 (b) and pays for it (F7) |
+| A management web UI "for convenience" | Commands on the server; if you still need it, take the extension via W1 (b) and pay for it (F7) |
 | Deployment file builds locally | Point it at the published artifact; otherwise there are as many artifacts as machines (F4) |
 | Second, "slim" admin image | One image; a second one can carry a different version and see something else than the service (F4) |
 | Service process runs as the user that owns the configuration | Separate users and directories: the service reads configuration and writes operating data only (F8) |

@@ -14,18 +14,18 @@ Reference implementation: none, because none exists yet (status: draft). The pro
 
 > **Example** (a private inventory system; names and values invented). Three components: the application on rented web space, an analysis process on a machine with a graphics card, a backup process on a small server.
 >
-> **What lies in the repository:** `deploy/deploy-sftp.py`, `deploy/worker-scp.py`, a sample configuration beside each, and `deploy/deploy.py` as the entry point. No target name, no address.
+> **What is in the repository:** `deploy/deploy-sftp.py`, `deploy/worker-scp.py`, a sample configuration beside each, and `deploy/deploy.py` as the entry point. No target name, no address.
 >
-> **What lies beside it**, ignored by version control: `deploy-webspace/` with address, credentials and, after the first run, the copy of the signing key; `worker-gpu/` and `worker-backup/`, each with address, SSH key and the statement of which task this machine has.
+> **What is beside it**, ignored by version control: `deploy-webspace/` with address, credentials and, after the first run, the copy of the signing key; `worker-gpu/` and `worker-backup/`, each with address, SSH key and the statement of which task this machine has.
 >
-> **The first run.** `deploy.py deploy-webspace worker-gpu worker-backup` delivers the web space **first**, not because the guide says so, but because the two others only get their keys while its window is open (F7). In the process the signing key and the deploy key come into being, are written to the server and backed up beside `deploy-webspace/`; the script names them in the terminal (F2). Afterwards it checks from outside whether the data directory is readable and whether a script would be executed in the attachment directory (F9).
+> **The first run.** `deploy.py deploy-webspace worker-gpu worker-backup` delivers the web space **first**, not because the guide says so, but because the two others only get their keys while its window is open (F7). In the process the signing key and the deploy key come into being, are written to the server and backed up beside `deploy-webspace/`; the script names them in the terminal, by name and place, not by value (F2). Afterwards it checks from outside whether the data directory is readable and whether a script would be executed in the attachment directory (F9).
 >
-> Then the two worker targets each fetch **a key of their own** in the open window, one for *analyzing*, the other for *backing up*, and write it into their instance configuration (F6).
+> Then the two worker targets each fetch **a key of their own** in the open window, one for *analyzing*, the other for *backing up*, and write it into their instance configuration; that is the one place where its plain text appears (F6).
 >
-> **The second run**, a week later, only transfers files: the configuration on the server stays untouched (F5), the store as well (F4), and the order does not matter, because the keys have long been lying locally (F7).
+> **The second run**, a week later, only transfers files: the configuration on the server stays untouched (F5), the store as well (F4), and the order does not matter, because the keys have long been stored locally (F7).
 >
 > **The unpleasant case.** The machine with the analysis process is compromised. Its key is revoked **immediately**, without a delivery and without a window (F6). The backup key stays untouched, and because it carries a different task, the entire store was never reachable from that machine.
 
 ## A second example of the same pattern
 
-The procedure is not bound to a particular access model. If the application instead sets up an administrator with user name and password, nothing in F1 to F10 changes: the password would then be a system secret under F2, created by the script, never made up, named once in the terminal and backed up beside the instance configuration. Only the contents of the window would be different.
+The procedure is not bound to a particular access model. If the application instead sets up an administrator with user name and password, nothing in F1 to F10 changes: the password would then be a system secret under F2, created by the script, never made up, named in the terminal without its value and backed up beside the instance configuration. Only the contents of the window would be different.

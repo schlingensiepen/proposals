@@ -1,8 +1,8 @@
 ---
 type: Proposal
 description: Access arises from an invitation; one link invites a person for all their devices because every redemption creates its own credential, and machines receive capability rather than identity.
-version: "1.0"
-date: 2026-08-15
+version: "1.1"
+date: 2026-11-01
 status: draft
 author: Jörn Schlingensiepen
 extends: []
@@ -17,7 +17,7 @@ This directory is an OKF bundle for one proposal of the series: an access model 
 
 **Thesis.** Access arises from an invitation; one link invites a user for all their devices, because every redemption creates its own credential, and machines receive capability rather than identity.
 
-**Version 1.0** in bundle form: the content of the first complete version, arranged as one file per rule, with the open questions of that version turned into duties of adoption and into what the scope names as not yet settled.
+**Version 1.1** keeps all ten rules of 1.0 and aligns the derived files with them: the recognition aid and the invitation expiry are recommendations in the agent guide as they are in F4 and F3, the term "capability key" says what F6 and F7 say, setting up a fresh system is a procedure of its own after F8, and the wording was smoothed throughout. Version 1.0 was the first complete version, arranged as one file per rule, with the open questions of that version turned into duties of adoption and into what the scope names as not yet settled.
 
 ## Start here
 
@@ -35,12 +35,12 @@ Ten rules: humans F1 to F5, the boundary to machines F6 to F8, transport F9, rig
 * [F6 Humans receive identity, machines receive capability](./rules/F6-humans-identity-machines-capability.md)
 * [F7 Machine accesses come into being only in the bootstrap window](./rules/F7-machine-keys-only-in-the-bootstrap-window.md)
 * [F8 The bootstrap is a time window, not a delete-me file](./rules/F8-the-bootstrap-is-a-time-window.md)
-* [F9 Secrets in addresses sit in the fragment, or nowhere](./rules/F9-secrets-in-addresses-sit-in-the-fragment.md)
+* [F9 Secrets in addresses go in the fragment, or nowhere](./rules/F9-secrets-in-addresses-sit-in-the-fragment.md)
 * [F10 The model provides two anchors](./rules/F10-two-anchors-for-a-rights-system.md)
 
 ## Scope and evidence
 
-The [scope](./scope.md) names security considerations, costs, where it applies, when the answer flips, what it does not solve and what is not yet settled; the [evidence](./evidence.md) gives a worked example in an invented inventory system and the origin. The [sources](./sources.md) name related proposals and external specifications; [used by](./used-by.md) lists which proposals import or extend this one.
+The [scope](./scope.md) names security considerations, costs, where it applies, when this no longer holds, what it does not solve and what is not yet settled; the [evidence](./evidence.md) gives a worked example in an invented inventory system and the origin. The [sources](./sources.md) name related proposals and external specifications; [used by](./used-by.md) lists which proposals import or extend this one.
 
 ## Adopting
 

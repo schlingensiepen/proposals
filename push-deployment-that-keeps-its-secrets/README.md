@@ -1,8 +1,8 @@
 ---
 type: Proposal
 description: Each component is delivered by a versioned script steered by one directory per instance outside version control; the script creates and places the system's secrets itself, and because one part only gets its access while another holds a window open, the order of the partial deployments follows from the flow of secrets rather than from an agreement.
-version: "1.0"
-date: 2026-08-15
+version: "1.1"
+date: 2026-11-01
 status: draft
 author: Jörn Schlingensiepen
 extends: []
@@ -11,13 +11,13 @@ imports: []
 
 # A push deployment that keeps its secrets
 
-This directory is an OKF bundle for one proposal of the series: a procedure for whoever delivers a system of several parts by pushing it from their own machine to the hosts it runs on, and sets up its access control along the way.
+This directory is an OKF bundle for one proposal of the series: a procedure for anyone who delivers a system of several parts by pushing it from their own machine to the hosts it runs on, and sets up its access control along the way.
 
 **Question.** How do I deliver a system of several parts automatically, set up the access control along the way, and give away neither the accesses to the host systems nor the secrets that arise in the process?
 
 **Thesis.** One versioned script per component, one directory per instance outside version control; the script owns the secrets and creates the accesses in a time-limited window, and from that, not from a convention, follows the order of the partial deployments.
 
-**Version 1.0** is a draft: the procedure is fully decided and specified, but the scripts have not been built yet; the claims are thought through, not proven.
+**Version 1.1** is a draft: the procedure is fully decided and specified, but the scripts have not been built yet; the claims are thought through, not proven. This version states what the terminal shows of a secret (its name and place, never its value), names the alternative for unattended delivery, and clears a wording in F4 that could be read against F5; F2, F4 and F6 state an existing reading explicitly, the content of the other rules is unchanged.
 
 ## Start here
 
@@ -38,13 +38,9 @@ Ten rules: separation and secrets F1 and F2, protection of the store F3 to F5, w
 * [F9 Every script checks from outside what it has done](./rules/F9-every-script-checks-from-outside-what-it-has-done.md)
 * [F10 Every kind of delivery comes with a guide for manual operation](./rules/F10-every-kind-of-delivery-comes-with-a-manual-guide.md)
 
-## Choices
-
-This concept has no choices; every entry is a rule.
-
 ## Scope and evidence
 
-The [scope](./scope.md) names security considerations, costs, where it applies, when the answer flips, what it does not solve and what is not yet settled; the [evidence](./evidence.md) follows an invented three-component example to a compromised machine and states that there is no reference implementation yet. The [sources](./sources.md) name the alternative and the related proposals; [used by](./used-by.md) lists which proposals import or extend this one.
+The [scope](./scope.md) names security considerations, costs, where it applies, when this no longer holds, what it does not solve and what is not yet settled; the [evidence](./evidence.md) follows an invented three-component example to a compromised machine and states that there is no reference implementation yet. The [sources](./sources.md) name the alternative and the related proposals; [used by](./used-by.md) lists which proposals import or extend this one.
 
 ## Adopting
 

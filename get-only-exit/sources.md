@@ -1,6 +1,6 @@
 ---
 type: Proposal Sources
-description: What this proposal builds on; one import, four proposals it stands in tension with, related proposals, and external sources checked on 2026-10-13.
+description: What this proposal builds on; one import, four proposals it is in tension with, related proposals, and external sources checked on 2026-10-13.
 sources:
   - id: rfc9110
     url: https://www.rfc-editor.org/rfc/rfc9110
@@ -31,19 +31,26 @@ sources:
 
 ## Tension
 
-* `capability-tokens-for-agents`, `invitation-instead-of-login`,
-  `single-endpoint-json-rpc`, `where-a-secret-comes-from` (tension-with):
-  in tension.
-  This concept puts the secret into the address and thereby explicitly
-  suspends their rule that a secret never travels in an address; the
-  price is named at the door ([F11](./rules/F11-the-price-named.md)).
+This concept puts the secret into the address and thereby stands
+against the following proposals, on its own surface only; the price is
+named at the door
+([F11](./rules/F11-the-price-named.md)).
+
+* `capability-tokens-for-agents` (tension-with): here the token travels
+  as a path segment.
+* `invitation-instead-of-login` (tension-with): here the secret reaches
+  the server in the path.
+* `single-endpoint-json-rpc` (tension-with): this surface exists for
+  callers that have no header.
+* `where-a-secret-comes-from` (tension-with): this surface puts a secret
+  into addresses and logs knowingly, at one named place.
 
 ## Related
 
 * `self-describing-services` (recommended-with): deepening, not a prerequisite; the
   self-description whose weakest reader this surface serves.
 * `service-as-single-artifact` (recommended-with): deepening, not a prerequisite; the
-  question of cut beside this one.
+  question of separation beside this one.
 * `admin-surface-over-http` (overlaps-with): named by that proposal from its side; see there.
 
 All proposals live in the same repository; see its root README for the

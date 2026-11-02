@@ -4,8 +4,8 @@ date: YYYY-MM-DD           # the day it was decided, not the day it was written
 decision-makers: []        # who decided — roles rather than personal names
 consulted: []              # who was asked
 informed: []               # who needs to know
-supersedes: []             # numbers this record replaces — ALWAYS a list
-superseded-by: []          # numbers that replaced this record — ALWAYS a list
+supersedes: []             # numbers this record replaces — ALWAYS a list, numbers quoted: ["0011"]
+superseded-by: []          # numbers that replaced this record — ALWAYS a list, numbers quoted
 ---
 
 <!-- TEMPLATE: copy, rename to `<nnnn>-<short-title>.md`, fill in. Do not take the
@@ -17,7 +17,8 @@ superseded-by: []          # numbers that replaced this record — ALWAYS a list
      of the content would be void in practice.
 
      BOTH RELATION FIELDS ARE LISTS, even with a single entry: a revision can
-     merge two decisions, and one decision can split into two.
+     merge two decisions, and one decision can split into two. Quote the numbers
+     (["0011"]): unquoted, YAML reads 0011 as a number and drops the leading zeros.
 
      FILE NAME: <nnnn>-<short-title>.md — four-digit number, lowercase, hyphens,
      ASCII only. After acceptance the name is not changed; numbers are never
@@ -30,21 +31,21 @@ superseded-by: []          # numbers that replaced this record — ALWAYS a list
 
 <!-- The title states what was DECIDED ("Storage stays SQLite"), not the topic
      area ("Storage"). It stays as it is even when the record is superseded later
-     — otherwise two identically named entries sit in the index and citations
+     — otherwise two identically named entries are in the index and citations
      become ambiguous.
 
-     IF THIS RECORD IS SUPERSEDED, a visible notice goes here — above "Context and
-     problem" — pointing at the successor. Together with the head, this is the
+     IF THIS RECORD IS SUPERSEDED, a visible notice goes here — below this heading,
+     above "Context and Problem Statement" — pointing at the successor. Together with the head, this is the
      second and last exception to immutability: the head is read by tools, this
      notice by people. -->
 
-## Context and problem
+## Context and Problem Statement
 
 <Where the question comes from. What triggered it, what went wrong, what was
 pending? Not "this record discusses X", but the problem in the language of the
 person who had it.>
 
-## Considered options
+## Considered Options
 
 <A brief list for skimming, with the chosen one marked. The spelled-out reasons
 live below in "Rejected and why" — the two sections serve different readers and
@@ -54,15 +55,15 @@ do not replace one another.>
 - **<Option B>** — rejected
 - **<Option C>** — rejected
 
-## Decision
+## Decision Outcome
 
 **Decision:** <One indicative sentence, quotable, without justification.>
 
 **Rationale:** <The reason, not the derivation. Without it the decision is
 abandoned at the first pushback.>
 
-**Trade-off:** <What spoke for the other side and why it was not enough. Whoever
-cannot write anything here did not take the alternative seriously.>
+**Trade-off:** <What spoke for the other side and why it was not enough. If you
+cannot write anything here, you did not take the alternative seriously.>
 
 ## Consequences
 

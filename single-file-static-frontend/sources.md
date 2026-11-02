@@ -21,8 +21,8 @@ This proposal imports no other concept.
 
 ## Related
 
-* `single-endpoint-json-rpc` (recommended-with): an API that fits this cut. The two overlap in two places, the exception for files (here F7) and the single origin (here F8). Here they are recommendations, because this cut commits to no API technology. Each proposal is complete on its own; further reading, not a prerequisite.
-* The access model (recommended-with; further reading, not a prerequisite): how a credential comes into being, how an invitation works, and why an invitation link can carry its secret in the fragment without landing in an access log is the subject of a proposal of its own on the access model. For this cut it suffices that such a link **keeps working**, because F5 evaluates the fragment anyway.
+* `single-endpoint-json-rpc` (recommended-with): an API that fits this design. The two overlap in two places, the exception for files (here F7) and the single origin (here F8). Here they are recommendations, because this design commits to no API technology. Each proposal is complete on its own; further reading, not a prerequisite.
+* The access model (recommended-with; further reading, not a prerequisite): how a credential comes into being, how an invitation works, and why an invitation link can carry its secret in the fragment without landing in an access log is the subject of a proposal of its own on the access model. For this design it suffices that such a link **keeps working**, because F5 evaluates the fragment anyway.
 
 All proposals live in the same repository; see its root README for the register and the links. Which proposals build on this one is listed in [`used-by.md`](./used-by.md).
 

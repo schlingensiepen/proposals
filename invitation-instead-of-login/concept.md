@@ -5,7 +5,7 @@ description: The problem of access for a small, known circle and its machines, t
 
 # The concept
 
-**In one sentence:** There is no login form and no registration; whoever comes in was invited and exchanges the invitation link **once on each device** for a credential of its own; machines, kept separate, receive keys that permit a task and represent no person.
+**In one sentence:** There is no login form and no registration; anyone who comes in was invited and exchanges the invitation link **once on each device** for a credential of its own; machines, kept separate, receive keys that permit a task and represent no person.
 
 **Abstract:** A password is a secret a human must keep, and a login form is the place where it can be guessed. Both disappear once access is a **procedure** rather than a property: someone invites, the invitee redeems, and from then on their device identifies them. **A single link suffices for all of a person's devices**; it is redeemed once on each and leaves behind a credential there that can be revoked individually. The price is that the same link also works in the wrong hands.
 
@@ -23,7 +23,7 @@ The third question is almost always answered wrongly in this situation: the back
 
 ## The concept
 
-**There are no guests.** Every piece of content requires a credential, reading included, even with a hard-to-guess address in hand. Whoever should belong gets an **invitation link**. It carries a token that permits **nothing but** being exchanged, and that **any number of times**: on opening, the application reads it out, sends it, and the server answers with a credential it sets itself. **One link therefore suffices for all of a person's devices**; on each it is redeemed once and leaves a credential of its own behind.
+**There are no guests.** Every piece of content requires a credential, reading included, even with a hard-to-guess address in hand. Anyone who should belong gets an **invitation link**. It carries a token that permits **nothing but** being exchanged, and that **any number of times**: on opening, the application reads it out, sends it, and the server answers with a credential it sets itself. **One link therefore suffices for all of a person's devices**; on each it is redeemed once and leaves a credential of its own behind.
 
 This credential belongs to **one device**, not to a person. The record behind it is a "user on device": the same person on phone and tablet has two credentials, two people on the same phone likewise. Only so can a lost device be blocked without hitting all the others. An invitation link is therefore **redeemable more than once**, every redemption creating another device, and **every device records which invitation it came from**. That makes it answerable *which* devices came out of a link, not only how many. The link itself has an **expiry** and can be **withdrawn**; both work only forwards, and what it has already produced is revoked individually.
 
@@ -33,17 +33,19 @@ This credential belongs to **one device**, not to a person. The record behind it
 
 **Load-bearing structure.** **F1 is the precondition of everything**: without "no guests" the rest is a convenience rather than an access model. **F3 and F4 belong together:** the exchange exists so that each device can get a credential of its own; without F4, F3 would be superfluous, without F3, F4 unreachable. **F5 carries manageability** and is individually adoptable; it holds for any access model with long-lived credentials. **F6 is the boundary between the two worlds**, and **F7 and F8 are one component, not two rules**: F7 says where capability keys may **not** come into being, F8 provides the place where they do. Together they yield a practicable procedure: deploy, create while the window is open, the window closes by itself.
 
-*For adopters:* whoever takes F7 without F8 has a prohibition without an alternative place. The need does not disappear, the backup wants its key, so creation slides back into normal operation, silently. That is not a fault of this model but the way it breaks when adopted piecemeal.
+*For adopters:* if you take F7 without F8, you have a prohibition without an alternative place. The need does not disappear, the backup wants its key, so creation slides back into normal operation, silently. That is not a fault of this model but the way it breaks when adopted piecemeal.
 
-**F9 is a transport matter** and independent of everything else. **F10 hangs on F2 and F4**: it names the responsibility for the procedures those two introduce; without F10 they exist, but nobody may carry them out. **Whoever takes only one rule takes F6**: it prevents the mistake most commonly made in this situation.
+**F9 is a transport matter** and independent of everything else. **F10 hangs on F2 and F4**: it names the responsibility for the procedures those two introduce; without F10 they exist, but nobody may carry them out. **If you take only one rule, take F6**: it prevents the mistake most commonly made in this situation.
 
 ## The procedure
 
 The rules say what must hold. These are the procedures the concept introduces, as they occur in operation.
 
+**Setting up a fresh system.** A fresh system has nobody who could invite. Deploy; the deployment writes the setup file with secret and expiry and so opens the bootstrap window. While it is open, and with the setup secret, run the setup procedure that creates the first administrator: a user with the right to invite and administer, and their first invitation, redeemed like any other. Create the machine keys needed now in the same window. Let the window lapse; afterwards the setup procedures answer that it is closed. (F2, F8)
+
 **Admitting a person.** Create the user with name and address. Create an invitation for that user, with an expiry. Deliver the link with the token in the fragment. On each device the person opens it, the application reads the token from the fragment and sends it once in a request body; the server creates a device record, asks the person for a label, sets the cookie, and stores which invitation the device came from. (F2, F3, F4, F9)
 
-**Losing a device.** Revoke that device; do not touch the person or their other devices. If the invitation is still live and may have leaked, withdraw it as well; this stops new redemptions but changes nothing about existing devices. Consult the history for what was done from that device. (F3, F4, F5)
+**Losing a device.** Revoke that device; do not touch the person or their other devices. If the invitation is still live and may have leaked, withdraw it as well; this stops new redemptions but changes nothing about existing devices. (F3, F4, F5)
 
 **Connecting a machine.** Deploy; the deployment writes the setup file with secret and expiry. While the window is open, have one key per task created for that machine, named after machine and task. Take each clear text once and write it into that machine's configuration. Let the window lapse; do not extend it by hand. If the machine is later compromised, shut its key down immediately, without a deployment and without a window. (F6, F7, F8)
 

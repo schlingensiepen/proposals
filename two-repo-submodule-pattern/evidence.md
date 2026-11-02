@@ -16,7 +16,7 @@ For the draft-filing service there are two repositories: one for the genesis (co
 
 ## The tool limit from which F5 arose
 
-In practice the case occurred that all work on the repositories ran through an interface that can create and change files, but not submodule references, because these are not file content but an entry type of their own in the directory structure. Creating the submodule anyway and advancing the reference by hand was considered; it was rejected, because a reference that does not move along feigns a precision it does not have. The decision fell on two independent roots with an ignore rule for the embedded directory, and the proposal for it came from the author once the limit had been named. The wording of F5 comes from this episode, including the reason it is not a makeshift.
+In practice the case occurred that all work on the repositories ran through an interface that can create and change files, but not submodule references, because these are not file content but an entry type of their own in the directory structure. Creating the submodule anyway and advancing the reference by hand was considered; it was rejected, because a reference that does not move along pretends to a precision it does not have. The choice was two independent roots with an ignore rule for the embedded directory, and the proposal for it came from the author once the limit had been named. The wording of F5 comes from this episode, including the reason it is not a makeshift.
 
 ## The announcement rule of F6
 

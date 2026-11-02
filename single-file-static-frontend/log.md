@@ -1,6 +1,7 @@
 # Update log
 
 ## 2026-11-01
+* **Update**: Version 1.1. "Single file" now reads the same everywhere as F2 already says: the one document carries its own code, the hydration logic, and only the vendored libraries are files beside it; the setting-up procedure in concept and agent guide and the walk-through in the evidence (now two files) follow that. Scope: the open question on the empty first screen states that a skeleton drawn without data is form by the test of F2 and therefore compatible with it, so only the waiting time is open; "When this no longer holds" names path-like addresses, since giving up F5 costs the core of F1. README: a version paragraph. Language pass without change of meaning: "Considered and rejected" as the field title, "When this no longer holds" in scope, README and index, calques replaced ("sits" to "is", "whoever" to "if you" / "anyone who", "foreign" to "external" / "third-party", "cut" to "design", "the line moves with every wish" to "the boundary shifts with every new request for an exception", "bought deliberately" to "chosen" / "accepted deliberately"). Content of the rules unchanged.
 * **Update**: Form (agent guide name, README describes the parts, relation vocabulary).
 
 ## 2026-10-13

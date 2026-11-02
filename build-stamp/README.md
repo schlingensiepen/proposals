@@ -1,8 +1,8 @@
 ---
 type: Proposal
 description: The build stamps the source revision into the artifact itself, the artifact reports it when asked against the running instance, and the build pipeline publishes nothing that cannot report exactly the revision it was built from.
-version: "0.1"
-date: 2026-10-13
+version: "0.2"
+date: 2026-11-01
 status: draft
 author: Jörn Schlingensiepen
 extends: []
@@ -17,7 +17,7 @@ This directory is an OKF bundle for one proposal of the series: how an artifact 
 
 **Thesis.** The build stamps the source revision into the artifact itself, the artifact reports it when asked against the running instance, and the build pipeline publishes only a deliverable that reports exactly the revision built before it is published; without the stamp, every statement about the behavior of what is running is unverifiable.
 
-**Version 0.1** is a draft with one rule. Parts of the procedure, the scope and the evidence are not yet written.
+**Version 0.2** is a draft with one rule. Parts of the procedure, the scope and the evidence are not yet written.
 
 ## Start here
 

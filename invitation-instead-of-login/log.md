@@ -1,6 +1,7 @@
 # Update log
 
 ## 2026-11-01
+* **Update**: Version 1.1, content of the rules unchanged. The agent guide lists the recognition aid (identification string and last network address) under SHOULD, as F4 recommends it; the acceptance item follows. The agent guide also lists the invitation expiry under SHOULD, as F3 recommends it; the rules behind it are renumbered, and the deadline step, the acceptance item and the self-check follow. The term "capability key" now says what F6 and F7 say: the key itself is the scope, the store holds its hash with task and machine, nothing is looked up at a person. Setting up a fresh system is a procedure of its own in the concept and the agent guide, derived from F8: the first administrator comes into being only through the bootstrap window; self-check and acceptance checklist follow. The step "consult the history" is removed from the procedures, since no rule defines a history; the scope says only what F4 says, that a history can record it. The unused term "choice" is removed from the terms, and the roles builder and operator are added. The entry for a related proposal in the sources is cut to this bundle's own view. Wording smoothed without change of meaning: field title "Considered and rejected" in every rule, section "When this no longer holds" in the scope, F9 titled "go in the fragment" (file name unchanged), "whoever" constructions, "third-party" for "foreign", "design" for "cut", "keeps track" for "surveys".
 * **Update**: Form (agent guide name, README describes the parts, relation vocabulary).
 
 ## 2026-10-13

@@ -21,32 +21,32 @@ date: YYYY-MM-DD           # the day it was decided, not the day it was written
 decision-makers: []        # who decided — roles rather than personal names
 consulted: []              # who was asked
 informed: []               # who needs to know
-supersedes: []             # numbers this record replaces — ALWAYS a list
-superseded-by: []          # numbers that replaced this record — ALWAYS a list
+supersedes: []             # numbers this record replaces — ALWAYS a list, numbers quoted: ["0011"]
+superseded-by: []          # numbers that replaced this record — ALWAYS a list, numbers quoted
 ---
 
 # ADR-<nnnn> · <Title: the decision, not the topic>
 
-## Context and problem
+## Context and Problem Statement
 
 <Where the question comes from. What triggered it, what went wrong, what was
 pending? Not "this record discusses X", but the problem in the language of the
 person who had it.>
 
-## Considered options
+## Considered Options
 
 - **<Option A>** (chosen)
 - **<Option B>** — rejected
 - **<Option C>** — rejected
 
-## Decision
+## Decision Outcome
 
 **Decision:** <One indicative sentence, quotable, without justification.>
 
 **Rationale:** <The reason, not the derivation.>
 
-**Trade-off:** <What spoke for the other side and why it was not enough. Whoever
-cannot write anything here did not take the alternative seriously.>
+**Trade-off:** <What spoke for the other side and why it was not enough. If you
+cannot write anything here, you did not take the alternative seriously.>
 
 ## Consequences
 
@@ -66,7 +66,7 @@ body: it prevents the rejected solution from being proposed again.>
 
 > **Example** (from the same project, followed through): for the items of an inventory system it was decided that their visible number is an identity attribute. The record was called `0011-sichtbare-nummer-identitaetsattribut.md`, its head carried `status: accepted`, `date: 2026-08-07`, both relation lists empty.
 >
-> Half a year later it turned out that numbers are assigned afterwards and corrected. `0031-sichtbare-nummer-versioniert.md` came into being with `supersedes: [0011]`; in `0011`, `status` was set to superseded, `superseded-by: [0031]` was added, and a notice pointing at the successor was placed above the heading. Nothing in the prose of `0011` was changed; it still describes the decision of 2026-08-07, including the rationale that seemed right at the time.
+> Later it turned out that numbers are assigned afterwards and corrected. `0031-sichtbare-nummer-versioniert.md` came into being with `supersedes: ["0011"]`; in `0011`, `status` was set to superseded, `superseded-by: ["0031"]` was added, and a notice pointing at the successor was placed below the heading, before the first section. Nothing in the prose of `0011` was changed; it still describes the decision of 2026-08-07, including the rationale that seemed right at the time.
 >
 > In the index the line for `0011` is struck through with the note "↳ superseded by 0031", the line for `0031` with "supersedes 0011". Both directions are thus kept in three places: in both heads and in the index.
 
@@ -74,4 +74,4 @@ The file names are those of the original body, which is written in German.
 
 ## Standing of this proposal
 
-The status of this dossier stays **draft**: a body of this size and a few months of operation are too little for "proven". In particular, the second condition under which the answer flips (see the scope), hand-kept head fields no longer matching, has not been experienced yet.
+The status of this dossier stays **draft**: a body of this size and a few months of operation are too little for "proven". In particular, the second condition under which this no longer holds (see the scope), hand-kept head fields no longer matching, has not been experienced yet.

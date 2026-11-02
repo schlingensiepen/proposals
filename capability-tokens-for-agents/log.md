@@ -1,6 +1,7 @@
 # Update log
 
 ## 2026-11-01
+* **Update**: Version 1.2. F3: a token created without rights and activated later is no exception, the granted rights are attached to the token on the service side; agent guide rule 3 follows. F8: the automatic expiry of never-activated and permanently unused tokens is named as a separate matter and points to F9; the reason in F8 no longer cites other proposals. F6: "persisted immediately" means into the highest rank available; agent guide rule 1 says so. Agent guide: the imported concept named where the guide says it is complete. Terms: "cut" added. Evidence: the initial in the fictitious self-introduction replaced by a neutral role; Evidence 1 reduced to what this bundle says from its own side. Language pass without change of meaning: "Considered and rejected" as the field title, "When this no longer holds" as the section title, and calques replaced (research, born, ordered, whoever, sits/stands in, foreign, figures, reel back in). Content of the other rules unchanged.
 * **Update**: Form (agent guide name, README describes the parts, relation vocabulary).
 
 ## 2026-10-13

@@ -22,7 +22,7 @@ rationale in a foreign language loses exactly the nuance it was written down for
 What matters is **uniformity** — a half-translated body is worse than either pure
 variant, because every search has to be run in two languages.
 
-**Obvious and rejected.** *Everything in English, because software is English* —
+**Considered and rejected.** *Everything in English, because software is English* —
 right as soon as outside contribution is expected; otherwise one pays in
 precision for a benefit nobody redeems. *Bilingual records* — double maintenance
 for a document that is not supposed to be touched again after acceptance.

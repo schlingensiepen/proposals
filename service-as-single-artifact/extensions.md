@@ -3,7 +3,7 @@ type: Proposal Extensions
 description: Proposals that extend this concept; generated from the series register.
 generated:
   by: series-register
-  at: 2026-11-01T00:00:00Z
+  at: 2026-11-02T00:00:00Z
 ---
 
 # Extensions

@@ -11,7 +11,7 @@ applies_to: [writer]
 
 **Applies to:** writer.
 
-**What holds.** Above all records sits an overview file: one row per record with
+**What holds.** Above all records there is an overview file: one row per record with
 number, title, decision date and relation. Superseded rows are marked as such —
 struck through and carrying the pointer to the successor. The index is updated
 in the same move as every new record.
@@ -24,7 +24,7 @@ replacement in three places: in both heads (F2), in the superseded record itself
 (F9), and here. That is not waste but the answer to three different access
 paths — tool, single opened record, overview.
 
-**Obvious and rejected.** *Rely on the status marker inside the record* —
+**Considered and rejected.** *Rely on the status marker inside the record* —
 necessary but not sufficient: it answers the question only once you have already
 found the right record. *Generate the index from the heads* — correct and
 recommended as soon as a tool exists; without a tool a hand-kept index beats no

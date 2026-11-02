@@ -15,6 +15,6 @@ applies_to: [builder]
 
 **Why.** Locks are the most expensive part of any queue implementation: they have to be acquired, released and cleaned up after a crash. Here they disappear without replacement, because there is no jointly written storage: the only interaction between the threads is that their finished files land in the same directory. Forcing the write before the rename is necessary so that a power failure does not leave behind a job file that exists but is empty.
 
-**Obvious and rejected.** *Write directly into the waiting folder*: then the worker can grab a half-written file. *Do without forcing the write ("it works anyway")*: it works most of the time; the exception is a job that was confirmed and is empty.
+**Considered and rejected.** *Write directly into the waiting folder*: then the worker can grab a half-written file. *Do without forcing the write ("it works anyway")*: it works most of the time; the exception is a job that was confirmed and is empty.
 
-**How you notice it is violated.** Incomplete or empty files lie in the waiting folder.
+**How you notice it is violated.** Incomplete or empty files are in the waiting folder.

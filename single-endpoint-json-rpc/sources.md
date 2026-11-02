@@ -21,7 +21,7 @@ This concept imports no other proposal.
 
 ## Related
 
-* `single-file-static-frontend` (recommended-with): recommended together with this concept; it covers the other side of the same application, how the frontend that talks to this API is delivered. The two overlap in two places of this concept, the exception for files ([F8](./rules/F8-binary-data-leaves-the-envelope.md), [F9](./rules/F9-file-intake-carries-no-application-logic.md)) and the single origin ([F10](./rules/F10-static-delivery-and-api-are-one-origin.md)); here they are requirements. Both are complete on their own; deepening, not a prerequisite.
+* `single-file-static-frontend` (recommended-with): recommended together with this concept; deepening, not a prerequisite. The two overlap in two places of this concept, the exception for files ([F8](./rules/F8-binary-data-leaves-the-envelope.md), [F9](./rules/F9-file-intake-carries-no-application-logic.md)) and the single origin ([F10](./rules/F10-static-delivery-and-api-are-one-origin.md)); here they are requirements.
 * `invitation-instead-of-login` (recommended-with): named by that proposal from its side; see there.
 
 ## Tension

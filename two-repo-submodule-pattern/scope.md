@@ -1,6 +1,6 @@
 ---
 type: Proposal Scope
-description: Security considerations, what the separation and its review cost, where it applies, when the answer flips, what it does not solve, and what is not yet proven or settled.
+description: Security considerations, what the separation and its review cost, where it applies, when this no longer holds, what it does not solve, and what is not yet proven or settled.
 ---
 
 # Scope
@@ -9,24 +9,24 @@ description: Security considerations, what the separation and its review cost, w
 
 | Risk | Typical course of events | Countermeasures |
 |---|---|---|
-| Internals move into the product | During the handover a workshop document is copied along that nobody checked | The handover is a deliberate act (F3) with a review offered before every handover that asks whether names, access paths or statements about third parties are taken over (F7); workshop content is taken over, not transferred |
+| Internals move into the product | During the handover a workshop document is copied along that nobody checked | The handover is a deliberate act (F3) with a review offered before every handover that asks whether names, access paths or statements about third parties are taken over (F7); workshop documents are not passed on as they are; their statement and reason are taken over |
 | The existence of the workshop is revealed | A reference in the product points at a non-public repository | No references from the product to the workshop (F2); a dead reference also reveals the name |
 | Secrets in the workshop history | Credentials end up in a draft and stay in the history | The separation does not protect against this; it only limits the readership. Secrets do not belong even in a non-public repository; if the workshop is ever published, the history is the problem |
 | Accidental publication of the wrong thing | The embedded directory is picked up by the outer repository | Ignore rule in the two-roots form (F5); in the submodule form the entry type itself takes care of it |
 | Unnoticed change in the product | A contributor writes without agreement | Announcement rule (F6) |
 | Wrong assignment of states | Without a recorded reference, the wrong state of the product is assumed for a working state | Solved by the reference in the submodule form (F4); in both forms every release names its state and purpose, as a decision in the workshop and a release tag in the product (F8), which in the two-roots form is the only record |
 
-Limit of the model: the separation protects against accidents, not against intent, and it does not turn a non-public repository into a secure one. Whoever has access to the workshop sees everything in it; the separation only decides who needs access.
+Limit of the model: the separation protects against accidents, not against intent, and it does not turn a non-public repository into a secure one. Anyone who has access to the workshop sees everything in it; the separation only decides who needs access.
 
 ## What it costs
 
-**Two repositories are two repositories (F1).** Two permission administrations, two clone operations, two histories to search, two places where something might lie. For a single person working alone that is little; for a team it is onboarding effort.
+**Two repositories are two repositories (F1).** Two permission administrations, two clone operations, two histories to search, two places where something might be. For a single person working alone that is little; for a team it is onboarding effort.
 
 **The handover is manual work (F3).** Carrying over statement and reason instead of linking takes time, and somebody has to decide what goes across. That is intended, but it is work at every publication.
 
-**Redundancy between workshop and product (F3).** What was taken over stands twice. It is not maintained by hand but generated anew in full from the source when needed; between two generations the product is knowingly out of date as a whole, which is bearable as long as nothing in it claims the opposite.
+**Redundancy between workshop and product (F3).** What was taken over exists twice. It is not maintained by hand but generated anew in full from the source when needed; between two generations the product is knowingly out of date as a whole, which is bearable as long as nothing in it claims the opposite.
 
-**Submodules are a learning hurdle (F4).** Whoever does not know them clones the work repository and finds an empty directory. That is a known stumbling block and costs every newcomer one moment of confusion.
+**Submodules are a learning hurdle (F4).** If you do not know them, you clone the work repository and find an empty directory. That is a known stumbling block and costs every newcomer one moment of confusion.
 
 **Without a submodule the assignment is missing (F5).** The frugal form costs exactly what F4 brings: you no longer know which state of the product belonged to a working state, unless somebody writes it down; F8 writes it down at every release.
 
@@ -44,7 +44,7 @@ Limit of the model: the separation protects against accidents, not against inten
 
 **For the submodule form: tools that can write submodule references.** If they are missing, F5 applies, and that is not a shortcoming but the intended second path. The tool situation decides between the two forms, not preference.
 
-### When the answer flips
+### When this no longer holds
 
 **The genesis itself is to be published.** Some projects show their genesis deliberately; then there are no longer two zones of trust, and the separation becomes mere order, which subdirectories achieve as well.
 
@@ -66,7 +66,7 @@ Limit of the model: the separation protects against accidents, not against inten
 
 ### Not yet proven
 
-* Version 0.11 is a draft: complete in content, not yet reviewed by the author.
+* Version 0.12 is a draft: complete in content, not yet reviewed by the author.
 * Long-term operating experience is missing. Whether the redundancy from F3 can be maintained over time is no longer the question: it is not maintained but generated anew from the source (F3).
 
 ### Not yet settled

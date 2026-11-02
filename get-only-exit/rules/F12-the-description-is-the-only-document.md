@@ -20,7 +20,7 @@ self-description holds here more strictly: every identifier the text
 names for substitution is handed out by a call that is described in the
 same breath as its source; the scale of the upload, the period of the
 staging area, the irreversibility of the depositing call, the absence of
-any undo and the two encoding rules stand in the text, not in
+any undo and the two encoding rules are in the text, not in
 experience; and nothing in the text points at a document the caller
 cannot process. The surface is switched off **together with the open
 self-description** (discovery) of the service: where discovery is off,
@@ -47,7 +47,7 @@ switches for it would be two truths. And the external check with a
 reviewer that may only send `GET`, because the builder can always send
 `POST` and therefore does not notice where the surface needs it.
 
-**Obvious and rejected.** *Include the surface in the main surface's
+**Considered and rejected.** *Include the surface in the main surface's
 interface description*: describes it for a reader that does not need it,
 in a form its reader cannot read. *Only hint at the prose in the
 service's entry page*: the entry page points with one sentence

@@ -1,7 +1,7 @@
 ---
 type: Proposal
 description: One ranking of sources for every start secret and every role, environment first, then a pass-through file, last a channel used exactly once, where the higher rank wins but never hides a lower one, and replacing is two moves.
-version: "1.1"
+version: "1.2"
 date: 2026-11-01
 status: draft
 author: Jörn Schlingensiepen
@@ -44,7 +44,7 @@ system. That is governed by the configuration-versus-state boundary of
 
 **Choices** (more than one legitimate answer; you decide and record): [W1 No secret set](./choices/W1-no-secret-set.md), [W2 Set but empty or unusable](./choices/W2-set-but-empty-or-unusable.md), [W3 Further sources](./choices/W3-further-sources.md).
 
-**Scope and evidence:** [Scope](./scope.md) — Security considerations, what it costs, where it applies, where the answer flips, what it does not solve, what is not yet proven. [Evidence](./evidence.md) — Where it has held: origin in the series, the latent access incident, the named exception. [Sources](./sources.md) — What this proposal builds on: related proposals, a tension, external sources. [Used by](./used-by.md) — Which proposals import or extend this one. Only needed when changing this concept.
+**Scope and evidence:** [Scope](./scope.md) — Security considerations, what it costs, where it applies, when this no longer holds, what it does not solve, what is not yet proven. [Evidence](./evidence.md) — Where it has held: origin in the series, the latent access incident, the named exception. [Sources](./sources.md) — What this proposal builds on: related proposals, a tension, external sources. [Used by](./used-by.md) — Which proposals import or extend this one. Only needed when changing this concept.
 
 **Adopting:** [AGENT](./AGENT.md) — Self-contained guide for an agent adopting this concept, including the mandatory step of deciding the choices with the user. [Extensions](./extensions.md) — Proposals that extend this one. None yet.
 

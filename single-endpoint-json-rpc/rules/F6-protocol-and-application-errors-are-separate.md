@@ -23,7 +23,7 @@ Mixing them leaves a client unable to decide whether it has a fault in its
 searching. In practice: a missing application field yields `400`, not the
 protocol error for invalid parameters.
 
-**Obvious and rejected.** *Use the protocol code for "invalid params" for
+**Considered and rejected.** *Use the protocol code for "invalid params" for
 missing application fields too* — it is called that, after all; that is exactly
 where the distinction dies, because then the same code means "your client is
 broken" in one case and "the user left a field empty" in the other. *Use the

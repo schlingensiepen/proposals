@@ -28,8 +28,8 @@ inject files.
 value from the file can be overridden by the command line or the
 environment. Consequences: F2 per value, F5 applies; the builder defines
 and documents an environment name per value. Fits where the platform
-sets values individually, containers, platform-set variables, and a file
-for a single value would be disproportionate.
+sets values individually (containers, platform-set variables) and a
+file for a single value would be disproportionate.
 
 **Rejected for all options.** *Everything only through environment
 variables*: no check of the whole, no versioning, no rollback.

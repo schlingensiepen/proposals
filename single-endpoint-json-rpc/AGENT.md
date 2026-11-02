@@ -54,12 +54,15 @@ If a rule seems wrong for your case, read the rules and the scope of this bundle
 **Reviewing an existing API against this concept:**
 
 1. Confirm there is one address and that it resolves via the default document.
-2. Grep the client and server for credentials in query strings, paths or `params`.
-3. Confirm every error path produces all three fields, and that no reserved protocol code
-   is used for an application error.
+2. Grep the client and server for credentials in query strings, paths or `params`; the
+   redemption secret on its one exchange (rule 9a) is the only allowed hit.
+3. Confirm every application error path produces all three fields, and that no reserved
+   protocol code is used for an application error.
 4. Confirm no endpoint returns an empty body on failure.
 5. Confirm binary data does not pass through the envelope in either direction.
 6. Confirm the upload writes no database row.
+7. On the target platform, request every served directory without a filename and confirm
+   that nothing is listed.
 
 ## Rules
 
@@ -81,9 +84,10 @@ MUST:
    and `405` for an HTTP method other than `POST`. (F4)
 6. Include a complete JSON-RPC error object in the body even in those two cases, with
    `"id": null`. A client must never receive an empty body. (F4)
-7. Give every error all three fields: `error.code` as a number carrying HTTP status
-   semantics (400, 401, 404, 409, 410, 415, 500, 503), `error.data.type` as a stable
-   machine-readable identifier, and `error.message` as plain text for humans. (F5)
+7. Give every application error all three fields: `error.code` as a number carrying HTTP
+   status semantics (400, 401, 404, 409, 410, 415, 500, 503), `error.data.type` as a
+   stable machine-readable identifier, and `error.message` as plain text for humans. A
+   protocol error carries only the code and message the standard defines. (F5)
 8. Keep the protocol's reserved codes (−32768 to −32000) exclusively for protocol faults:
    unreadable JSON, invalid envelope, unknown method, `params` not an object. A missing or
    implausible application field is `400`, never the protocol code for invalid params. (F6)
@@ -94,9 +98,9 @@ MUST:
 9a. Deliver that one-time redemption secret to the client in the **fragment** of a URL
     (`…/#invite=<token>`), never in the path or query string. The browser does not send
     the fragment to the server, so it appears in no access log and no `Referer` — it is
-    the only place in an address where a secret may sit. The client reads it with
-    JavaScript and sends it once in a request body; afterwards it exists in no address.
-    (F7)
+    the only place in an address where a secret may be. The client reads it with
+    JavaScript and sends it once in a request body — the one named exception to "never
+    in the body"; afterwards it exists in no address. (F7)
 9b. Provide all five credential mechanisms; without them this instruction cannot be
     followed. (1) A way to create and hand out a redemption secret — the invitation,
     unpredictable, with the application knowing what it entitles its holder to. (2) A
@@ -129,13 +133,13 @@ MUST:
     with no application code in the serving path. Build that address as
     `<base>/<area>/<random-guid>/<original-filename>`: one directory per file, named with
     a **cryptographically random** identifier (UUIDv4 or 128 bits from a secure random
-    source), with the file keeping its upload name inside. The randomness must sit in the
+    source), with the file keeping its upload name inside. The randomness must be in the
     directory, not in the filename — otherwise the download loses its meaningful name and
     would need a `Content-Disposition` header, which requires the application code this
     rule forbids. Never derive the identifier from a counter, a timestamp, a content hash,
     or a non-cryptographic random function. (F8, F11)
-13a. Treat an unguessable address as a bearer credential: whoever holds it may fetch the
-     file. It differs from a token not in kind but in **location** — a path is logged, a
+13a. Treat an unguessable address as a bearer credential: anyone who holds it may fetch
+     the file. It differs from a token not in kind but in **location** — a path is logged, a
      header is not. Accept it only where the loss stays **single**: one attachment, not the
      whole dataset. (F8)
 13b. For large compiled datasets — a backup, an export — do not use a fixed path. Provide
@@ -154,7 +158,9 @@ NEVER:
 
 - Never put a credential in a query string, in a path segment, or in `params`. Addresses
   are logged by the server, the browser history, intermediate servers and error reports —
-  a secret there is exposed by normal operation, not by an attack. (F7)
+  a secret there is exposed by normal operation, not by an attack. The one named
+  exception is the redemption secret, sent once in a request body to be exchanged for
+  the session credential (rule 9a). (F7)
 - Never map application-level outcomes onto HTTP status codes. (F4)
 - Never let a client branch on `error.message`; that is what `error.data.type` is for. (F5)
 - Never send bytes through the JSON envelope, Base64-encoded or otherwise. It costs a
@@ -188,11 +194,13 @@ NEVER:
       (unreadable body) and `405` (wrong HTTP method) as exceptions? (F4)
 - [ ] Does every failure — including those two — return a body containing a JSON-RPC error
       object? (F4)
-- [ ] Does every error carry code, machine-readable type, and human-readable message? (F5)
+- [ ] Does every application error carry code, machine-readable type, and human-readable
+      message, and does every protocol error carry the code and message the standard
+      defines? (F5)
 - [ ] Are the reserved protocol codes used exclusively for protocol faults, and does a
       missing application field yield `400`? (F6)
 - [ ] Does no credential appear in any address or in `params`, anywhere in client or
-      server? (F7)
+      server — the redemption secret on its one exchange being the only exception? (F7)
 - [ ] Does the credential check run in one place, before any identifier is resolved? (F7)
 - [ ] Do all five credential mechanisms exist — create an invitation, exchange it for a
       session credential, renew, revoke individually, issue a machine key exactly once?
@@ -206,7 +214,9 @@ NEVER:
 - [ ] Do binary downloads bypass application code entirely? (F8)
 - [ ] Is the randomness in the directory name, cryptographically sourced, with the file
       keeping its original name inside? (F11)
-- [ ] Does every served directory contain both an `index.html` and an `index.php`? (F9)
+- [ ] Does every served directory contain both an `index.html` and an `index.php`, and
+      has a request without a filename been shown to list nothing on the target
+      platform? (F9, F11)
 - [ ] Is disabling script execution treated as a measure taken, not a property assumed?
       (F9)
 - [ ] Do backups and exports go through commission / status / terminate, with the path
@@ -241,4 +251,4 @@ NEVER:
 
 ## Self-check
 
-Before you report completion: can you name the one address and how it resolves, show that no credential sits in any address or in `params`, show that every failure returns a complete error object, name every directly served directory with its barriers, and say for every backup or export how it is commissioned, fetched and terminated? If any of these is missing, you are not done.
+Before you report completion: can you name the one address and how it resolves, show that no credential is in any address or, apart from the one named exception, in `params`, show that every failure returns a complete error object, name every directly served directory with its barriers, and say for every backup or export how it is commissioned, fetched and terminated? If any of these is missing, you are not done.

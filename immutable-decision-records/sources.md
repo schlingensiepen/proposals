@@ -21,7 +21,7 @@ This proposal imports no other.
 
 ## Related
 
-* `decision-records-with-madr` (form-of, from that side): the form of this mechanism. Whoever applies the mechanism to a body of architecture or software decisions finds a ready form there. This proposal is fully usable without it: the mechanism is deliberately described independently of any format and holds for any decision log.
+* `decision-records-with-madr` (form-of, from that side): the form of this mechanism. Anyone who applies the mechanism to a set of architecture or software decisions finds a ready form there. This proposal is fully usable without it: the mechanism is deliberately described independently of any format and holds for any decision log.
 * `self-describing-services` (recommended-with): named by that proposal from its side; see there.
 * `append-only-state-history` (overlaps-with): named by that proposal from its side; see there.
 
@@ -29,7 +29,7 @@ All proposals live in the same repository; see its root README for the register 
 
 ## External sources
 
-* MADR, Markdown Any Decision Records, a format standard for decision records, version 4.0.0 [^madr] (retrieved 2026-08-13). This concept uses MADR as its file format and extends it with the two relation fields as lists (F5).
+* MADR, Markdown Any Decision Records, a format standard for decision records, version 4.0.0 [^madr] (retrieved 2026-08-13). A form the author uses for this mechanism; the concept itself prescribes no file format, and the proposal that gives it this form is named under Related.
 * Michael Nygard, "Documenting Architecture Decisions" (2011) [^nygard-adr], the original description of the method including the principle of not changing accepted records but replacing them (retrieved 2026-08-13).
 * Overview of decision documentation, a collection of templates and field reports [^adr-overview] (retrieved 2026-08-13).
 

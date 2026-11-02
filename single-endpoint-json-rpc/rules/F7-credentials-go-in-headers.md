@@ -1,19 +1,21 @@
 ---
 type: Proposal Rule
-description: Every credential travels in an HTTP header, never in params, query string or path; the session cookie is exchanged for a redemption secret that arrives through the URL fragment, and five mechanisms are mandatory.
+description: Every credential travels in an HTTP header, never in params, query string or path, with one named exception, the redemption secret presented once in a request body; it arrives through the URL fragment and is exchanged for the session cookie, and five mechanisms are mandatory.
 number: F7
 binding: must
 role: independent
 applies_to: [builder, consumer]
 ---
 
-# F7 · Credentials go in headers — never in the body, never in the address
+# F7 · Credentials go in headers — never in the body, never in the address, with one named exception
 
 **Applies to:** builder, consumer.
 
-**What holds.** Every credential travels in an HTTP header. No credential sits
-in `params`, none in the query string, none in the path. There are three kinds
-with three jobs:
+**What holds.** Every credential travels in an HTTP header. No credential is
+in `params`, none in the query string, none in the path. The one named
+exception is the redemption secret, presented once in a request body to be
+exchanged for the session credential (below). There are three kinds of
+credential with three jobs:
 
 | Kind | shows | who issues it | lifetime |
 |---|---|---|---|
@@ -33,12 +35,12 @@ redemption secret no longer exists for that client.
 through the **fragment** of the address (`…/#invite=<token>`), not the path and
 not the query string. **The browser does not send the fragment to the server.**
 It therefore appears in no access log, no `Referer` and no intermediate server —
-it is the **only place in an address where a secret may sit.** The client reads
-it there with JavaScript and sends it **once** in a request body; afterwards it
-exists in no address.
+it is the **only place in an address where a secret may be.** The client reads
+it there with JavaScript and sends it **once** in a request body — the one
+exception to "never in the body"; afterwards it exists in no address.
 
 **What this demands of the application.** F7 does not merely describe a
-transport — it **commissions the builder**. Whoever builds an application on
+transport — it **commissions the builder**. Anyone who builds an application on
 this pattern must provide five mechanisms; without them the rule cannot be
 implemented:
 
@@ -51,7 +53,7 @@ implemented:
 4. **A way to revoke a single credential** — one device, one machine key —
    without affecting the others. That presupposes the credentials are
    **distinguishable**: what you cannot tell apart you cannot block
-   individually. Whoever gives all of a person's devices the same value has
+   individually. Anyone who gives all of a person's devices the same value has
    forfeited this mechanism before needing it.
 5. **An issuing path for machine keys that shows the clear text exactly once.**
    Afterwards the application holds only a hash; a key that can be read back at
@@ -67,8 +69,8 @@ being renewed and being taken back at all.
 history, in intermediate servers, in error reports. A secret there is not
 compromised once someone attacks, but **from the outset**, through normal
 operation. The body is usually not logged but would be the wrong place for
-another reason: credentials belong to the connection, not to the call — sitting
-in `params` they would have to be dragged along and checked by every single
+another reason: credentials belong to the connection, not to the call — in
+`params` they would have to be dragged along and checked by every single
 method, instead of one place deciding ahead of all methods. One endpoint has a
 real advantage here: there is exactly **one** place where the check happens.
 
@@ -78,7 +80,7 @@ accident. That is precisely why the session credential is a cookie and not a
 value the client manages itself and writes into a header — although the latter
 looks tidier at first glance.
 
-**Obvious and rejected.** *Token as a parameter, "it is a POST anyway"* — the
+**Considered and rejected.** *Token as a parameter, "it is a POST anyway"* — the
 body is not in the log today and may well be tomorrow, as soon as someone turns
 on diagnostics; and the check migrates into the methods. *Token in the path,
 because it looks so RESTful* — same logging as the query string, plus `Referer`.

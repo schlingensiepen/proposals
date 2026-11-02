@@ -20,10 +20,10 @@ last record.
 model — and inherits its idiosyncrasies along with its mistakes. After ten
 generations the body has a shape nobody decided on. A template is also the only
 place where the format rules can live without anyone having to look for them:
-they sit as comments exactly where they are needed. This counts double when
+they are there as comments exactly where they are needed. This counts double when
 assistant systems write along — they reliably copy what they find.
 
-**Obvious and rejected.** *Put the rules in a guide* — necessary for the why, but
+**Considered and rejected.** *Put the rules in a guide* — necessary for the why, but
 nobody opens a guide while writing. *Take the last record as a model* — precisely
 the path along which deviations are inherited.
 

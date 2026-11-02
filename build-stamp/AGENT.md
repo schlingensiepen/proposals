@@ -8,7 +8,7 @@ description: Self-contained guide for an agent that builds an artifact and its b
 
 ## Purpose
 
-You are building an artifact and its build pipeline, or you are checking whether a shipped artifact can say which revision of its source it was built from. This guide is complete on its own. Rules are named in parentheses as provenance.
+You are building an artifact and its build pipeline, or you are checking whether a shipped artifact can say which revision of its source it was built from. Rules are named in parentheses as provenance.
 
 ## Procedure
 
@@ -17,8 +17,6 @@ You are building an artifact and its build pipeline, or you are checking whether
 **2 · Stamp, and check before publishing.** The build stamps the source revision into the artifact itself. The build pipeline starts the built artifact before publishing it and requires that it reports exactly that revision; an artifact that cannot do that is not published. *Result:* the build pipeline with its smoke test. (F1)
 
 **3 · The first look after deploying.** Run the version command against the running instance; it reports the revision that was meant to be deployed. *Result:* what is running is demonstrably what was built. (F1)
-
-**Decide the choices.** This concept has no choices.
 
 ## Rules
 

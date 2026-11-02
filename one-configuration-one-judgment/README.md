@@ -1,8 +1,8 @@
 ---
 type: Proposal
 description: One configuration, judged once by the code that will run on it; every value names where it came from, and an empty or unusable value is a reported error, never a silent default.
-version: "1.0"
-date: 2026-10-01
+version: "1.1"
+date: 2026-11-01
 status: draft
 author: Jörn Schlingensiepen
 extends: []
@@ -37,7 +37,7 @@ default.
 
 **Choices** (more than one legitimate answer; you decide and record): [W1 Precedence: file or value](./choices/W1-precedence-file-or-value.md), [W2 The empty value](./choices/W2-the-empty-value.md).
 
-**Scope and evidence:** [Scope](./scope.md) — Security considerations, what it costs, where it applies, where the answer flips, what is not yet proven. [Evidence](./evidence.md) — Where it has held: origin in the series, the empty-value incident, the second truth. [Sources](./sources.md) — What this proposal builds on: the concept it imports, related proposals, external sources. [Used by](./used-by.md) — Which proposals import or extend this one. Only needed when changing this concept.
+**Scope and evidence:** [Scope](./scope.md) — Security considerations, what it costs, where it applies, when this no longer holds, what is not yet proven. [Evidence](./evidence.md) — Where it has held: origin in the series, the empty-value incident, the second truth. [Sources](./sources.md) — What this proposal builds on: the concept it imports, related proposals, external sources. [Used by](./used-by.md) — Which proposals import or extend this one. Only needed when changing this concept.
 
 **Adopting:** [AGENT](./AGENT.md) — Self-contained guide for an agent adopting this concept, including the mandatory step of deciding the choices with the user. [Extensions](./extensions.md) — Proposals that extend this one. None yet.
 

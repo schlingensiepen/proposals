@@ -15,14 +15,14 @@ applies_to: [builder]
 `params` as an object, `id`; in the response `result` **or** `error`. No
 homegrown format, no extra fields at envelope level.
 
-**Why.** Whoever has one endpoint needs a field saying what is meant — that is
+**Why.** If you have one endpoint, you need a field saying what is meant — that is
 unavoidable once the address says nothing. Inventing that wrapper yourself costs
 the same work as adopting a finished one and adds the single disadvantage that
 nobody knows it. JSON-RPC has been unchanged since 2010, fits on two pages, and
 requires no library: the envelope can be read and written in twenty lines. On
 hosting without a package manager, that is the decisive criterion.
 
-**Obvious and rejected.** *A homegrown, "simpler" format* — same cost, without
+**Considered and rejected.** *A homegrown, "simpler" format* — same cost, without
 anyone else knowing it; and the seemingly superfluous fields of the standard get
 reinvented one by one at the first error case. *GraphQL* — pays off with many
 heterogeneous clients making flexible queries over deep graphs; with a flat

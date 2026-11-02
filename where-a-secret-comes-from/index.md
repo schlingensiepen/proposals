@@ -21,7 +21,7 @@ One answer each; give one up and you are no longer using the concept.
 
 # Choices
 
-More than one legitimate answer; decided per secret, in practice per group, by whoever adopts the concept, and recorded.
+More than one legitimate answer; decided per secret, in practice per group, by anyone who adopts the concept, and recorded.
 
 * [W1 No secret set](./choices/W1-no-secret-set.md) - Refuse to start, or generate and show exactly once.
 * [W2 Set but empty or unusable](./choices/W2-set-but-empty-or-unusable.md) - Abort, or warn and continue.
@@ -29,7 +29,7 @@ More than one legitimate answer; decided per secret, in practice per group, by w
 
 # Scope and evidence
 
-* [Scope](./scope.md) - Security considerations, what it costs, where it applies, where the answer flips, what it does not solve, what is not yet proven.
+* [Scope](./scope.md) - Security considerations, what it costs, where it applies, when this no longer holds, what it does not solve, what is not yet proven.
 * [Evidence](./evidence.md) - Where it has held: origin in the series, the latent access incident, the named exception.
 * [Sources](./sources.md) - What this proposal builds on: related proposals, a tension, external sources.
 * [Used by](./used-by.md) - Which proposals import or extend this one. Only needed when changing this concept.

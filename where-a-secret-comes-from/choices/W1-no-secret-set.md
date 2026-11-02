@@ -34,8 +34,8 @@ a restart and does not appear again; F6 gets its named exception.
 Condition: only for a secret whose only possible owner is the service;
 when an image is pulled, nobody but the service is inside.
 
-**Warning for (b).** Whoever takes this path must give the holder of the
-generated secret enough rights to finish setting up the system: whoever
+**Warning for (b).** If you take this path, you must give the holder of the
+generated secret enough rights to finish setting up the system: anyone who
 has only that one log line must be able to get in with it. A secret
 that suffices for that is a root. What a root owes, revocation, change,
 lifetime, the case of loss, is for whoever introduces it to state, not

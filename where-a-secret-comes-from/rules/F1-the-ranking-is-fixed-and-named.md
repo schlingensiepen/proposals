@@ -25,10 +25,11 @@ without it ever touching a disk or a log. The file next, because not
 every platform can set a variable before the start. The once-only
 channel last, because it is the exception.
 
-**Obvious and rejected.** *Only the environment*: then every platform
-must be able to set before the start; whoever cannot has no way in.
+**Considered and rejected.** *Only the environment*: then every platform
+must be able to set a variable before the start; a platform that cannot
+has no way in.
 *Only the file*: then there is no way out of a secret manager without
-the secret ever sitting on disk. *A ranking of its own per secret*:
+the secret ever being on disk. *A ranking of its own per secret*:
 uncheckable.
 
 **How you notice it is violated.** The documentation explains per

@@ -10,10 +10,10 @@ applies_to: [builder]
 # F3 · Two encoding rules: identifiers and addresses readable, free text encoded
 
 **What holds.** Identifiers, addresses (such as e-mail addresses),
-numbers and names stand readable in the path, with ordinary percent
-encoding. **Free text**, anything that may contain a slash (a subject, a
-text body, the content of a file part), travels as **base64url** without
-padding. A name that travels readable MAY NOT contain a slash, and if it
+numbers and names are readable in the path, with ordinary percent
+encoding. **Free text**, anything that may contain a slash (for example
+a subject, a text body, the content of a file part), travels as
+**base64url** without padding. A name that travels readable MAY NOT contain a slash, and if it
 does, the refusal says so. Every path segment in which a slash could
 occur is routed so that the call *reaches* the handler and gets a
 refusal with the rule, instead of ending at a non-matching route with a
@@ -31,7 +31,7 @@ taking it for subject and text as well keeps the number of rules at two.
 Two encoding rules instead of one are the price for no value silently
 failing on a character.
 
-**Obvious and rejected.** *Percent-encode everything*: fails on the
+**Considered and rejected.** *Percent-encode everything*: fails on the
 slash, and with the answer that says least. *base64url for everything*:
 makes every address unreadable, including the ones a person should
 recognize in a history, and encodes identifiers that never contain a

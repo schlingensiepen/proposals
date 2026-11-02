@@ -9,7 +9,7 @@ Decision records get amended in day-to-day work, and that is exactly how they lo
 
 ## Problem
 
-"I decided a year ago to build it this way. That I decided it, I still know. What I had against the obvious alternative back then, I no longer know, so I think it through again, arrive with the same head at mostly the same result, just three days later. And when I open the record, there is a sentence someone corrected at some point. Whether that was the original decision or a later repair, I cannot see."
+"I decided a year ago to build it this way. That I decided it, I still know. What I had against the obvious alternative back then, I no longer know, so I think it through again and, with the same mind, mostly arrive at the same result, just three days later. And when I open the record, there is a sentence someone corrected at some point. Whether that was the original decision or a later repair, I cannot see."
 
 That is the normal case with amended decision records. Two distinct kinds of damage hide in it:
 
@@ -20,9 +20,9 @@ The second damage is the more expensive one, because it does not announce itself
 
 ## The concept
 
-Every decision gets its own short record with a sequential number. While it is a draft, it is worked on. The moment it is accepted, its content becomes **immutable**: nobody edits the prose again. Whoever wants to revise the decision writes a **new** record that answers the question completely afresh, with its own rationale, its own rejected alternatives, its own title, and records in the head of both documents which replaces which. The old one stays, is marked as superseded, and is never deleted. An index across the whole body shows at a glance what applies and what is merely history. Numbers are never reused, not even after a draft was discarded. This leaves exactly two questions answerable at any time: *what applies today?* and *what applied back then, and why was it given up?*
+Every decision gets its own short record with a sequential number. While it is a draft, it is worked on. The moment it is accepted, its content becomes **immutable**: nobody edits the prose again. Anyone who wants to revise the decision writes a **new** record that answers the question completely afresh, with its own rationale, its own rejected alternatives, its own title, and records in the head of both documents which replaces which. The old one stays, is marked as superseded, and is never deleted. An index across the whole set of records shows at a glance what applies and what is merely history. Numbers are never reused, not even after a draft was discarded. This leaves exactly two questions answerable at any time: *what applies today?* and *what applied back then, and why was it given up?*
 
-**Load-bearing structure.** F2 carries everything: if immutability falls, F3, F4, F5 and F6 lose their purpose; they only govern what a replacement looks like, and without immutability there would be no replacements, only corrections. F1 is the precondition of F2: only what applies as a whole can be immutable. F7 and F8 stand independently; they make sense even for an amended body of records and can be adopted separately. Whoever wants to take away one rule takes F7.
+**Load-bearing structure.** F2 carries everything: if immutability falls, F3, F4, F5 and F6 lose their purpose; they only govern what a replacement looks like, and without immutability there would be no replacements, only corrections. F1 is the precondition of F2: only what applies as a whole can be immutable. F7 and F8 are independent; they make sense even for an amended set of records and can be adopted separately. If you want to take away only one rule, take F7.
 
 ## The procedure
 

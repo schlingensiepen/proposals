@@ -10,8 +10,10 @@ description: Self-contained guide for an agent that adopts this concept in a ser
 
 You are building or revising a service that reads operating parameters
 before it starts, and you are adopting this concept. This guide is
-complete on its own, except that step 2 needs the two choice files:
-they carry the options with their consequences. The rule files are the
+complete on its own except for the ranking of secret sources from the
+imported concept `where-a-secret-comes-from`; ask the user for that
+bundle if you do not have it. Step 2 needs the two choice files: they
+carry the options with their consequences. The rule files are the
 reference behind the rest, named in parentheses.
 
 ## Procedure
@@ -39,8 +41,9 @@ reference behind the rest, named in parentheses.
    the user chose that empty means default (W2 a). With per-value
    precedence, when a setting is given at more than one rank, name the
    lower rank and its place as well (F2, F5). With file precedence, when
-   no file is found, say so and report every value as a default. Never print a secret, not even truncated;
-   print where it is referenced from (F3).
+   no file is found, say so and report every value as a default. Never
+   print a secret, not even truncated; print where it is referenced from
+   (F3).
 5. **Keep the check free of side effects.** No port is bound, no state
    is written (F4).
 6. **Document** the parameter list with defaults, the environment names

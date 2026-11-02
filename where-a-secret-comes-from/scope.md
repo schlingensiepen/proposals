@@ -1,6 +1,6 @@
 ---
 type: Proposal Scope
-description: Security considerations, what the concept costs each role, where it applies, where the answer flips, what it does not solve and what is not yet proven.
+description: Security considerations, what the concept costs each role, where it applies, when this no longer holds, what it does not solve and what is not yet proven.
 ---
 
 # Scope
@@ -15,12 +15,12 @@ The concept closes two gaps that have both occurred: the latent access
 it names its price: the holder of the generated secret must be able to
 finish setting up the system with it, so it is a root; what a root owes
 is for whoever introduces it to state. The environment at rank 1 is at the
-same time the largest surface: whoever can set the process environment
+same time the largest surface: anyone who can set the process environment
 sets the secret. That is so for every service and is merely spelled out
 here.
 
-Against an attacker with the rights of the service none of the sources
-protects; the environment is readable to them, the file hangs on the
+None of the sources protects against an attacker with the rights of the
+service; the environment is readable to them, the file depends on the
 same rights. The concept protects against accidents, copies and
 forgetting, not against a takeover of the process.
 
@@ -39,15 +39,15 @@ its first step, regardless of build form and platform. Presupposes a
 start at which a report can be made (service), or a moment of obtaining
 (agent).
 
-**When the answer flips.** Where a platform owns the process environment
-entirely and knows no file, rank 1 stands alone; F4 and F5 then become a
+**When this no longer holds.** Where a platform owns the process environment
+entirely and knows no file, rank 1 is the only rank; F4 and F5 then become a
 platform question. Where no log leads back to the operator (no return
 channel), W1 (b) cannot be chosen.
 
 **What it does not solve.** What a secret may do
 (`capability-tokens-for-agents`). How a secret is issued
-(`invitation-instead-of-login`). What a root owes (whoever introduces
-it, such as an administration surface). Secrets that arise in operation
+(`invitation-instead-of-login`). What a root owes (stated by whatever
+introduces it, such as an administration surface). Secrets that arise in operation
 (the service's own state).
 
 **Not yet proven.** Whether the agent form of the once-only channel

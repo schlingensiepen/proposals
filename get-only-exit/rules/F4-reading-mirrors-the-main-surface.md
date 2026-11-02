@@ -12,15 +12,15 @@ applies_to: [builder]
 **What holds.** The reading calls of the second surface return the same
 objects under the same identifiers with the same facts as the main
 surface; there is no second truth about a file or an operation. The
-**form** of the answer follows the caller's `Accept` header: whoever
+**form** of the answer follows the caller's `Accept` header: a caller that
 names `application/json` gets the main surface's structure unchanged;
-whoever says nothing or `*/*` gets the same facts as `text/plain`, line
+one that says nothing or `*/*` gets the same facts as `text/plain`, line
 by line `name: value`, generated from the same data and therefore never
 diverging. Every such answer carries `Vary: Accept`. Refusals are
 excluded: they stay in the service's one error format, regardless of
 the mode of interaction.
 
-**Why.** Whoever uses this surface has read its description as prose;
+**Why.** A caller that uses this surface has read its description as prose;
 switching the mode of interaction in the middle of the flow is a hurdle
 for exactly the tools the surface exists for. In the observed case a
 reader asked after the first data call whether text should not have come
@@ -33,7 +33,7 @@ description of the same facts. And refusals stay in one format, because
 a caller must be able to recognize them without guessing whether that
 was an error.
 
-**Obvious and rejected.** *Always JSON, "because the main surface does
+**Considered and rejected.** *Always JSON, "because the main surface does
 it"*: the switch of mode that cost the two questions. *Always text*:
 then nobody who does want to process can get the structure, and the
 surface would have one capability less than the main surface. *A

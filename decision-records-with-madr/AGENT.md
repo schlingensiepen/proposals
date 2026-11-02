@@ -1,7 +1,7 @@
 ---
 type: Proposal Agent Guide
 name: decision-records-with-madr
-description: Self-contained guide for an agent that creates, formats or reviews decision records in MADR 4.0.0 with the two replacement lists; the rules, three procedures, an acceptance checklist, common mistakes and a self-check.
+description: Self-contained guide for an agent that creates, formats or reviews decision records based on MADR 4.0.0 with the two replacement lists; the rules, three procedures, an acceptance checklist, common mistakes and a self-check.
 ---
 
 # Agent guide
@@ -20,8 +20,8 @@ consistency. It is distilled from the rules of this bundle and gives orders only
 reasoning, costs and limits are in the rest of the bundle, and nothing here requires
 reading them.
 
-The format is MADR 4.0.0, adopted unchanged, with exactly one extension: two list fields
-in the head recording replacement in both directions.
+The format is based on MADR 4.0.0. The concept of this bundle names the deviations; the
+rules below already contain them, so you do not need to open it.
 
 One premise everything below assumes, stated here so you never need to look it up: **once
 a record is accepted, its content is immutable**: statement, rationale, options and
@@ -48,14 +48,15 @@ only this file, item 9 of the MUST rules below tells you what the template must 
 
 MUST:
 
-1. Write each record as a Markdown file following MADR 4.0.0: a YAML head between two
+1. Write each record as a Markdown file based on MADR 4.0.0: a YAML head between two
    lines of three hyphens, then the prose sections. Do not rename, reorder or "adapt" the
-   format. (F1)
+   format beyond what these rules say. (F1)
 2. Put exactly these keys in the head, with the English key names unchanged: `status`
    (draft | accepted | superseded), `date` (the day it was decided), `decision-makers`,
    `consulted`, `informed`, `supersedes`, `superseded-by`. (F1, F3, F7)
 3. Write `supersedes` and `superseded-by` as YAML **lists** in every record, including
-   when they are empty or hold one entry — `supersedes: []`, `supersedes: [0011]`. A
+   when they are empty or hold one entry — `supersedes: []`, `supersedes: ["0011"]`. Quote
+   the numbers: unquoted, YAML reads `0011` as a number and loses the leading zeros. A
    revision can merge several decisions, and one decision can split into several. (F2)
 4. Record a replacement in both heads in the same change: add the predecessor's number to
    the successor's `supersedes`, add the successor's number to the predecessor's
@@ -64,10 +65,11 @@ MUST:
    lowercase with hyphens, ASCII only (write out non-ASCII characters). Never reuse a
    number, not even one freed by a discarded draft; leave gaps in the sequence open. A
    reused number silently redirects every earlier citation to the wrong record. (F4)
-6. Give every record these five sections, in this order: **Context and problem** ·
-   **Considered options** · **Decision** (with rationale and trade-off) ·
-   **Consequences** · **Rejected and why**. (F5)
-7. List the options twice: briefly in "Considered options" with the chosen one marked, and
+6. Give every record these five sections, in this order: **Context and Problem
+   Statement** · **Considered Options** · **Decision Outcome** (with rationale and
+   trade-off) · **Consequences** · **Rejected and why**. The first four carry MADR's own
+   names. (F5)
+7. List the options twice: briefly in "Considered Options" with the chosen one marked, and
    with a spelled-out reason per rejected option in "Rejected and why". Every option in
    the list must reappear in the justification section. (F6)
 8. Write the prose in one language and use that same language for the entire body. Keep
@@ -80,7 +82,7 @@ MUST:
     obtain consent: in an immutable body the name stays permanently, attached to a
     statement about responsibility. (F3)
 12. When superseding a record, put a visible notice below its heading and before its first
-    section, pointing at the successor. The head alone is not enough: whoever opens a
+    section, pointing at the successor. The head alone is not enough: anyone who opens a
     record reads the first lines of the text, not the metadata block. (F9)
 13. Keep an index above all records — one row per record with number, title, decision date
     and relation, superseded rows marked as such with a pointer to the successor. Update it
@@ -89,8 +91,9 @@ MUST:
 NEVER:
 
 - Never invent a format of your own, and never modify MADR's section structure or head key
-  names. (F1)
-- Never write `superseded-by: 0031` as a plain string; it is a list. (F2)
+  names beyond what these rules say. (F1)
+- Never write `superseded-by: 0031` as a plain string; it is a list of quoted numbers,
+  `superseded-by: ["0031"]`. (F2)
 - Never record a replacement only in the prose, or only in the index. It belongs in both
   heads. (F2)
 - Never put content into the head — no summary, no rationale, no decision. The head is
@@ -111,25 +114,27 @@ NEVER:
 **Writing a new record:**
 
 1. Copy the template to `<nnnn>-<short-title>.md`, taking the next unused number.
-2. Fill the head: `status: draft`, today's date, participants as roles, both relation
-   lists empty.
-3. Write context and problem in the language of whoever had the problem — the trigger,
-   not a topic announcement.
+2. Fill the head: `status: draft`, the date of the decision (not of writing),
+   participants as
+   roles, both relation lists empty.
+3. Write the context and problem statement in the language of whoever had the problem —
+   the trigger, not a topic announcement.
 4. List the considered options briefly and mark the chosen one.
-5. Write the decision as one quotable indicative sentence, then the rationale, then the
-   trade-off — what spoke for the other side and why it was not enough.
+5. Write the decision outcome as one quotable indicative sentence, then the rationale,
+   then the trade-off — what spoke for the other side and why it was not enough.
 6. Write the consequences, positive and negative. Do not skip the negative ones.
 7. Write one paragraph per rejected option with the reason spelled out.
 8. Check every example for real keys, hostnames or paths and replace them.
-9. Set `status: accepted` and add the record to the index.
+9. Set `status: accepted`, make sure `date` is the day of the decision, and add the record
+   to the index.
 
 **Recording a replacement:**
 
 1. Write the new record completely as above; it must answer the question on its own.
-2. Set `supersedes: [<old number>]` in the new record's head.
-3. In the old record: set `status: superseded`, add `superseded-by: [<new number>]`, and
-   place a visible notice above the first section pointing at the successor. Change
-   nothing else in it — not the title, not the prose, not the file name.
+2. Set `supersedes: ["<old number>"]` in the new record's head.
+3. In the old record: set `status: superseded`, add `superseded-by: ["<new number>"]`, and
+   place a visible notice below its heading, before the first section, pointing at the
+   successor. Change nothing else in it — not the title, not the prose, not the file name.
 4. Update the index: mark the old record as superseded by the new one and add the new row.
 
 **Reviewing an existing body:**
@@ -137,11 +142,11 @@ NEVER:
 1. Check that every file name matches `<nnnn>-<short-title>.md` and that all numbers are
    unique.
 2. Check that every head parses and carries all seven keys, with both relation fields as
-   lists.
+   lists of quoted numbers.
 3. For every `supersedes` entry, verify the named record carries the matching
    `superseded-by`, and vice versa. Report every one-sided link.
 4. Check that all five sections exist in every record, in order.
-5. Check that every option listed in "Considered options" reappears in "Rejected and why"
+5. Check that every option listed in "Considered Options" reappears in "Rejected and why"
    or is marked as chosen.
 6. Report head fields that contain content rather than bookkeeping.
 
@@ -149,16 +154,17 @@ NEVER:
 
 ### Acceptance checklist
 
-- [ ] Does every record parse as MADR 4.0.0 — YAML head plus the prescribed sections, with
+- [ ] Does every record follow this form — YAML head plus the prescribed sections, with
       unchanged English key names? (F1, F7)
-- [ ] Are `supersedes` and `superseded-by` lists in every record, even when empty? (F2)
+- [ ] Are `supersedes` and `superseded-by` lists in every record, even when empty, with
+      the numbers quoted? (F2)
 - [ ] For every replacement: does the successor name the predecessor and the predecessor
       name the successor? (F2)
 - [ ] Does the head contain bookkeeping only — no summary, no rationale, no decision? (F3)
 - [ ] Do all file names match `<nnnn>-<short-title>.md`, four digits, lowercase, ASCII
       only, with unique numbers and no renamed accepted records? (F4)
 - [ ] Does every record have all five sections in the prescribed order? (F5)
-- [ ] Does every option in "Considered options" reappear in "Rejected and why" or as the
+- [ ] Does every option in "Considered Options" reappear in "Rejected and why" or as the
       chosen one? (F6)
 - [ ] Is the prose in one language across the whole body? (F7)
 - [ ] Does a template file exist, and does it carry every head field the records carry?
@@ -177,7 +183,8 @@ NEVER:
 
 | Mistake | Fix |
 |---|---|
-| `superseded-by: 0031` as a plain string | Make it a list: `superseded-by: [0031]` |
+| `superseded-by: 0031` as a plain string | Make it a list: `superseded-by: ["0031"]` |
+| `supersedes: [0011]` with the number unquoted | Quote it: `supersedes: ["0011"]`; unquoted, YAML reads it as a number and the leading zeros are lost |
 | Replacement recorded only in the new record | Add `superseded-by` and `status: superseded` to the old one as well |
 | A one-line summary added to the head | Remove it; the head is bookkeeping. The title carries the short form |
 | New record built by copying the last one | Copy the template instead; the last record carries its own idiosyncrasies |

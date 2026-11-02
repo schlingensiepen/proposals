@@ -15,21 +15,21 @@ sources:
 
 # Evidence
 
-This section separates what is in operation, what is in progress, and what serves illustration only. Every piece of evidence stands in the same grid.
+This section separates what is in operation, what is in progress, and what serves illustration only. Every piece of evidence is presented in the same grid.
 
 ## Origin
 
-The concept is the **generalization** of its sister concept `self-describing-services`: it applies to every service that agents consume, and the sister concept is kept as its worked application. The problem analysis, the design rules that are now F2 to F4 and the security table come from an earlier draft of August 2026 that was withdrawn before publication.
+The concept generalizes what first arose in `self-describing-services` and applies to every service that agents consume. The problem analysis, the design rules that are now F2 to F4 and the security table come from an earlier draft of August 2026 that was withdrawn before publication.
 
 It transfers an old idea into a new situation: capabilities [^dennis-van-horn-1966] [^hardy-confused-deputy] bind the authorization to an unforgeable artifact instead of to the identity of the caller — exactly right for a consumer whose "identity" is an attackable context window [^owasp-llm01]. What is new is not the model but the handling code around it: one-time display, ranking, never-rules, display string — the concessions to a medium that was never meant for keeping secrets.
 
 ## Evidence 1 — Worked application: the self-describing services
 
-**What it is.** The sister concept of this series for self-describing web services, `self-describing-services`, makes the rules of this concept binding for a concrete type of service: its rights cut corresponds to F1 to F3, its secret ranking to F6, its instance principle to F7, its self-registration with display string to F5 and F11, its delivery duty to F12.
+**What it is.** `self-describing-services` applies this concept to one type of service, self-describing web services.
 
-**What it demonstrates.** That this general concept can be embedded completely and without contradiction into a concrete construction principle — the rules there are the ones here, applied to one type of service. It demonstrates applicability, not operational experience.
+**What it demonstrates.** That the rules of this concept can be applied to a concrete type of service. It demonstrates applicability, not operational experience.
 
-**Status, honestly.** Applicability on paper; a reference implementation of that construction principle is in progress (Evidence 3).
+**Status, honestly.** Applicability on paper; for a service specified this way, see Evidence 3.
 
 ## Evidence 2 — Precursor in operation: the secret doctrine of the wiki toolkit
 
@@ -49,7 +49,7 @@ It transfers an old idea into a new situation: capabilities [^dennis-van-horn-19
 
 ## Worked example (entirely fictitious): the traffic-report access
 
-What follows is **not evidence** but illustration — all values are fictional. A user has their agent set up a traffic service. The agent calls the service's self-registration and introduces itself: "Agent of J.; purpose: report and retrieve traffic jams on the commute." The answer carries the flag **by-request**, a token with the service's prefix, and the display string `kluvmoth`. The agent stores the token in the environment variable the service proposes for it, and tells its user only: "Please give the access **kluvmoth** the reporting rights." The user activates `kluvmoth` server-side — the secret has never touched the chat (F5, F6, F11). Months later the operator reads their token list: next to `kluvmoth` stands the self-introduction, and they still know who got access there and why (F5). When the user changes their commute, they revoke `kluvmoth` — one ability lapses, everything else keeps running (F1, F8). A second token that they applied for "for later" a year ago and never activated has long since expired (F9).
+What follows is **not evidence** but illustration — all values are fictional. A user has their agent set up a traffic service. The agent calls the service's self-registration and introduces itself: "Agent of one commuter; purpose: report and retrieve traffic jams on the commute." The answer carries the flag **by-request**, a token with the service's prefix, and the display string `kluvmoth`. The agent stores the token in the environment variable the service proposes for it, and tells its user only: "Please give the access **kluvmoth** the reporting rights." The user activates `kluvmoth` server-side — the secret has never touched the chat (F5, F6, F11). Months later the operator reads their token list: next to `kluvmoth` is the self-introduction, and they still know who got access there and why (F5). When the user changes their commute, they revoke `kluvmoth` — one ability lapses, everything else keeps running (F1, F8). A second token that they applied for "for later" a year ago and never activated has long since expired (F9).
 
 [^dennis-van-horn-1966]: https://doi.org/10.1145/365230.365252
 [^hardy-confused-deputy]: https://css.csail.mit.edu/6.858/2015/readings/confused-deputy.html

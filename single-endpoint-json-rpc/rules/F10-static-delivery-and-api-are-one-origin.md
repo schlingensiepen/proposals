@@ -23,12 +23,12 @@ avoided. And avoiding them costs nothing on this platform, because the static
 files come from the same server anyway. The cookie credential from F7 works
 without special handling only under this condition.
 
-**Obvious and rejected.** *API on its own subdomain* — proper and customary, but
+**Considered and rejected.** *API on its own subdomain* — proper and customary, but
 here it costs exactly the three construction sites above for no return; a
 separate subdomain pays off when API and frontend scale separately or are run by
 different teams. *Static files from a CDN, API from your own server* — sensible
 for large, publicly readable content, and then to be solved via a shared origin
-with path routing; here everything sits behind a credential, so a CDN would have
+with path routing; here everything is behind a credential, so a CDN would have
 nothing it may serve.
 
 **How you notice it is violated.** An `OPTIONS` precedes every call in the log — or the

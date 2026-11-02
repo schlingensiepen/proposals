@@ -7,7 +7,7 @@ description: A user description of a small tool, "imap-sync", as a client would 
 
 *(Description from the user's point of view, as the client gives it orally.)*
 
-**What it is about.** I have old mailboxes at various providers from which I want to take mails over into my main mailbox, not once but again and again, as long as the old addresses still receive mail. Concretely: what lies in a particular folder of the old mailbox should also lie in a particular folder of my main mailbox. What is already over there must not be copied again; I want no duplicates. And nothing is ever deleted, neither here nor there.
+**What it is about.** I have old mailboxes at various providers from which I want to take mails over into my main mailbox, not once but again and again, as long as the old addresses still receive mail. Concretely: what is in a particular folder of the old mailbox should also be in a particular folder of my main mailbox. What is already over there must not be copied again; I want no duplicates. And nothing is ever deleted, neither here nor there.
 
 **How I want to use it.** I am not sitting in front of it. A script or an agent of mine triggers the sync when it suits, at night, after a holiday, whenever. Afterwards the same agent wants to be able to know whether the sync is through and what came of it: how many mails were taken over, whether something went wrong. If a provider is acting up or the connection drops, the tool should simply continue at the next attempt and not start again from zero.
 

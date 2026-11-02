@@ -16,6 +16,6 @@ imports: [one-configuration-one-judgment, where-a-secret-comes-from]
 
 **Why.** A check that does not reach the same decision as the start is worse than none: it creates trust that breaks in the incident. That the check command is a mode of the same artifact is the reason it can pass the same judgment: it is the same code.
 
-**Obvious and rejected.** *A separate schema validation tool*: the second truth about the configuration, see F2.
+**Considered and rejected.** *A separate schema validation tool*: the second truth about the configuration, see F2.
 
 **How you notice it is violated.** The service does not start although the check was green.

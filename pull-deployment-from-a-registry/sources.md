@@ -1,6 +1,6 @@
 ---
 type: Proposal Sources
-description: What this proposal builds on; the two concepts it imports, the alternative and a related proposal of the series, the reference service and two external sources.
+description: What this proposal builds on; the three concepts it imports, the alternative and a related proposal of the series, the reference service and two external sources.
 sources:
   - id: oci-distribution-spec
     url: https://github.com/opencontainers/distribution-spec/blob/main/spec.md
@@ -14,13 +14,14 @@ sources:
 
 ## Imports
 
-* `build-stamp` (at F2 and F7): the image carries the source revision it was built from, the running service reports it, and the build pipeline starts the image before publishing and requires the revision back. The build stamp is the precondition of F7 and of the last assertion of F2; it is not repeated here but used. This concept can be applied without the import as long as there is an image that reports its build state.
+* `build-stamp` (at F2 and F7): used for the source revision in the image and its report by the running service. The build stamp is the precondition of F7 and of the last assertion of F2; it is not repeated here but used. This concept can be applied without the import as long as there is an image that reports its build state.
 * `where-a-secret-comes-from` (at F2, and for the first secret of a pulled service): where a start secret comes from and in which ranking.
+* `proven-from-outside` (at F2, and at the acceptance of the handover to the operator): used for the red run of every smoke-test assertion and for the standard by which the handover to an unknown operator counts as proven (see the evidence); it is not repeated here.
 
 ## Related
 
 * `push-deployment-that-keeps-its-secrets` (alternative-to): the alternative; choose one per case. The line does not run between pushing and pulling but between having a way into the target and having none; a system of several components can need both side by side. This concept is complete without it.
-* `service-as-single-artifact` (recommended-with): what is built and delivered, one deliverable; the principle that the deployment file names a published deliverable instead of building it, with the local build as a named exception, comes from there (here F6, with the header). Deepening, not a prerequisite.
+* `service-as-single-artifact` (recommended-with): F6 builds on its principle for deployment files. Deepening, not a prerequisite.
 * `self-describing-services` (recommended-with): named by that proposal from its side; see there.
 * `admin-surface-over-http` (recommended-with): named by that proposal from its side; see there.
 

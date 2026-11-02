@@ -26,7 +26,7 @@ first version took its values as query parameters: the secret as
 later, for two reasons, both measured and not assumed. First, many
 sandboxes in which agents run forbid or strip the query part of a `GET`
 address; a surface that exists for weak tools must not fail on exactly
-the weakness it exists for. Second, a measurement decided the cut of the
+the weakness it exists for. Second, a measurement decided the design of the
 path: a percent-encoded slash in a path segment is decoded before
 routing; the route no longer matches afterwards, and the caller gets a
 `404` that tells it nothing about the cause; umlauts, line breaks, `#`,
@@ -39,7 +39,7 @@ reviewing agent had reported as silent guessing, can no longer arise
 ([F9](./rules/F9-no-guessing.md)). And the thing that arises over many
 fetches was first called "draft", until a reader asked whether the
 completing call should not be named as with the file upload. It has
-since been called **composition**, and the reason stands as a rule
+since been called **composition**, and the reason is recorded as a rule
 ([F7](./rules/F7-the-word-composition-not-draft.md)).
 
 ## The reference implementation
@@ -83,9 +83,11 @@ first), F3 (two encoding rules, explained slash), F4 (mirror with
 `Accept`), F5 (upload in parts, staging area, handover to the one
 upload), F6 (composition with exactly one depositing call, no removal),
 F7 (the renaming is done in specification, routes and description; in
-some test names the old word lives on), F9 (route cut instead of a
-precedence rule, one recipient per call), F10 (key in the path, receipt
-on the composition), F11 in duties (1) and (2) (the price stands in the
+some test names the old word lives on), F9 (one route per field instead of a
+precedence rule, one recipient per call), F10 in key and receipt (key in
+the path, receipt on the composition; the refusal of a key already used
+for a different composition is **not built**: the reference answers such
+a call with the old identifier), F11 in duties (1) and (2) (the price is in the
 first paragraphs of the description, and the main surface accepts no
 token from an address) and F12 in description, rendering, delivery form
 and coupling to discovery. F8 is **partly** met: the texts were written
@@ -98,7 +100,7 @@ notice. **Not built** are duties (4) and (5) of F11: there is no
 separate token per surface and no marking of a token for this surface
 (the same token holds on both), the surface's answers carry no header
 that forbids caches to keep them, and shortening the secret segment in
-own logs does not exist. F11 duty (3) follows from the cut of the
+own logs does not exist. F11 duty (3) follows from the scope of the
 service's tokens (one token is one mailbox folder), not from a rule of
 the surface. And the checks the service runs over its usage description
 do **not** run over the prose of this surface; its own tests demand the
@@ -108,7 +110,7 @@ chain of identifiers and some mandatory sentences, no more.
 
 * *(F2, F3)* The surface first took its values as query parameters. The
   author discarded that because many sandboxes strip the query part of a
-  `GET` address, and a measurement decided the cut of the path: a
+  `GET` address, and a measurement decided the design of the path: a
   percent-encoded slash in a path segment is decoded before routing, the
   route no longer matches, the caller gets a bare `404`; umlauts, line
   breaks, `#`, `?` and `&` survive the encoding. Since then free text
@@ -137,7 +139,7 @@ chain of identifiers and some mandatory sentences, no more.
   until it turned red with the sentence removed. The same reviewing
   agent had to guess four things (the encoding, the form of the key, the
   absence of any undo, that a finished file stays where it is), guessed
-  all four correctly and said so; all four now stand in the text, each
+  all four correctly and said so; all four are now in the text, each
   with a test.
 * *(F1)* A reading call was written out instead of taken over from the
   main surface, and a malformed identifier became a server error there,
@@ -163,7 +165,8 @@ named as such: the three refusals with the old address form (F8), the
 separate token per surface and the marking on issue (F11 duty 4), the
 header against caches and shortening in own logs (F11 duty 5), the
 checks against inside knowledge and hindsight over the prose of this
-surface (F12), the test names with the old word (F7). Not proven,
+surface (F12), the test names with the old word (F7), the refusal of a
+used key with a different composition (F10). Not proven,
 because nobody but the author's agents has used it: that the surface
 reaches the tools it was built for. The sandboxes that strip the query
 part are the reason for the rebuild, but a run from inside such a

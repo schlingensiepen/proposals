@@ -23,14 +23,14 @@ sees that because something applies at the top. The incident behind
 this rule has happened: a secret generated at first start stayed
 underneath the changed variable, known to nobody, and would have
 applied again the next time the variable was missing. A latent access.
-Whoever introduces the ranking pays for it with the report.
+Anyone who introduces the ranking pays for it with the report.
 
-**Obvious and rejected.** *Silently ignoring the lower rank while the
+**Considered and rejected.** *Silently ignoring the lower rank while the
 upper applies*: the state as built, and the incident. *Deleting the
 file as soon as the variable applies*: an operator who sets the
 variable only temporarily loses their only stored secret; a service does
 not delete secrets on its own.
 
 **How you notice it is violated.** A removed secret still applies
-because a second one lay underneath; or an operator cannot say how many
+because a second one was still underneath; or an operator cannot say how many
 valid secrets their instance has right now.

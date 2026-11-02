@@ -15,6 +15,6 @@ applies_to: [builder]
 
 **Why.** Every example is thereby copy-paste ready for exactly this installation. Placeholders are a source of error precisely with the consumer who takes things literally.
 
-**Obvious and rejected.** *`example.com` placeholders with a "replace with your host" footnote* — agents actually do call placeholders. *Rendering a configured "official" URL* — behind proxies and with tenants it does not match the request.
+**Considered and rejected.** *`example.com` placeholders with a "replace with your host" footnote* — agents actually do call placeholders. *Rendering a configured "official" URL* — behind proxies and with tenants it does not match the request.
 
 **How you notice it is violated.** The logs contain requests against `example.com`.

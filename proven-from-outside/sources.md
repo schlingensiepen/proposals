@@ -12,8 +12,8 @@ None. This concept stands on its own.
 
 ## Related
 
-* `service-as-single-artifact` (recommended-with): whoever builds a
-  service that way gets from this concept the two proofs from outside, for
+* `service-as-single-artifact` (recommended-with): anyone who builds a
+  service that way gets the two proofs from outside from this concept, for
   the checks in its build and for the documents that are meant to carry it
   without its builder.
 

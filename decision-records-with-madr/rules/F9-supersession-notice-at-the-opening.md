@@ -7,7 +7,7 @@ role: load-bearing
 applies_to: [writer]
 ---
 
-# F9 · The supersession notice sits at the opening of the superseded record
+# F9 · The supersession notice is at the opening of the superseded record
 
 **Applies to:** writer.
 
@@ -17,7 +17,7 @@ to the head, the second and last place where an accepted record is still
 changed. Nothing else in the text changes.
 
 **Why.** The backward pointer in the head (F2) is machine-readable and
-practically invisible to people: whoever opens a record reads the first lines of
+practically invisible to people: anyone who opens a record reads the first lines of
 the **text** — not the metadata block, and certainly not a field near its
 bottom. A supersession recorded only in the head is formally correct and still
 gets missed; and it gets missed on precisely the record a reader finds first,
@@ -30,8 +30,8 @@ only be entered forwards, in the new record, and the old one would know nothing
 of its own end. Neither intervention touches the statement: both record *what
 happened to* the document, not *what it says*.
 
-**Obvious and rejected.** *Maintain the head only* — machine-correct,
-practically invisible; see above. *Put the notice at the end* — there it sits
+**Considered and rejected.** *Maintain the head only* — machine-correct,
+practically invisible; see above. *Put the notice at the end* — there it is
 behind the very thing it warns about. *Shorten the superseded record's text or
 replace it with a pointer* — destroys exactly the evidence of what the decision
 was and why it seemed right at the time; the superseded record is the only place

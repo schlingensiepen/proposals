@@ -21,7 +21,7 @@ None. This concept is complete on its own.
 
 ## Related
 
-* `capability-tokens-for-agents` (overlaps-with): deepening, not a prerequisite; the capability side of F6 in detail. The boundary runs like this: there it is the capability side alone, with an **agent** as consumer that registers itself and receives its token over a second channel. Here it is the **boundary** between identity and capability in a system carrying both, and the machine consumer is a process the operator deploys; its key therefore comes into being in the deployment (F7) and not through self-registration. That is no contradiction but a different starting case: an agent turns up, a background process is put there.
+* `capability-tokens-for-agents` (overlaps-with): deepening, not a prerequisite; the capability side of F6 in detail. Here the subject is the **boundary** between identity and capability in a system carrying both, and the machine consumer is a process the operator deploys; its key therefore comes into being in the deployment (F7).
 * `single-endpoint-json-rpc` (recommended-with): deepening, not a prerequisite; the interface over which credentials travel. This concept is complete without it: it fixes **which** credentials exist and **how they come into being**, not over which interface they travel.
 * `get-only-exit` (tension-with): in tension at F9.
 * `push-deployment-that-keeps-its-secrets` (recommended-with): named by that proposal from its side; see there.

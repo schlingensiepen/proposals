@@ -24,6 +24,6 @@ applies_to: [builder]
 
 **Why.** The moment of failure is the moment of highest attention: with the agent, the correction instruction is in the context window exactly when it is needed — self-description at the point of failure. Error texts are interface description and deserve the same editorial care. It is at the same time the redemption of an old idea: HATEOAS wanted responses that name the next steps themselves — it only came too early, because human developers did not want to discover anything at runtime; agents do it without complaint.
 
-**Obvious and rejected.** *Generic error codes with a pointer to the documentation* — a break in the medium; the agent guesses instead of reading. *Error texts as an implementation detail* — then they explain the internal state instead of the way out.
+**Considered and rejected.** *Generic error codes with a pointer to the documentation* — a break in the medium; the agent guesses instead of reading. *Error texts as an implementation detail* — then they explain the internal state instead of the way out.
 
 **How you notice it is violated.** An agent repeats the same failing call several times in a row — the response has taught him nothing.

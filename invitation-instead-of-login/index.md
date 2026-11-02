@@ -20,19 +20,19 @@ One answer each; give one up and you are no longer using the concept. Humans F1 
 * [F6 Humans receive identity, machines receive capability](./rules/F6-humans-identity-machines-capability.md) - A machine gets a key for one task at one place, representing nobody, one per task and per machine.
 * [F7 Machine accesses come into being only in the bootstrap window](./rules/F7-machine-keys-only-in-the-bootstrap-window.md) - Creating machine keys is bound to the window and shows the clear text once; revoking is always available.
 * [F8 The bootstrap is a time window, not a delete-me file](./rules/F8-the-bootstrap-is-a-time-window.md) - Setup procedures require the strongest secret outside the store and a window a deployment opens.
-* [F9 Secrets in addresses sit in the fragment, or nowhere](./rules/F9-secrets-in-addresses-sit-in-the-fragment.md) - Never in path or query string; read from the fragment and sent once in a request body.
+* [F9 Secrets in addresses go in the fragment, or nowhere](./rules/F9-secrets-in-addresses-sit-in-the-fragment.md) - Never in path or query string; read from the fragment and sent once in a request body.
 * [F10 The model provides two anchors](./rules/F10-two-anchors-for-a-rights-system.md) - No rights model; user and user on device as anchors, and five properties demanded of any rights system built on them.
 
 # Scope and evidence
 
-* [Scope](./scope.md) - Security considerations, what it costs, where it applies, when the answer flips, what it does not solve, what is not yet settled.
+* [Scope](./scope.md) - Security considerations, what it costs, where it applies, when this no longer holds, what it does not solve, what is not yet settled.
 * [Evidence](./evidence.md) - A worked example in an invented inventory system, the missing reference implementation, and the origin.
 * [Sources](./sources.md) - Related proposals and external sources (cookie and URI specifications, session management guidance).
 * [Used by](./used-by.md) - Which proposals import or extend this one. Only needed when changing this concept.
 
 # Adopting
 
-* [AGENT](./AGENT.md) - Self-contained guide for an agent adopting this concept: rules, procedures, acceptance checklist, common mistakes, self-check.
+* [AGENT](./AGENT.md) - Self-contained guide for an agent adopting this concept: rules, the deadline decided with the user, procedures including the setup of a fresh system, acceptance checklist, common mistakes, self-check.
 * [Extensions](./extensions.md) - Proposals that extend this one.
 
 # History

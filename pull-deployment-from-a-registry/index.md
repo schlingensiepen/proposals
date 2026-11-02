@@ -12,30 +12,26 @@ okf_version: "0.2"
 
 One answer each; give one up and you are no longer using the concept. The model F1, duties before publishing F2 to F5, handover to the operator F6 to F7, outer edge F8.
 
-* [F1 In a pull, nobody stands at the target](./rules/F1-nobody-stands-at-the-target.md) - Two roles and six actions; every assurance a push script would give at the target sits before publishing or in the artifact and its deployment file.
+* [F1 In a pull, nobody stands at the target](./rules/F1-nobody-stands-at-the-target.md) - Two roles and six actions; every assurance a push script would give at the target is placed before publishing or in the artifact and its deployment file.
 * [F2 The smoke-test checklist](./rules/F2-the-smoke-test-checklist.md) - Before publishing: entry point, own health check, every interface, self-description, writable state, first-start secret once, restart, recreation, reported build; throwaway values, a red run for each assertion.
 * [F3 Names are computed, not formed](./rules/F3-names-are-computed-not-formed.md) - A computation that knows the registry's rules produces the names; every build gets an immutable name carrying the source revision beside the moving ones.
-* [F4 latest is a promise](./rules/F4-latest-is-a-promise.md) - The name for whoever names none is written by the default branch's build alone, or not at all.
-* [F5 Visibility is measured](./rules/F5-visibility-is-measured.md) - An anonymous fetch of the manifest under the name the deployment file uses, after every visibility change, not an inference from a setting.
+* [F4 latest is a promise](./rules/F4-latest-is-a-promise.md) - The name for anyone who names none is written by the default branch's build alone, or not at all.
+* [F5 Visibility is measured](./rules/F5-visibility-is-measured.md) - An anonymous fetch of the manifest under the name the deployment file uses, after every visibility change, not an inference from a setting; as a pipeline step not yet built in the author's delivery.
 * [F6 The header of the deployment file](./rules/F6-the-header-of-the-deployment-file.md) - Which image and what kind of name, login, pull / start / check steps, what travels in clear text, pass-through variables, where state lives.
-* [F7 Rolled out is not running](./rules/F7-rolled-out-is-not-running.md) - Success is a call against the running instance that reports its build, compared with the intended one; pull explicitly before the start.
+* [F7 Rolled out is not running](./rules/F7-rolled-out-is-not-running.md) - Success is a call against the running instance that reports its build, compared with the intended one; pull explicitly before the start; the call is not yet in any shipped file of the author's delivery.
 * [F8 What the outer edge advertises must get through](./rules/F8-what-the-outer-edge-advertises-must-get-through.md) - Measure every advertisement from outside with a client that follows it; switch off at the edge what the network blocks.
-
-# Choices
-
-No choices in this version; every entry is a rule.
 
 # Scope and evidence
 
-* [Scope](./scope.md) - Security considerations, what it costs, where it applies, when the answer flips, what it does not solve, what is not yet settled.
+* [Scope](./scope.md) - Security considerations, what it costs, where it applies, when this no longer holds, what it does not solve, what is not yet settled.
 * [Evidence](./evidence.md) - Where it has held: the build pipeline and deployment files of the author's mail-filing service, built, incidents, not met, origin.
-* [Sources](./sources.md) - What this proposal builds on: the concepts it imports, the alternative and a related proposal, external sources.
+* [Sources](./sources.md) - What this proposal builds on: the three concepts it imports, the alternative and a related proposal, external sources.
 * [Used by](./used-by.md) - Which proposals import or extend this one. Only needed when changing this concept.
 * [Example: an operator pulls, starts and asks](./examples/an-operator-pulls-starts-and-asks.md) - A walk-through with invented values, including a fix that the cache hides.
 
 # Adopting
 
-* [AGENT](./AGENT.md) - Self-contained guide for an agent acting as builder or operator: procedure, rules, acceptance checklist, common mistakes, self-check.
+* [AGENT](./AGENT.md) - Guide for an agent acting as builder or operator: procedure with the decisions to put to the user, rules, acceptance checklist, common mistakes, self-check; names what comes from the imported concepts.
 * [Extensions](./extensions.md) - Proposals that extend this one. None yet.
 
 # History

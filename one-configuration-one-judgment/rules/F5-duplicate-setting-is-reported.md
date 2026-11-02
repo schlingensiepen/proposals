@@ -16,12 +16,12 @@ Applies with per-value precedence only
 higher rank wins, and the check names the lower one with its place.
 
 **Why.** A precedence makes overriding easy and cleaning up invisible.
-Whoever sets something at the top sees the effect at once; whoever
-forgets something at the bottom notices only when the top goes away: on
-a migration, on recreating the deployment from a template, on a typo. Then a value is in
-effect that nobody knows about any more.
+Anyone who sets something at the top sees the effect at once; anyone
+who forgets something at the bottom notices only when the top goes
+away: on a migration, on recreating the deployment from a template, on
+a typo. Then a value is in effect that nobody knows about any more.
 
-**Obvious and rejected.** *Silently taking the winner*: this is how most
+**Considered and rejected.** *Silently taking the winner*: this is how most
 services are built, and it is exactly how the incident behind this rule
 happened.
 

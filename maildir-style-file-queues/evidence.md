@@ -11,10 +11,10 @@ The pattern is a transfer of the maildir format from the mail server world, crea
 
 ## Reference implementation (state open)
 
-The author's draft-filing service implements the pattern completely: one directory tree per access with the five state folders, a random identifier with a timestamp in front, retry with the time in the file, the restart rule at start, a journal without automatic cleanup, display of stocks and interventions exclusively through commands. It is supplemented by two things that belong to the pattern but go beyond the pure queue: a separate, durable file pool for attachments (which jobs only refer to, F8), and idempotency markers that, by exclusive creation, prevent a request submitted repeatedly from producing two jobs.
+The author's draft-filing service implements the pattern completely: one directory tree per access with the five state folders, a random identifier with a timestamp in front, retry with the time in the file, the restart rule at start, a journal without automatic cleanup, display of counts and interventions exclusively through commands. It is supplemented by two things that belong to the pattern but go beyond the pure queue: a separate, durable file pool for attachments (which jobs only refer to, F8), and idempotency markers that, by exclusive creation, prevent a request submitted repeatedly from producing two jobs.
 
 *The implementation was running when this version was written; a completion report is outstanding.* Until it exists, this section claims no more than that. The repository of the service is not publicly accessible.
 
-## Considered and inferior in comparison
+## Considered and found inferior
 
-Before the decision, an embedded database was under discussion. Its only argument of its own was the state enquiry for the caller ("what has become of my job?"), and that works just as well through the location of the folder. Against it stood: concurrency behavior one has to understand and test; a schema with a migration history; a dependency in the delivery artifact; and the loss of inspectability with the tools of the operating system. The decision therefore went against any database in the system.
+Before the decision, an embedded database was under discussion. Its only argument of its own was the status query for the caller ("what has become of my job?"), and that works just as well through the location of the folder. Against it stood: concurrency behavior one has to understand and test; a schema with a migration history; a dependency in the deliverable; and the loss of inspectability with the tools of the operating system. The decision therefore went against any database in the system.

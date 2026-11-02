@@ -40,7 +40,7 @@ description: Where the concept stands; a worked example from invitation to machi
 >
 > While the clock is below that, the setup procedures are open. In this window the operator has the API create **all** required machine keys: one with the task *backup* for the backup machine, one with the task *analyze* for the analysis machine, each named after its machine (F6). Each clear text appears **exactly once** and moves into that machine's configuration. Then the hour elapses and the same calls answer that the window is closed (F7, F8).
 >
-> **Whoever could write that file had access to the machine anyway**: the window gives them nothing they did not already have.
+> **Anyone who could write that file had access to the machine anyway**: the window gives them nothing they did not already have.
 >
 > If a third machine joins half a year later, that is no special case: deploy, create its key in the then-open window, done.
 >

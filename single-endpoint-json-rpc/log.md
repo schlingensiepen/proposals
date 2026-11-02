@@ -1,6 +1,7 @@
 # Update log
 
 ## 2026-11-01
+* **Update**: Version 1.1. F7 names its one exception in the title and in "What holds": the redemption secret is presented once in a request body to be exchanged for the session credential; the agent guide's prohibition and checklist name the same exception. F5 states that the three mandatory fields hold for application errors and that a protocol error carries only the code and message the standard defines; agent guide, index and evidence follow. The agent guide gains a review step and a checklist item: on the target platform, a request to a served directory without a filename lists nothing. The upload address in the evidence is `/api/upload/` instead of a script name. Wording: the field "Obvious and rejected" is now "Considered and rejected" in every rule, the scope section "When the answer flips" is now "When this no longer holds", and calques are replaced throughout (F11 title and the wording of F1 reworded, no change in meaning). Terms: the roles builder, consumer and operator added. Sources: the entry for a related proposal cut to this bundle's own view. The agent guide's review step and self-check name the same exception as its prohibition. F5 now excludes protocol errors, as the evidence always showed, and F7 names its exception; the other rules unchanged in content.
 * **Update**: Form (agent guide name, README describes the parts, relation vocabulary).
 
 ## 2026-10-13

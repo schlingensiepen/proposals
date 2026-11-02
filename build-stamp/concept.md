@@ -7,7 +7,7 @@ description: The problem of statements about a revision other than the one runni
 
 ## Problem
 
-An artifact that does not say which revision it was built from makes every statement about its behavior unverifiable. In an implementation by the author, a container ran for days at a revision seven changes behind the one being talked about, and there was no way to notice: the image carried no stamp, and the identifier in its name was a branch name, which does not change. For days, statements about "tested" were statements about something other than what was running.
+An artifact that does not say which revision it was built from makes every statement about its behavior unverifiable. In an implementation by the author, a container ran for days at a revision seven changes behind the one being talked about, and there was no way to notice: the image carried no stamp, and the identifier in its name was a branch name, which does not change. For days, every statement that something had been "tested" was a statement about something other than what was running.
 
 On top of that, "I have deployed" and "it is running" are two different statements: an unchanged name pulls no new image. That came to light only once the artifact could report its build; on its first use, the report at once caught a container that had taken an unchanged tag from the cache.
 

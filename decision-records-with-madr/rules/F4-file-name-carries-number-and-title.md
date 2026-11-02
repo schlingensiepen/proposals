@@ -28,7 +28,7 @@ file systems and encodings never become the topic — a body travels between
 machines, and a non-ASCII character in a file name is the difference between
 "works" and "works most of the time".
 
-**Obvious and rejected.** *Number only (`0031.md`)* — shorter, but the directory
+**Considered and rejected.** *Number only (`0031.md`)* — shorter, but the directory
 listing becomes a column of digits telling nothing. *Title only, without a
 number* — sorting becomes alphabetical and thus meaningless, and citations grow
 long. *Date instead of number* — two decisions on one day collide, and renaming

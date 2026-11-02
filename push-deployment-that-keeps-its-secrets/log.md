@@ -1,6 +1,7 @@
 # Update log
 
 ## 2026-11-01
+* **Update**: Version 1.1. F2 and F6 say what the terminal shows of a secret: its name and the place of the copy, never its value; the plain text of an access appears exactly once, on the receiving side; the agent guide, its checklist and the evidence follow. F4 names the production configuration as locked once it has been created, so that it no longer reads against F5, which creates it when missing. Scope: the preconditions say that the concept is written for files pushed by a script, not for container images; the unattended pipeline, which this concept does not cover, points to the alternative `pull-deployment-from-a-registry` in the sources, and the agent guide does the same in step 0. The sentence "this concept has no choices" is dropped from README and index, since the procedure contains decisions with the user (window length, `--force` wording, the conditions in step 0). Language: field title "Considered and rejected" in every rule, "When this no longer holds" in scope, index and README, calques smoothed without change of meaning ("whoever" constructions, "lies in", "foreign", "the cut"). Terms: builder and operator added, the roles the rules apply to. Sources: what they said about the content of `where-a-secret-comes-from` and `invitation-instead-of-login` cut back to the relation. F2, F4 and F6 state an existing reading explicitly; the content of the other rules is unchanged.
 * **Update**: Form (agent guide name, README describes the parts, relation vocabulary).
 
 ## 2026-10-13

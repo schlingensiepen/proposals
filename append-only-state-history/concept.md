@@ -15,14 +15,14 @@ Two requirements that seem to contradict each other: **lose nothing** and **dupl
 
 ## The concept
 
-The item itself carries no data; it is only an identity. Everything of substance hangs on a **state**: a snapshot with a point in time and a creator. A change does not change a state but **creates a new one**; the old one stays as it is. Attachments, images and files, are carried over into the new state **by reference**, not copied: the same attachment can occur in many states and still exists only once.
+The item itself carries no data; it is only an identity. Everything of substance belongs to a **state**: a snapshot with a point in time and a creator. A change does not change a state but **creates a new one**; the old one stays as it is. Attachments, images and files, are carried over into the new state **by reference**, not copied: the same attachment can occur in many states and still exists only once.
 
 So everything is immutable, **with exactly one exception**: one metadata entry that a machine adds after the fact and that is not yet final may live on in the **current latest** state until the next state freezes it.
 
-**Load-bearing structure.** F1 carries everything. **F2 is the condition for F1 staying affordable**: without carrying over by reference, immutability is given up at the first large attachment. F3 is the only exception to F1 and is acceptable only because it is narrow. F4 stands independently.
+**Load-bearing structure.** F1 carries everything. **F2 is the condition for F1 staying affordable**: without carrying over by reference, immutability is given up at the first large attachment. F3 is the only exception to F1 and is acceptable only because it is narrow. F4 is independent.
 
 > **Reservation.** F1 to F4 were developed on a flat model and tried out there. How they carry over to object trees is **not** decided; see what is not yet settled in the scope.
 
 ## The procedure
 
-Not yet written in version 0.2.
+Not yet written in version 0.3.

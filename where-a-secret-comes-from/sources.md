@@ -21,9 +21,9 @@ sources:
 
 ## Tension
 
-* `get-only-exit` carries the secret in the address; that is a use, not
-  a source, and it explicitly suspends
-  [F6](./rules/F6-never-in-any-output.md) there.
+* `get-only-exit` (`tension-with`): a secret in an address is a use, not
+  a source, and it works against
+  [F6](./rules/F6-never-in-any-output.md).
 
 All proposals live in the same repository; see its root README for the
 register and the links. Which proposals build on this one is listed in

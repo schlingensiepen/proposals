@@ -8,7 +8,7 @@ description: Self-contained guide for an agent adopting this concept; includes t
 
 ## Purpose
 
-<Who you are and what you are doing when you use this guide. This guide is complete on its own, except that the choice step needs the files in `choices/`; rule numbers appear in parentheses as provenance only.>
+<Who you are and what you are doing when you use this guide. Rule numbers appear in parentheses as provenance only. Without imports and without "Not yet written" in `scope.md`, add: "This guide is complete on its own." With imports, add instead: "This guide is complete on its own except for <what> from the imported concept `<slug>`; ask the user for that bundle if you do not have it." Otherwise add neither.>
 
 ## Procedure
 

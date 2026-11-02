@@ -19,10 +19,10 @@ secret never appears in the check's output, not even truncated.
 **Why.** A configuration file gets versioned, copied, pasted into
 tickets. What is in it is soon everywhere.
 
-**Obvious and rejected.** *The secret in the file "with tight
+**Considered and rejected.** *The secret in the file "with tight
 permissions"*: the permissions do not survive the first copy. *Showing
 the secret masked in the check's output*: the masking is switched off at
 the first incident.
 
-**How you notice it is violated.** A secret sits in a file that is under
+**How you notice it is violated.** A secret is in a file that is under
 version control, or in the output of the check.

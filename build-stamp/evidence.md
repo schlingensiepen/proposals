@@ -13,6 +13,6 @@ The rule comes from an implementation by the author, August to September 2026: a
 
 A container ran for days seven changes behind the revision being talked about, and nobody could see it: the image carried no stamp, and its name was a branch name. Since then the build stamps the source revision into the image, and before publishing, the smoke test requires that the report of the running service names exactly this revision. On its first use, the report at once caught a container that had taken an unchanged tag from the cache.
 
-**Not yet redeemed.** Today the report exists only through the management surface on the network, behind the administration secret. The version command of the artifact reports the package version, not the stamp. The rule demands the stamp in the command; there it goes beyond the evidenced implementation, and the author has not yet paid for this part.
+**Not yet redeemed.** Of the rule, the stamp and the smoke test are evidenced; the report through the version command is not. Today the report exists only through the authenticated management surface on the network, behind the administration secret. The version command of the artifact reports the package version, not the stamp. The rule demands the stamp in the command; there it goes beyond the evidenced implementation, and the author has not yet paid for this part.
 
 Further evidence: not yet written.

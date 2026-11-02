@@ -15,13 +15,13 @@ The check shows the effective values, defaults included, the way the
 start will use them.
 
 **Why.** A check that does not reach the same decision as the start is
-worse than none: it creates trust that breaks in the incident. And a
+worse than none: it creates trust that breaks in an incident. And a
 check that shows only the values somebody set hides the defaults, which
 are in effect all the same.
 
-**Obvious and rejected.** *A separate schema validation tool*: the second
+**Considered and rejected.** *A separate schema validation tool*: the second
 truth about the configuration; it agrees as long as someone maintains
-both. *Checking by trial start*: binds ports and state and cannot be
+both. *Checking by a trial start*: binds ports and state and cannot be
 repeated while the service runs.
 
 **How you notice it is violated.** The service does not start although

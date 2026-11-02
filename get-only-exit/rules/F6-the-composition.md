@@ -14,15 +14,17 @@ request body on the main surface arises on the second surface as a
 **composition** over several fetches. One call **creates** it and
 answers with its identifier: `<base>/get/v1/<token>/compose`. **One
 route per field** sets or adds a value: `…/compose/<id>/subject/<base64url>`,
-`…/to/<address>`, `…/attach/<file-id>`. Fields that hold several values
-**append** (one recipient per call), fields with one value **replace**.
+`…/to/<address>`, `…/attach/<file-id>` (the fields of the pattern; a
+mail request serves as the example throughout). Fields that hold several
+values **append** (in the pattern: one recipient per call), fields with
+one value **replace**.
 A call without an action **shows** the composition as it stands, so that
 the caller can put it before its user. And **exactly one** call
 **deposits** it, `…/compose/<id>/deposit/<key>`, and hands the finished
 composition to the same operation the main surface uses for this
 request. Until then nothing has gone out, and this one address is the
 place where the user's consent belongs. There is **no** way to remove
-anything from a composition: whoever errs starts a new one; nothing
+anything from a composition: a caller that errs starts a new one; nothing
 abandoned is ever deposited, and an abandoned composition expires in
 the staging area like an unfinished upload. A composition that is not
 yet a valid request is refused on depositing, and the refusal lists
@@ -33,7 +35,7 @@ instead of letting the caller search for it.
 an accidentally triggered fetch, by a chat's link preview, by
 prefetching, by a repetition, fills a field of a composition and does
 nothing else. What remains is "deposited before the user agreed", and
-the cut helps against that: the composition is built over many fetches,
+the design helps against that: the composition is built over many fetches,
 and **exactly one** fetch deposits. That one address can be named, it is
 the only irreversible one, and the description can highlight it. One
 route per field, because then the case "two values for one field in one
@@ -47,7 +49,7 @@ and because "start over" costs nothing on a surface on which nothing
 abandoned ever takes effect. And the state is shown, because the user's
 confirmation must refer to something they see.
 
-**Obvious and rejected.** *The whole request in one address
+**Considered and rejected.** *The whole request in one address
 (`…/send/<from>/<to>/<subject>/…`)*: fits one line of text and nothing
 else, and makes every fetch one that takes effect. *One field with two
 parameters ("text as a value or as a file")*: the first version; with

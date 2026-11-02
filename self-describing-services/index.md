@@ -4,7 +4,7 @@ okf_version: "0.2"
 
 # Start here
 
-* [README](./README.md) - Identity card: question, thesis, what changed in 1.1, what it imports, the parts in short.
+* [README](./README.md) - Identity card: question, thesis, what changed in each version, what it imports, the parts in short.
 * [Concept](./concept.md) - The problem, the concept in prose with its load-bearing structure, the procedures for builder and consumer.
 * [Terms](./terms.md) - The terms of this bundle in English and German, each with a short explanation.
 
@@ -31,13 +31,13 @@ One answer each; give one up and you are no longer using the concept. Building t
 * [F17 Present tense: the description says what is, not what was](./rules/F17-present-tense.md) - The delivered description names only forms the service knows now; hindsight belongs in the decision records that travel with the source code.
 * [F18 Closure: no reference the reader cannot resolve; every identifier is handed out first](./rules/F18-closure.md) - Nothing in the description needs inside knowledge to resolve, and every identifier the caller must substitute comes with the call that yields it, in the same sentence.
 * [F19 One word means one thing](./rules/F19-one-word-one-thing.md) - Every word in the vocabulary of the description denotes one thing; unequal consequences carry unequal names.
-* [F20 Texts are cut, the entry page links informatively](./rules/F20-texts-are-cut-the-entry-page-links-informatively.md) - Every text is cut so that each step loads only what the next decision needs, and the entry page says at every link what lies behind it.
+* [F20 Texts are cut, the entry page links informatively](./rules/F20-texts-are-cut-the-entry-page-links-informatively.md) - Every text is cut so that each step loads only what the next decision needs, and the entry page says at every link what is behind it.
 * [F21 The empty state is decided](./rules/F21-the-empty-state-is-decided.md) - The service names the state between "does not exist" and "here is the description", decides between a setup page with 200 and a 404, and records the decision with its price.
 * [F22 Principle and case: every behavior rule stands exactly once, held by machine](./rules/F22-principle-and-case-every-behavior-rule-stands-once.md) - The usage description names the principle once, the operation its case; nothing is spelled out in both places, and a check in the build holds the separation.
 
 # Scope and evidence
 
-* [Scope](./scope.md) - Security considerations, what it costs per rule, where it applies, when the answer flips, what it does not solve, what is not yet settled.
+* [Scope](./scope.md) - Security considerations, what it costs per rule, where it applies, when this no longer holds, what it does not solve, what is not yet settled.
 * [Evidence](./evidence.md) - Where it has held: a reference implementation in operation, a precursor in daily use, an antecedent from 2007.
 * [Example: the traffic service](./examples/traffic-service-walkthrough.md) - The invented traffic service played through from beginning to end; illustration, not evidence.
 * [Sources](./sources.md) - What this proposal builds on: the two concepts it imports, related proposals, external sources.

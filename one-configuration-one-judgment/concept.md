@@ -12,7 +12,7 @@ parameters: the port it listens on, the directory for its data, the
 address of the target system, the log level. These values can live in
 several places, as an option on the command line, as an environment
 variable, in a file near the user, in a file in the system, and each
-place has its reason. The file can be versioned, the environment is the
+place has its purpose. The file can be versioned, the environment is the
 platform's way in, the command line is the way when trying things out.
 
 The trouble starts as soon as there is more than one place. Two
@@ -32,8 +32,8 @@ sets values and needs to know whether they arrived, before the restart,
 not after. **The adopter** finds a running service and must be able to
 say which value is in effect right now and where it came from.
 
-The usual way out, a schema, a validation tool, a documentation page of
-environment variables, softens the problem and creates a second truth
+The usual way out (a schema, a validation tool, a documentation page of
+environment variables) softens the problem and creates a second truth
 about the configuration that agrees with the first only as long as
 someone maintains both. The structural answer goes one level deeper:
 there may be only **one** judgment, and it must be made by the code that
@@ -59,17 +59,17 @@ individually from several places, each value says where it came from.
 Not because that is elegant, but because hunting for the place a value
 really comes from is the most common time sink in troubleshooting.
 
-Two things the concept deliberately does **not** fix; it offers them as
+Two things the concept deliberately does **not** settle; it offers them as
 choices: whether precedence selects the **file** (all values from one
 file) or applies **per value** (each value individually from command
 line, environment, file), and what an **empty value** means (the default
 applies, or set and invalid). Both questions have different right
 answers for different settings; the port may treat empty as default, the
-data directory may not. So whoever adopts the concept decides them per
+data directory may not. So anyone who adopts the concept decides them per
 setting, in practice per group of settings, and records the decision
 ([choices](./choices/), [AGENT.md](./AGENT.md)).
 
-Two things the concept delimits. Secrets are not in the configuration;
+The concept draws two boundaries. Secrets are not in the configuration;
 they are referenced from it, and where they come from is the business of
 the sister concept `where-a-secret-comes-from`. And the check binds
 nothing: no port, no state; it can be repeated at any time while the

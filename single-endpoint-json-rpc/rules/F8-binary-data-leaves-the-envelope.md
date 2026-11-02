@@ -18,19 +18,19 @@ code running.
 
 **Why.** JSON carries no bytes. Base64 costs a third in volume — uploading over
 a mobile connection, that is exactly the request that hits the time limit.
-Memory weighs heavier: a Base64 field must sit in memory in full before anything
+Memory weighs heavier: a Base64 field must be in memory in full before anything
 happens with it. For a database backup of a few hundred megabytes that pushes
 the process past any memory limit a cheap package sets. The web server, by
 contrast, serves a file without reading it.
 
 **The price must be named explicitly:** the unguessable address is a
-**credential in the shape of a string**. Whoever has it gets the file — there is
+**credential in the shape of a string**. Anyone who has it gets the file — there is
 no check behind it, no revocation, no expiry a static web server could enforce
 by itself.
 
 **That is the same kind of credential as a token — with one difference that
-counts.** Every session or machine key is a bearer credential too: whoever holds
-it may act. "No revocation, no expiry" applies there just as much, unless
+counts.** Every session or machine key is a bearer credential too: anyone who
+holds it may act. "No revocation, no expiry" applies there just as much, unless
 somebody keeps a block list. The difference lies **not in the nature but in the
 location**: a token in a header appears in no access log — a path appears in
 every one. This file's address shows up in the server log, in the browser
@@ -47,7 +47,7 @@ everything else.
 
 **How the address is constructed is stated in F11.**
 
-**Obvious and rejected.** *Base64 in the envelope, "it is only an image"* — the
+**Considered and rejected.** *Base64 in the envelope, "it is only an image"* — the
 volume would be bearable, the memory demand is not; and the line between "only
 an image" and "the entire database" drifts upward over time. *Serving through
 the API with an authorization check* — then application code runs for every

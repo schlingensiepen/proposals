@@ -3,7 +3,7 @@ type: Proposal Usage
 description: Which other proposals import or extend this one; generated from the series register, kept apart from sources.md so that readers who only need this concept never have to open it.
 generated:
   by: series-register
-  at: 2026-11-01T00:00:00Z
+  at: 2026-11-02T00:00:00Z
 ---
 
 # Used by
@@ -11,8 +11,10 @@ generated:
 ## Imported by
 
 * `self-describing-services`
+* `pull-deployment-from-a-registry`
 * `self-contained-repos`
 * `two-repo-submodule-pattern`
+* `admin-surface-over-http`
 
 ## Extended by
 

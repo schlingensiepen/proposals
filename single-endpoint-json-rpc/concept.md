@@ -31,7 +31,7 @@ separately:
   answers `404`, on both platforms. That leaves `/api/index.php/…`, which writes
   the technology into the address, or `/api/?p=…`, which writes the application
   logic into the query string.
-- **Where do the secrets go?** A token in a query string sits in the access log,
+- **Where do the secrets go?** A token in a query string is in the access log,
   in the browser history, and in every `Referer` the browser sends along. That
   is not a theoretical risk; that is normal operation.
 - **Where do the files go?** A JSON envelope carries no bytes. Base64 costs a
@@ -65,7 +65,7 @@ and **provisioning** large compilations — backups, exports — which are
 *commissioned* through the envelope and yield an address in the same file
 pattern only once compilation has finished. The envelope cannot carry the bytes,
 but it can carry the **commission**; so the application logic stays in the API
-and only delivery sits outside.
+and only delivery is outside.
 
 **Load-bearing structure.** **F1 carries everything.** If the precondition "no
 rewriting" no longer holds, F1 is void, and with it the main reason for F2 — then resource
@@ -93,8 +93,8 @@ the chain runs one way:
   justification, which never applied to it — the most dangerous single failure in
   this concept.
 
-F10 stands on its own but is what makes F7 convenient. **Whoever takes only one
-rule takes F7.**
+F10 stands on its own but is what makes F7 convenient. **If you take only one
+rule, take F7.**
 
 ## The procedure
 

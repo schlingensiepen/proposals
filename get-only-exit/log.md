@@ -1,6 +1,7 @@
 # Update log
 
 ## 2026-11-01
+* **Update**: Version 1.1. F10: a key already used for a different composition is refused, naming the key and its composition, instead of answering the old identifier, and the same identifier is answered only for the same composition; F9 names that as one of its applications; agent guide, checklist and evidence follow. F2: the secret in the fragment added to the rejected options. F3 and F6: the mail vocabulary in "What holds" marked as the example of the pattern. Scope: the `Referer` header named among the places the secret ends up; one sentence on what the kilobyte limit bounds and what a large read is; the switch of the surface left "Not yet settled", since F12 decides it. Agent guide: the duties F11 marks as beyond the reference implementation moved to a SHOULD group with the operator sentence spelled out; the import named where the guide says it is complete. Scope: how long a key is remembered after the sweep is under "Not yet settled". Sources: one sentence per proposal in tension, from this side. Language pass without change of meaning: "Considered and rejected" as the field title, "When this no longer holds" as the section title, and calques replaced. Content of the other rules unchanged.
 * **Update**: Form (agent guide name, README describes the parts, relation vocabulary).
 
 ## 2026-10-13

@@ -1,6 +1,7 @@
 # Update log
 
 ## 2026-11-01
+* **Update**: Version 1.1. The thesis, F1 and the concept no longer say MADR is adopted "unchanged" but "based on MADR 4.0.0"; the concept names the deviations once (the two list fields in the head, the mandatory section "Rejected and why", Consequences as a mandatory section of its own, the status values, the meaning of the date), and F1, F5, the README, the index and the agent guide refer to it; F2 is titled "the only addition to the head". The section names of F5, the agent guide, the terms and the English template follow MADR 4.0.0 (Context and Problem Statement, Considered Options, Decision Outcome, Consequences); "Rejected and why" stays as the added section. The evidence now places the supersession notice below the heading, as F9 says, and names no time span for the example replacement. The agent guide takes the decision date from the template (day of the decision, not of writing). The German template carries the English status values. The templates, the agent guide and the evidence quote the numbers in the relation lists (`["0011"]`), because unquoted YAML loses the leading zeros. Field title "Considered and rejected" in every rule; scope section "When this no longer holds"; wording smoothed. F1 and F5 change as stated, F2 in its title; the content of the other rules is unchanged.
 * **Update**: Form (agent guide name, README describes the parts, relation vocabulary).
 
 ## 2026-10-13

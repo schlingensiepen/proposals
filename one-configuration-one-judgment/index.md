@@ -20,14 +20,14 @@ One answer each; give one up and you are no longer using the concept.
 
 # Choices
 
-More than one legitimate answer; decided per setting by whoever adopts the concept, and recorded.
+More than one legitimate answer; decided per setting by anyone who adopts the concept, and recorded.
 
 * [W1 Precedence: file or value](./choices/W1-precedence-file-or-value.md) - Does precedence pick the file, or does it apply to each value?
 * [W2 The empty value](./choices/W2-the-empty-value.md) - Is a set-but-empty value the default, or an error?
 
 # Scope and evidence
 
-* [Scope](./scope.md) - Security considerations, what it costs, where it applies, where the answer flips, what is not yet proven.
+* [Scope](./scope.md) - Security considerations, what it costs, where it applies, when this no longer holds, what is not yet proven.
 * [Evidence](./evidence.md) - Where it has held: origin in the series, the empty-value incident, the second truth.
 * [Sources](./sources.md) - What this proposal builds on: the concept it imports, related proposals, external sources.
 * [Used by](./used-by.md) - Which proposals import or extend this one. Only needed when changing this concept.

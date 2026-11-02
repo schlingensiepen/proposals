@@ -15,6 +15,6 @@ applies_to: [builder]
 
 **Why.** A fallback to a generated secret would be the most dangerous thing the service could do here: the operator believes his value applies, and the service runs under another. Two truths about the root, and the wrong one with the human. An aborted start costs one round and one message; a silent fallback costs trust in every later statement about this secret.
 
-**Obvious and rejected.** *Accepting a secret that is too short, "the operator will know what he is doing"*: he typed a word. *Generating on an unusable value and logging both*: the exception to the rule against secrets in logs would be triggered for a case the operator did not order. *Running on without administration when the port is taken*: the operator without a shell cannot get in and learns it from an error of the proxy.
+**Considered and rejected.** *Accepting a secret that is too short, "the operator will know what he is doing"*: he typed a word. *Generating on an unusable value and logging both*: the exception to the rule against secrets in logs would be triggered for a case the operator did not order. *Running on without administration when the port is taken*: the operator without a shell cannot get in and learns it from an error of the proxy.
 
 **How you notice it is violated.** An operator sets a secret, and another one applies; or the service runs and the administration port does not answer, without the start having said so.

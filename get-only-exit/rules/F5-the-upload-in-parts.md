@@ -44,8 +44,8 @@ seen an answer must be able to repeat the call; the differing one is
 refused, because one of the two is an error, and guessing would produce
 a file nobody sent.
 
-**Obvious and rejected.** *The whole file in one address*: addresses
-carry a few kilobytes, not megabytes; every station in between has a
+**Considered and rejected.** *The whole file in one address*: addresses
+carry a few kilobytes, not megabytes; every intermediary has a
 limit. *Write parts straight into the store and concatenate at the
 end*: then something incomplete lies there for a while, and the store
 has two kinds of entries. *The order of arrival as the order*: breaks at

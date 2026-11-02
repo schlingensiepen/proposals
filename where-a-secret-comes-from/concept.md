@@ -20,9 +20,9 @@ from four angles: the service that reads; the agent that obtains; the
 usage description that prescribes; the administration surface that
 generates. Each had its part, none the whole, and the gap between them
 was exactly the case that goes wrong most often: how does the **first**
-secret get in when nobody with a shell is standing at the target? And
+secret get in when nobody has a shell on the target? And
 what happens when somebody replaces a secret and the old one is left
-lying?
+in place?
 
 The second case has happened. When an administration secret was
 changed, the environment variable was changed. The secret generated and
@@ -42,7 +42,7 @@ obtain the secret without it ending up in a transcript.
 The usual answer is one per service: a section in the documentation,
 "set `X_TOKEN`". That answers the first question and none of the others.
 The structural answer is a ranking that is the same for every start
-secret and every role, and that comes with its price attached: whoever
+secret and every role, and that comes with its price attached: anyone who
 introduces a ranking owes the report of lower ranks that are also set,
 and the way to clear them.
 

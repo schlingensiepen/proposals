@@ -15,6 +15,6 @@ applies_to: [operator, agent, user]
 
 **Why.** Tokens *have* to be spoken about — granted, revoked, assigned, asked after — and every conversation that needs the secret itself moves the secret. The handle makes speaking safe: dictation-proof on the telephone, readable in the token list, unambiguous in the granting of rights. The short ID from F2 does the technical work (logs); the display string does the human work.
 
-**Obvious and rejected.** *The token itself as the reference in conversation* — then the secret travels through chat and hallway call. *Internal IDs as the handle* — not pronounceable, not dictation-proof; what people cannot use comfortably, they circumvent.
+**Considered and rejected.** *The token itself as the reference in conversation* — then the secret travels through chat and hallway conversation. *Internal IDs as the handle* — not pronounceable, not dictation-proof; what people cannot use comfortably, they circumvent.
 
-**How you notice it is violated.** Token fragments stand in chats or tickets because there was no other name for the thing.
+**How you notice it is violated.** Token fragments turn up in chats or tickets because there was no other name for the thing.

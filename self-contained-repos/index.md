@@ -26,7 +26,7 @@ This version has no choices; every entry is a rule.
 
 # Scope and evidence
 
-* [Scope](./scope.md) - Security considerations, what it costs, where it applies, when the answer flips, what it does not solve, what is not yet settled.
+* [Scope](./scope.md) - Security considerations, what it costs, where it applies, when this no longer holds, what it does not solve, what is not yet settled.
 * [Evidence](./evidence.md) - Where it has held: the proposal series of the author as a running application, an unplanned test by a context-free agent, the origin of the inlining rule and of F4.
 * [Sources](./sources.md) - What this proposal builds on: the imported proposal, related proposals and external sources.
 * [Used by](./used-by.md) - Which proposals import or extend this one. Only needed when changing this concept.

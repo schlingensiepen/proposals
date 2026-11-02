@@ -15,6 +15,6 @@ applies_to: [builder]
 
 **Why.** A management surface on the network is reachable around the clock, whereas a command runs only when someone starts it. It needs a login of its own, a permission check of its own and error handling of its own — three new places where something can be wrong, for a task that presupposes server access anyway. And it is the most convenient path for an attacker who already has the network surface.
 
-**Obvious and rejected.** *A management path behind a simple login* — the weakest login of the system guards its strongest effect. *A debug endpoint "internal only"* — "internal" is a network assumption, not a property. *Runtime switching of behavior over the network surface* — makes the service configurable from outside and the configuration file a fiction (F5).
+**Considered and rejected.** *A management path behind a simple login* — the weakest login of the system guards its strongest effect. *A debug endpoint "internal only"* — "internal" is a network assumption, not a property. *Runtime switching of behavior over the network surface* — makes the service configurable from outside and the configuration file a fiction (F5).
 
 **How you notice it is violated.** In the reverse-proxy configuration a path has to be blocked explicitly — or a block is missing, and nobody notices.

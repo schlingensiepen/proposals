@@ -12,8 +12,11 @@ Apply this guide when a web service must be callable by tools that can only send
 `GET` (no headers of their own, no request body, often no query string) and you
 build or review a second, deliberately restricted surface for them; or when, as an
 agent, your only tool is a URL fetcher and the service you were given offers such
-a surface. This guide is complete on its own. The rule files are the reference
-behind it, named in parentheses; you never need to open them to act correctly.
+a surface. This guide is complete on its own except for the principle that every
+operation of a service exists exactly once and every surface only invokes it, which
+comes from the imported concept `one-operation-many-surfaces`; ask the user for that
+bundle if you do not have it. The rule files are the reference behind this guide,
+named in parentheses; you never need to open them to act correctly.
 
 Two roles use this guide; apply the rule set for yours.
 
@@ -59,9 +62,10 @@ For the builder:
 7. **Build the chunked upload:** open, part by number, finish, then the same upload
    function. (F5)
 8. **Build the composition:** create, one route per field, show, deposit with a key,
-   then the same depositing function; keep the receipt on the composition. Check the
-   vocabulary with a reader without inside knowledge before the names are in the
-   code. (F6, F7, F10)
+   then the same depositing function; keep the receipt on the composition, and
+   remember per key which composition it was used for, so that the same key with a
+   different composition is refused. Check the vocabulary with a reader without
+   inside knowledge before the names are in the code. (F6, F7, F9, F10)
 9. **Write the refusals for this surface**, then the test that scans them for the
    other surface's words and checks their address form. (F8, F9)
 10. **Write the prose description:** price first, then encoding, then the form of
@@ -71,8 +75,10 @@ For the builder:
     so at both switches. (F11, F12)
 11. **Decide the token policy with the operator:** a separate secret per surface if
     possible, shorter life, known at issue. Add `Cache-Control: no-store` to the
-    answers and log shortening for the secret segment. Do not decide this for the
-    operator. (F11)
+    answers and log shortening for the secret segment, and give the operator the
+    sentence for the upstream logs. Do not decide this for the operator; these are
+    the duties the rule marks as beyond the reference implementation (see the
+    evidence), so record what the operator decided. (F11)
 12. **Run the GET-only external check;** treat every finding as a defect; record how
     the run represented the sandboxes that strip the query part; revoke the test
     secret afterwards. Repeat after every change. (F12)
@@ -92,7 +98,7 @@ MUST:
    the main surface uses for the same purpose; it implements nothing itself and offers
    no capability the main surface lacks. The only exception is collecting the parts of
    a chunked upload, and that collecting belongs to the storage layer, not to the
-   surface. Hold this with a structural test in the build that fails when a handler on
+   surface. Enforce this with a structural test in the build that fails when a handler on
    this surface performs an operation instead of calling it, and that requires by name
    that the depositing call goes through the same function as on the main surface. (F1)
 3. Require no query parameter, for anything. The secret is the first path segment after
@@ -101,7 +107,7 @@ MUST:
    refused as unauthorized, and the refusal names the path form, not a header. (F2)
 4. Use two encoding rules and say so in the description: identifiers, e-mail addresses,
    numbers and names travel readable (ordinary percent-encoding, and a name may not
-   contain a slash); free text — anything that may contain a slash: a subject, a body,
+   contain a slash); free text — anything that may contain a slash, for example a subject, a body,
    the content of a file part — travels as base64url (alphabet with `-` and `_`, no
    padding). Route every segment that could contain a slash greedily, so the handler is
    reached and answers with the rule instead of a bare 404. Show the encoding with one
@@ -125,7 +131,7 @@ MUST:
    reachable this way. (F5)
 7. Build every write that needs a structured body as a composition: one call creates
    it and answers its identifier; one route per field sets or adds a value — fields
-   that hold several values (recipients) append one per call, single-valued fields
+   that hold several values (for example recipients) append one per call, single-valued fields
    replace; one call shows the composition as it stands; exactly one call deposits it,
    handing the finished composition to the same function the main surface uses.
    Nothing leaves the server before that call, and that call is where the user's
@@ -139,7 +145,7 @@ MUST:
    the target system. Name the depositing call the way the effecting operation is named
    everywhere else in the service, and never after the call that finishes an upload —
    finishing an upload closes a local collection and has no consequence, depositing
-   acts on a foreign system and cannot be undone. Unequal consequences carry unequal
+   acts on an external system and cannot be undone. Unequal consequences carry unequal
    names. Before publishing the surface, let a reader without inside knowledge read the
    vocabulary for double meanings and treat every question as a finding. (F7)
 9. Word every refusal in terms this surface has. No refusal on this surface may
@@ -149,7 +155,7 @@ MUST:
    hands out the identifier; an unknown action on a composition lists the actions there
    are instead of pointing at a contract document. Where one text must serve both
    surfaces, name the action rather than the path ("the call that deposits a message").
-   Hold this with a test that checks the refusals of this surface for the other
+   Enforce this with a test that checks the refusals of this surface for the other
    surface's words. (F8)
 10. Never resolve contradictory or repeated input silently. Where two inputs for one
     field are conceivable (a text as a value or as a file), make them two routes so the
@@ -157,15 +163,19 @@ MUST:
     append; refuse a repeated upload part with different content; refuse anything whose
     meaning the service would have to guess, and say what was ambiguous. (F9)
 11. Carry the idempotency key as the last path segment of the depositing call and pass
-    it to the same function that takes it from a header on the main surface: the same
-    key with the same secret produces the same identifier and no second effect. Require
+    it to the same function that takes it from a header on the main surface: for the
+    same composition, the same key with the same secret produces the same identifier and
+    no second effect. Require
     the key to be path-safe (letters, digits, `-`, `_`, `.`) and tell callers to choose a
     fresh one per intended effect, not per attempt. Keep the receipt of the depositing
     call on the composition so that any further depositing call on it answers the same
-    receipt — whatever key that call names, because the receipt sits on the object and
-    not on the key — until staging sweeps the composition. Say both halves in the
-    description: the receipt guards one composition against a second deposit, the key
-    guards against depositing two different compositions twice. (F10)
+    receipt — whatever key that call names, because the receipt is on the object and
+    not on the key — until staging sweeps the composition. Remember per key which
+    composition it was used for, and refuse a key that was already used for a
+    different composition; the refusal names the key and the composition it belongs
+    to, in this surface's terms. Say all of it in the description: the receipt guards
+    one composition against a second deposit, the key guards against depositing two
+    different compositions twice, and a used key is never resolved silently. (F9, F10)
 12. Name the price at the door, before the first call, in full sentences: the token is
     the first part of every address and therefore ends up in access logs, in histories
     and in the transcript of whatever is calling; the main surface takes it in a header
@@ -173,17 +183,10 @@ MUST:
     choice, not because it is easier. (F11)
 13. Never let the main surface accept a secret from an address — not in the path, not
     in the query string, under no name. (F11)
-14. Accept on this surface only narrowly cut secrets: one capability at one place, with
+14. Accept on this surface only narrowly scoped secrets: one capability at one place, with
     a target where a leak does bounded harm. A secret with broad rights or
     administrative power never belongs in an address. (F11)
-15. Know, as the operator, that a secret will be used on this surface when you issue it,
-    and treat it accordingly: shorter-lived, rotated more readily, revoked without
-    hesitation. Where you can, issue a separate secret for the second surface rather
-    than the one that travels in a header on the main surface. (F11)
-16. Keep addresses out of every store this surface controls: mark its answers as not to
-    be cached, shorten the secret segment in the service's own logs, and give the
-    operator the sentence that the logs of stations in front should do the same. (F11)
-17. Serve the surface's own description under its prefix as prose, without a secret,
+15. Serve the surface's own description under its prefix as prose, without a secret,
     rendered with the base URL of the request, as `text/plain` unless a more specific
     type is explicitly asked for, with `Vary: Accept`. Do not rely on a machine-readable
     contract instead: a caller who cannot send `POST` usually cannot work one. In that
@@ -195,14 +198,27 @@ MUST:
     self-description: where discovery is off, this surface answers not-found. Say
     so at both switches: the one for the self-description and the description of
     this surface. (F12)
-18. Treat the surface as accepted only after an agent that has nothing but its
+16. Treat the surface as accepted only after an agent that has nothing but its
     address, a secret and a task in the user's language — and that is expressly
     forbidden to send anything but `GET` — has completed the task through it and
     reported its way. Repeat that run whenever the surface or its description changes.
-    Use a narrowly cut secret on a target where a slip costs nothing, and revoke it
-    afterwards, because it now stands in the logs of the test environment. Record
+    Use a narrowly scoped secret on a target where a slip costs nothing, and revoke it
+    afterwards, because it is now in the logs of the test environment. Record
     how the reviewer represented the sandboxes that strip the query part: whether it
     ran from inside one or whether that was simulated. (F12)
+
+SHOULD (the rule names these duties and marks them as beyond the reference
+implementation; decide them with the operator and record the decision):
+
+1. Know, as the operator, that a secret will be used on this surface when you issue it,
+   and treat it accordingly: shorter-lived, rotated more readily, revoked without
+   hesitation. Where you can, issue a separate secret for the second surface rather
+   than the one that travels in a header on the main surface. (F11)
+2. Keep addresses out of every store this surface controls: mark its answers as not to
+   be cached (`Cache-Control: no-store`), shorten the secret segment in the service's
+   own logs, and give the operator this sentence for the upstream logs: *The logs of
+   every upstream station of this service should shorten the secret segment, as the
+   service's own logs do.* (F11)
 
 NEVER:
 
@@ -222,6 +238,8 @@ NEVER:
   or make the ambiguity inexpressible. (F9)
 - Never delete a composition on deposit so that a repeated call answers "not found".
   (F10)
+- Never let a key that was used for one composition deposit another, and never answer
+  such a call with the old identifier; refuse it. (F9, F10)
 - Never accept a secret with administrative power or broad rights on this surface.
   (F11)
 - Never publish the surface without its price in the first paragraphs of its
@@ -234,7 +252,7 @@ NEVER:
 MUST:
 
 1. Read the surface's description first and pass its price on to your user in one
-   sentence before the first call: the token will stand in every address you fetch,
+   sentence before the first call: the token will be in every address you fetch,
    therefore in logs, histories and this transcript. (F11)
 2. Use this surface only because your tooling leaves you no choice. If you can set an
    `Authorization` header, use the main surface instead. (F1, F11)
@@ -250,8 +268,8 @@ MUST:
    that cannot be undone. (F6)
 7. Choose a fresh idempotency key per message you intend to send, not per attempt; if a
    call's answer was lost, repeat the same address and expect the same receipt. Never
-   reuse a key you have used before: a new composition deposited under an old key
-   answers the old identifier and quietly sends nothing. (F10)
+   reuse a key you have used before: a new composition deposited under an old key is
+   refused, and the refusal names the key and the composition it belongs to. (F10)
 8. If you set a wrong field, start a new composition; nothing you abandon is sent.
    (F6)
 
@@ -274,7 +292,7 @@ NEVER:
       instead of calling it, and does it require by name that deposit goes through the
       one depositing function? (F1)
 - [ ] Is there no query parameter anywhere, is the secret the first path segment on
-      every call, and does a foreign identifier with a valid secret answer like a
+      every call, and does someone else's identifier with a valid secret answer like a
       non-existent one? (F2)
 - [ ] Do a subject with a slash, a file name with a slash and a key with a slash each
       answer with the rule rather than a bare 404? (F3)
@@ -292,11 +310,15 @@ NEVER:
 - [ ] Can two values for one field not be expressed, and does one recipient per call
       accumulate? (F9)
 - [ ] Does repeating the depositing address answer the same receipt and leave one
-      message at the target? (F10)
+      message at the target, and does a second composition deposited under a key
+      already used get a refusal that names the key and its composition, not the old
+      identifier? (F9, F10)
 - [ ] Do the first paragraphs of the description name the price, and does the main
       surface refuse a secret from an address? (F11)
-- [ ] Are only narrowly cut secrets accepted, is a separate secret per surface issued
-      where possible, and do answers carry `Cache-Control: no-store`? (F11)
+- [ ] Are only narrowly scoped secrets accepted? And, as decided with the operator: is
+      a separate secret per surface issued where possible, do answers carry
+      `Cache-Control: no-store`, and does the operator have the sentence for the
+      upstream logs? (F11)
 - [ ] Does the description hand out every identifier it asks the caller to substitute,
       state scale, expiry, irreversibility, no-removal and both encodings — and does it
       disappear together with discovery, and is that coupling stated at both switches? (F12)
@@ -331,6 +353,7 @@ NEVER:
 | Reusing the main surface's problem texts | Refusals in this surface's terms; a test scans them for `POST`, `Authorization`, header names (F8) |
 | Refusal texts left over from an earlier shape of the surface (address without the secret segment) | Test the address form in refusals, not only the call name (F8) |
 | Deleting the composition on deposit | Keep it with its receipt; a repeat must answer the same receipt (F10) |
+| A used key with a new composition answers the old identifier | Refuse it, naming the key and the composition it belongs to (F9, F10) |
 | Same secret on both surfaces, no mark on issue | Separate, short-lived secret for the exit; operator knows at issue (F11) |
 | No `Cache-Control` on answers whose address holds the secret | `no-store` on every answer of this surface (F11) |
 | Description in the OpenAPI document only | Prose under the prefix; the caller cannot work a contract document (F12) |
@@ -340,7 +363,7 @@ NEVER:
 ## Self-check
 
 Before you report completion as a builder: could an agent that has nothing but the
-surface's address, a narrowly cut secret and a task, and that may send nothing but
+surface's address, a narrowly scoped secret and a task, and that may send nothing but
 `GET`, finish the task without guessing anything, and did one actually do so on the
 current shape of the surface? Does the description name the price before the first
 call? Does the main surface refuse every secret that comes in an address? If any of

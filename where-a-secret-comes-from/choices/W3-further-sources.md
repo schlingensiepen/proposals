@@ -18,7 +18,7 @@ and knows it as a source;
 [F4](../rules/F4-the-higher-rank-wins-and-never-hides.md) and
 [F5](../rules/F5-replacing-is-two-moves.md) apply to it too (report on
 duplicate setting, way to clear). Fits where the service already
-links a library of the manager and where the manager cannot write into
+links against the manager's library and where the manager cannot write into
 the environment or a file.
 
 **(b) A clause.** Permitted as long as it is at least as safe as the

@@ -15,9 +15,11 @@ conceivable (a text as a value or as a file), they are **two routes**,
 so that the question cannot be asked. Where a field holds several
 values, **one value per call** arrives, and the call appends instead of
 replacing. A part of an upload that arrives a second time with
-different content is refused ([F5](./F5-the-upload-in-parts.md)). A
-repeated value may not swallow another, and a call whose meaning the
-service would have to guess gets a refusal that says what was ambiguous.
+different content is refused ([F5](./F5-the-upload-in-parts.md)); so is
+an idempotency key that was already used for a different composition
+([F10](./F10-repeatability-without-headers.md)). A repeated value may not
+swallow another, and a call whose meaning the service would have to
+guess gets a refusal that says what was ambiguous.
 
 **Why.** The description of this surface expressly forswears guessing,
 and the first version guessed in two places: with a value and a file for
@@ -29,7 +31,7 @@ thing: it got an answer that says "accepted". The forms in which
 ambiguity cannot be expressed at all are superior to the forms in which
 it is checked, because they need no check that can be forgotten.
 
-**Obvious and rejected.** *A precedence rule ("file beats text")*: is
+**Considered and rejected.** *A precedence rule ("file beats text")*: is
 exactly the guessing, only written down; the caller that sent both
 meant something, and the service does not know what. *The last value
 wins*: loses recipients silently. *Forbid contradictions only in the

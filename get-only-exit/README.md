@@ -1,8 +1,8 @@
 ---
 type: Proposal
 description: A named emergency exit for callers that can only send GET without headers of their own; the same operations under their own prefix, everything in the path with the secret first, writing as small fetches of which exactly one takes effect, and the price, the secret in the address, named at the door.
-version: "1.0"
-date: 2026-10-13
+version: "1.1"
+date: 2026-11-01
 status: draft
 author: Jörn Schlingensiepen
 extends: []
@@ -22,11 +22,11 @@ ultimate hack" and "an anti-API".
 GET: no header of their own, no request body. How do I make the service
 callable for them without spoiling the real interface?
 
-**Thesis.** Whoever wants to reach callers that can only send GET
-without headers of their own builds a named emergency exit beside the
+**Thesis.** If you want to reach callers that can only send GET
+without headers of their own, you build a named emergency exit beside the
 main surface: the same operations under their own prefix, everything in
 the path with the secret as the first segment, writing as a sequence of
-small fetches of which exactly one takes effect. And they name its price,
+small fetches of which exactly one takes effect. And you name its price,
 the secret in the address, at the door; the main surface never offers
 this way.
 
@@ -36,7 +36,7 @@ The [concept](./concept.md) describes the problem, how the exit relates to the r
 
 ## Rules
 
-Twelve rules in four blocks: the cut F1 to F3, the operations F4 to F7, behavior on error and repetition F8 to F10, price and description F11 and F12.
+Twelve rules in four blocks: the design F1 to F3, the operations F4 to F7, behavior on error and repetition F8 to F10, price and description F11 and F12.
 
 * [F1 An emergency exit, not a second API](./rules/F1-an-emergency-exit-not-a-second-api.md)
 * [F2 Everything in the path, nothing in the query; the secret first](./rules/F2-everything-in-the-path-the-secret-first.md)
@@ -53,7 +53,7 @@ Twelve rules in four blocks: the cut F1 to F3, the operations F4 to F7, behavior
 
 ## Scope and evidence
 
-The [scope](./scope.md) names security considerations, costs, where it applies, when the answer flips, what it does not solve and what is not yet settled; the [evidence](./evidence.md) shows the reference implementation, what it proves and what not, and the honest state. The [sources](./sources.md) name one import, four tensions and related proposals; [used by](./used-by.md) lists which proposals import or extend this one.
+The [scope](./scope.md) names security considerations, costs, where it applies, when this no longer holds, what it does not solve and what is not yet settled; the [evidence](./evidence.md) shows the reference implementation, what it proves and what not, and the honest state. The [sources](./sources.md) name one import, four tensions and related proposals; [used by](./used-by.md) lists which proposals import or extend this one.
 
 ## Adopting
 

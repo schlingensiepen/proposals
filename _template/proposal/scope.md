@@ -1,6 +1,6 @@
 ---
 type: Proposal Scope
-description: Security considerations, what the concept costs each role, where it applies, when the answer flips, what it does not solve and what is not yet settled.
+description: Security considerations, what the concept costs each role, where it applies, when this no longer holds, what it does not solve and what is not yet settled.
 ---
 
 # Scope
@@ -17,7 +17,7 @@ description: Security considerations, what the concept costs each role, where it
 
 **Conditions.** <…>
 
-**When the answer flips.** <…>
+**When this no longer holds.** <…>
 
 **What it does not solve.** <…>
 

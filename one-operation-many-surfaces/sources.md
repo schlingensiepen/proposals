@@ -15,7 +15,7 @@ This concept imports no other proposal.
 
 ## Related
 
-* `service-as-single-artifact` (recommended-with): a service built that way has its commands as one surface and its operations as callable functions; whoever places a second surface beside the commands applies this concept so that the second surface does not become a second implementation.
+* `service-as-single-artifact` (recommended-with): a service built that way has its commands as one surface and its operations as callable functions; anyone who places a second surface beside the commands applies this concept so that the second surface does not become a second implementation.
 
 All proposals live in the same repository; see its root README for the register and the links. Which proposals build on this one is listed in [`used-by.md`](./used-by.md).
 

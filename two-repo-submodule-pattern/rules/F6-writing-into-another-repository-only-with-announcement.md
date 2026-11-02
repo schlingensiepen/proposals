@@ -7,7 +7,7 @@ role: independent
 applies_to: [all contributors, agents]
 ---
 
-# F6 · Writing into another's repository only with announcement
+# F6 · Writing into someone else's repository only with announcement
 
 **Applies to:** all contributors, especially agents.
 
@@ -15,6 +15,6 @@ applies_to: [all contributors, agents]
 
 **Why.** Two repositories means two zones of trust, and the difference is precisely the point: in the workshop a slip is a line of history, in the product it is published. The rule costs nothing if it holds from the start, and it spares everybody the awkward question "what exactly did you change there?".
 
-**Obvious and rejected.** *Full freedom everywhere*: convenient until the first time something unfinished stands in the product. *Everything only after approval*: makes the collaboration sluggish and prevents exactly the independence one has an agent for. *Separating technically instead of agreeing*: sensible where possible; where the same access reaches both repositories, only the agreement remains.
+**Considered and rejected.** *Full freedom everywhere*: convenient until the first time something unfinished is in the product. *Everything only after approval*: makes the collaboration sluggish and prevents exactly the independence one has an agent for. *Separating technically instead of agreeing*: sensible where possible; where the same access reaches both repositories, only the agreement remains.
 
 **How you notice it is violated.** Somebody discovers a change in the product they knew nothing about.

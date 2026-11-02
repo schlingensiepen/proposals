@@ -26,7 +26,7 @@ concept that explicitly hangs its rules on checks, this counts double: a
 gate that cannot fail is a rule that has in effect been given up without
 anyone having decided so.
 
-**Obvious and rejected.** *Believing the check because it is green*: green
+**Considered and rejected.** *Believing the check because it is green*: green
 is the state an empty check has too. *Test coverage as the measure*: it
 measures which lines ran, not whether a statement was tested. *The
 counter-test only for "critical" checks*: the three observed cases were all
